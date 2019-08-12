@@ -28,6 +28,12 @@ likes
 -created_at
 -updated_at
 
+follows
+-follower_id -- user
+-followee_id -- author
+-created_at
+-updated_at
+
 
 
 
@@ -57,6 +63,7 @@ likes
                 email: "jimbo@jim.com"
                 username: "jimmybob"
                 stories: [1, 2]
+                follower_ids: [1, 2]
             }
         },
     

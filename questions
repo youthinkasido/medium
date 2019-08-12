@@ -5,5 +5,6 @@ Do we need seperate tables for users and authors
 Should everyone have there own branch?
 2 people per MVP?
 
+How do add collaborators to mongo db?
 
-
+body parser? does what to json?
