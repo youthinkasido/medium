@@ -17,8 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false })); //?
 app.use(bodyParser.json()); // formats the json response into something
 
 
-
-
 //////////// routes /////////
 app.get("/", (req, res) => res.send("Hello World "));
 app.use("/api/users", users);
