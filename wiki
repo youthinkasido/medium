@@ -1,0 +1,76 @@
+--schema
+
+stories:
+-author_id
+-body
+-title
+-created_at
+-updated_at
+
+comments:
+-commenter_id
+-story_id
+-body
+-created_at
+-updated_at
+
+users:
+-email
+-username
+-password_digest
+-session_token
+-created_at
+-updated_at
+
+likes
+-liker_id
+-story_id
+-created_at
+-updated_at
+
+
+
+
+{
+    entities: {
+        stories: {
+            1 : {
+                id: 1
+                author_id: 2
+                body: "some really long body"
+                title: "first story"
+                comments: [1,2,3]
+                likes: [1,2,3]
+            }
+        },
+        comments: {
+            1 : {
+                id: 1
+                commenter_id: 1
+                story_id: 1
+                body: "sweet story"
+            }
+        },
+        users: {
+            1 : {
+                id: 1,
+                email: "jimbo@jim.com"
+                username: "jimmybob"
+                stories: [1, 2]
+            }
+        },
+    
+
+    session: {
+        currentUserId: 1
+    },
+
+    errors: {
+        session: ["Username can't be blank", "Incorrect password / email combination"],
+        stories: ["Body can't be blank", "Title can't be blank"]
+    },
+
+    ui: {
+        
+    }
+}
