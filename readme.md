@@ -2,7 +2,7 @@
     An online publishing platform where authors create stories to interact with their readers.
 
 <h2>Functionality and MVP:</h2>
-- /[] Stories
+/[] Stories
 - [] Commenting on stories
 - [] Follows and feed
 - [] Likes - readers can like stories
