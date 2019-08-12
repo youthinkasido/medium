@@ -12,13 +12,14 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
+app.get("/", (req, res) => res.send("Hi "));
   
 app.use(bodyParser.urlencoded({ extended: false })); //?
 app.use(bodyParser.json()); // formats the json response into something
 
 
 //////////// routes /////////
-app.get("/", (req, res) => res.send("Hello World "));
+
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
