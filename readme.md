@@ -4,8 +4,8 @@
 <h2>Functionality and MVP:</h2>
 /[ ] Stories
 - [ ] Commenting on stories
-- [] Follows and feed
-- [] Likes - readers can like stories
+- [ ] Follows and feed
+- [ ] Likes - readers can like stories
 <h3>Bonus Features</h3>
 (bonus) Topics/categories
 (bonus) Bookmarks
