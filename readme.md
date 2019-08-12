@@ -16,6 +16,7 @@
  Frontend: React with Redux
 
 <h2>Group Members and Work Breakdown</h2>
+
 Cameron:
 * user auth: 1 day
 * stories: 2 days
