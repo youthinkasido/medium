@@ -19,7 +19,6 @@ app.use(bodyParser.json()); // formats the json response into something
 
 
 //////////// routes /////////
-
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
