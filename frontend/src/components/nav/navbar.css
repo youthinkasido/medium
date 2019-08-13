@@ -1,17 +1,98 @@
-.navbar {
+
+
+.navbar{
+  padding: 20px;
 }
 
 .navbar-container {
   max-width: 1032px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0 20px;
-  height: 65px;
+  margin: auto;
+}
+
+.navbar-auth-container {
+  display: flex;
+}
+
+.navbar-auth-container a {
+  text-decoration: none;
+  color: #018f69;
+  font-family: sans-serif;
 }
 
 .navbar-logo {
+  font-weight: 800;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
 }
 
 .navbar-profile {
 }
+
+.reveal {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.dropdown {
+  text-align: right;
+  margin-top: -2px;
+ }
+
+ .dropdown-content {
+   border: 1px solid lightgray;
+   border-radius: 3px;
+   background: white;
+ }
+
+ .dropdown-content button {
+   display: block;
+   outline: none;
+ }
+
+ .dropdown-logout button {
+   border: none;
+   background: white;
+   color: gray;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   padding: 10px;
+ }
+
+ .dropbtn {
+   border: none;
+   outline: none;
+   background: none;
+   font-size: 36px;
+   padding: 0px;
+   color: rgb(40, 121, 182);
+ }
+
+.navbar-signin {
+  font-size: 18px;
+  margin-right: 10px;
+  position: relative;
+  top: 9px;
+}
+
+.navbar-signup{
+  font-size: 18px;
+  border: 1px solid #018f69;
+  border-radius: 3px;
+  padding: 8px 10px 8px 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
