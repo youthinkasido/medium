@@ -1,0 +1,83 @@
+.login-form-container {
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 20px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 340px;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 340px;
+}
+
+.signup-form-container {
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 20px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  width: 340px;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 400px;
+}
+
+.session-form-input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.session-form-input:focus {
+  outline: none;
+}
+
+.session-form-button {
+  cursor: pointer;
+  background-color: rgb(10, 25, 47);
+  border: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  margin-top: 20px;
+  transition: all 0.3s ease 0s;
+  opacity: 1;
+}
+
+.session-form-button:hover {
+  opacity: 0.92;
+  cursor: pointer;
+}
+
+.session-form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.login-header {
+  padding-bottom: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
+
+.signup-header {
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+}
