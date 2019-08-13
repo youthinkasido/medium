@@ -5,10 +5,6 @@ const Schema = mongoose.Schema;
 
 // says that each user should have a handle, email, password
 const UserSchema = new Schema({
-  handle: {
-    type: String,
-    required: true
-  },
   email: {
     type: String,
     required: true

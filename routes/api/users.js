@@ -9,12 +9,12 @@ const validateLoginInput = require("../../validation/login");
 
 const router = express.Router();
 
-
 // test routes
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
 // sign up route
 router.post("/register", (req, res) => {
+  console.log("test");
   debugger;
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -31,7 +31,6 @@ router.post("/register", (req, res) => {
     } else {
       // Otherwise create a new user
       const newUser = new User({
-        handle: req.body.handle,
         email: req.body.email,
         password: req.body.password
       });
@@ -70,9 +69,9 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name };
+        const payload = { id: user.id, name: user.name }; // set id and name equal to the user that was found by email
 
-        jwt.sign(
+        jwt.sign( // 
           payload,
           keys.secretOrKey,
           // Tell the key to expire in one hour
@@ -81,7 +80,8 @@ router.post("/login", (req, res) => {
             res.json({
               success: true,
               token: "Bearer " + token
-            });
+            })
+            ;
           }
         );
       } else {
@@ -98,10 +98,18 @@ router.get(
   (req, res) => {
     res.json({
       id: req.user.id,
-      handle: req.user.handle,
       email: req.user.email
     });
   }
 );
 
-module.exports = router;
+router.get('/users', (req, res) => {
+  User.find() 
+    .then(users => res.json(users))
+    .catch(err =>
+      res.status(404).json({ nousersfound: 'No users :(' }
+      )
+    );
+});
+
+module.exports = router; 
