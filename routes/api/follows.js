@@ -6,8 +6,6 @@ const User = require("../../models/User");
 const router = express.Router();
 
 
-
-
 router.post("/",
   (req, res) => {
     const newFollow = new Follow({

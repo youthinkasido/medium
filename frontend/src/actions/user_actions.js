@@ -5,7 +5,7 @@ export const RECEIVE_USER = "RECEIVE_USER"
 
 
 const receiveUsers = (users) =>{
-    debugger
+
     return{
         type: RECEIVE_USERS,
         users

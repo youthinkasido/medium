@@ -10,7 +10,6 @@ const receiveFollow = follow => {
   }
 }
 
-
 const removeFollow = follow => ({
   type: REMOVE_FOLLOW,
   followId: follow.id

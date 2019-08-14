@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
   User.find()
   .then(users =>{ 
     res.json(users)
-    debugger
+
   })
 })
 // sign up route
