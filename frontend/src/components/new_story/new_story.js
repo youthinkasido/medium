@@ -22,7 +22,6 @@ export default class new_story extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     let story = {
       title: this.state.title,
       body: this.state.body,

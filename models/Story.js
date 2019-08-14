@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const StorySchema = new Schema({
-  author_id: {
-    type: Number,
-    ref: "users"
+  authorId: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
+    required: true
   },
   body: {
     type: String,
@@ -16,7 +17,8 @@ const StorySchema = new Schema({
   },
   created_at: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: true
   }
 });
 

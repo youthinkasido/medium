@@ -18,7 +18,12 @@ export default class StoriesIndexItem extends React.Component {
           </Link>
 
           <Link to={`stories/${_id}`}>
-            <p className="story-body">{body}</p>
+            <p className="story-body">
+              {body
+                .split(" ")
+                .slice(0, 25)
+                .join(" ")}
+            </p>
           </Link>
           <p className="story-body">{new Date(created_at).toString()}</p>
         </div>

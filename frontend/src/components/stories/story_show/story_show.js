@@ -1,36 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./stories.css";
+import { withRouter } from "react-router-dom";
 
-export default class StoriesIndexItem extends React.Component {
+class StoryShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    // this.handleFollow = this.handleFollow.bind(this);
+  }
+  componentDidMount() {
+    this.props.fetchStory(this.props.match.params.storyId).then(() => {
+      this.props.fetchUser(this.props.story.authorId);
+    });
   }
 
   render() {
-    const { _id, title, body, created_at } = this.props.story;
+    const { story, author } = this.props;
     return (
-      <li className="story-list-item">
-        <div>
-          <Link to={`stories/${_id}`}>
-            <h1 className="story-title">{title}</h1>
-          </Link>
-
-          <Link to={`stories/${_id}`}>
-            <p className="story-body">{body}</p>
-          </Link>
-          <p className="story-body">{new Date(created_at).toString()}</p>
+      <div className="story-container">
+        <div className="story-header">
+          <h1>{story.title}</h1>
+          <p>{author.email}</p>
+          <p>{story.created_at}</p>
+          {/* <button onClick={this.handleFollow}>Follow</button> */}
         </div>
-
-        <Link to={`stories/${_id}`}>
-          <img
-            src="https://images.pexels.com/photos/2332257/pexels-photo-2332257.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            alt="city image"
-            className="story-img"
-          />
-        </Link>
-      </li>
+        <div className="story-content">{story.body}</div>
+      </div>
     );
   }
 }
+
+export default withRouter(StoryShow);

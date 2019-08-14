@@ -9,10 +9,12 @@ export const receiveStories = stories => ({
   type: RECEIVE_STORIES,
   stories
 });
-export const receiveStory = story => ({
-  type: RECEIVE_STORY,
-  story
-});
+export const receiveStory = story => {
+  return {
+    type: RECEIVE_STORY,
+    story
+  };
+};
 
 export const receiveUserStories = stories => ({
   type: RECEIVE_USER_STORIES,
@@ -33,7 +35,7 @@ export const fetchStories = () => dispatch =>
     })
     .catch(err => console.log(err));
 
-export const fetchStory = (id) => dispatch =>
+export const fetchStory = id => dispatch =>
   APIUtil.getStory(id)
     .then(story => {
       dispatch(receiveStory(story));

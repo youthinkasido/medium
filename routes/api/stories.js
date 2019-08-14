@@ -15,6 +15,14 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nostoriesfound: "No stories found" }));
 });
 
+router.get("/:storyId", (req, res) => {
+  Story.findById(req.params.storyId)
+    .then(story => {
+      res.json(story);
+    })
+    .catch(err => res.status(404).json({ nostoryfound: "No Story found" }));
+});
+
 // router.get("/user/:user_id", (req, res) => {
 //   Story.find({ user: req.params.user_id })
 //     .sort({ date: -1 })
@@ -35,7 +43,7 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateStoryInput(req.body);
 
     if (!isValid) {
@@ -44,11 +52,18 @@ router.post(
 
     const newStory = new Story({
       body: req.body.body,
-      user: req.body.authorId,
+      authorId: req.body.authorId,
       title: req.body.title
     });
 
-    newStory.save().then(story => res.json(story));
+    // newStory.save().then(story => {
+    //   res.json(story);
+    // });
+
+    try {
+      let createdStory = await newStory.save();
+    } catch (error) {
+    }
   }
 );
 

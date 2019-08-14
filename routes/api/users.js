@@ -15,6 +15,14 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nousersfound: "No users :(" }));
 });
 
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => res.status(404).json({ nouserfound: "No user found" }));
+});
+
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 

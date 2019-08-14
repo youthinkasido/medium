@@ -8,12 +8,12 @@
   text-decoration: none;
 }
 
-
+*:link,
 *:active,
 *:visited,
 *:focus {
   text-decoration: none;
-  color: inherit;
+  color: black;
 }
 
 html,
@@ -458,4 +458,3 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
-

@@ -5,7 +5,7 @@ export const getStories = () => {
 };
 
 export const getStory = id => {
-  return axios.get(`/api/stories/${id}`);
+  return axios.get(`/api/stories/${id}`, id);
 };
 
 export const getUserStories = id => {
