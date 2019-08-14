@@ -13,10 +13,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  followerIds: [
+    {
+      type: Schema.ObjectId,
+      ref: "users"
+    }
+  ],
+
   date: {
     type: Date,
     default: Date.now
   }
 });
+//statics called on classes, methods called on instances.
 
 module.exports = User = mongoose.model("users", UserSchema);
