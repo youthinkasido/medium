@@ -9,13 +9,20 @@ const validateLoginInput = require("../../validation/login");
 
 const router = express.Router();
 
-// test routes
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+
+// test routes
+router.get("/", (req, res) => { 
+  User.find()
+  .then(users =>{ 
+    res.json(users)
+    debugger
+  })
+})
 // sign up route
 router.post("/register", (req, res) => {
-  console.log("test");
-  debugger;
+  // console.log("test");
+
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -102,6 +109,8 @@ router.get(
     });
   }
 );
+
+
 
 router.get('/users', (req, res) => {
   User.find() 
