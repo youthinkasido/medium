@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const follow = follow => {
-    return axios.post('/api/follows/', follow);
+export const follow = data => {
+    return axios.post('/api/follows/', data);
 }
 
-export const unfollow = id => {
-    return axios.delete(`/api/follows/${id}`, id);
+export const unfollow = data => {
+    return axios.delete('/api/follows/', data);
 }

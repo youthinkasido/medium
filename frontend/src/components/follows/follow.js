@@ -24,14 +24,21 @@ class Follow extends React.Component {
         // if author is followed by current user
         if (this.state.followed) {
             // this.props.refetch(); // helper method for fetching data
-            this.props.unfollow(this.props.author.id).then(() => {
+            this.props.unfollow({ // unfollow passed in from storyindexcontainer, passed inline through story index.
+                follower: this.props.currentUser.id, // gets currentUser from props passed in from StoryIndex / container
+                followee: this.props.author.id // gets currentUser from props passed in from StoryIndex / container
+              })
+              .then(() => {
                 this.setState({
-                    followed: false
+                  followed: false
                 });
-            });
+              });
         } else {
             // this.props.refetch();
-            this.props.follow(this.props.author.id).then(() => {
+            this.props.follow({
+                follower: this.props.currentUser.id, 
+                followee: this.props.author.id
+            }).then(() => {
                 this.setState({
                     followed: true
                 });

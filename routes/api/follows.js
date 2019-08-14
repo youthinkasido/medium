@@ -9,30 +9,16 @@ const router = express.Router();
 
 
 router.post("/",
-  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    debugger
     const newFollow = new Follow({
       follower: req.body.follower,
       followee: req.body.followee
     });
-    debugger
 
     newFollow.save().then(follow => res.json(follow)
     .catch(err => console.log(err)));
-debugger
-    //  newFollow.save().then(follow => res.json(follow));
 
     User.findById(req.body.followee).then(user => {
-      debugger
-        // user.followerIds = user.followerIds.push(req.body.follower); 
-
-       
-// db.students.update(
-//   { _id: 1 },
-//   { $push: { scores: 89 } }
-// )
-       
         user
           .update({ $push: { followerIds: req.body.follower }})
           .then(user => {
@@ -45,14 +31,24 @@ debugger
   }
 );
 
-router.delete("/:followId",
-  passport.authenticate("jwt", { session: false }),
+router.delete("/",
   (req, res) => {
 
-    const followId = req.body.id;
+    ////delete controller
 
-    Follow.find({ id: followId }).then(follow => {
-      follow.remove();
+    Follow.findOne({ follower: req.body.follower, followee: req.body.followee }).then(follow => {
+      follow.remove(); // finds follow object based on axios req body and deletes the follow from the db
+    });
+
+    User.findById(req.body.followee).then(user => { // find the followee, and update their followerIds based on the axios req
+      user
+        .update({ $pull: { followerIds: req.body.follower } }) // remove the follower id from the celebrity
+        .then(user => {
+          res.json("User updated!"); // give back json response to the user
+        })
+        .catch(err => {
+          res.status(400).send("Update not possible");
+        });
     });
   }
 );
