@@ -4,7 +4,6 @@ import { fetchStory } from "../../../actions/story_actions";
 import { fetchUser } from "../../../actions/user_actions";
 
 const mapStateToProps = state => {
-  debugger;
   return {
     sessionId: state.session.user.id,
     story: state.entities.stories.all,
