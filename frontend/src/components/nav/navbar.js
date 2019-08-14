@@ -41,7 +41,7 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="navbar-logo">Well Done</div>
+          <Link to='/' className="navbar-logo">Well Done</Link>
           {this.props.loggedIn ? (
             <div>
               <div className="search">
