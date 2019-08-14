@@ -1,27 +1,35 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const db = require("./config/keys").mongoURI;
-const passport = require('passport');
+const passport = require("passport");
+const app = express();
 const users = require("./routes/api/users");
+<<<<<<< HEAD
 const likes = require("./routes/api/likes")
 const follows = require('./routes/api/follows')
+=======
+const stories = require("./routes/api/stories");
+const follows = require("./routes/api/follows");
+>>>>>>> 55630047bcb51d5d3e85764a4237890b83deebed
 const bodyParser = require("body-parser");
 require("./config/passport")(passport);
-const app = express();
 
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
+app.use(passport.initialize());
+require("./config/passport")(passport);
+
 app.get("/", (req, res) => res.send("Hi "));
 
-app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false })); //?
 app.use(bodyParser.json()); // formats the json response into something
 
 //////////// routes /////////
 app.use("/api/users", users);
+app.use("/api/stories", stories);
 app.use("/api/follows", follows);
 app.use("/api/likes", likes);
 const port = process.env.PORT || 5000;

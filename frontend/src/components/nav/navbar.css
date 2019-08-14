@@ -1,15 +1,14 @@
 
 
 .navbar{
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .navbar-container {
   max-width: 1032px;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
-  margin: auto;
+  margin: 20px auto 50px auto;
 }
 
 .navbar-auth-container {

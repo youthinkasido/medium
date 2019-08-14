@@ -9,8 +9,21 @@ const validateLoginInput = require("../../validation/login");
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  User.find()
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({ nousersfound: "No users :(" }));
+});
 
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => res.status(404).json({ nouserfound: "No user found" }));
+});
 
+<<<<<<< HEAD
 // test routes
 router.get("/", (req, res) => { 
   User.find()
@@ -20,29 +33,25 @@ router.get("/", (req, res) => {
   })
 })
 // sign up route
+=======
+>>>>>>> 55630047bcb51d5d3e85764a4237890b83deebed
 router.post("/register", (req, res) => {
-  // console.log("test");
-
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  // Check to make sure nobody has already registered with a duplicate email
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      // Throw a 400 error if the email address already exists
       errors.email = "Email already exists";
       return res.status(400).json(errors);
     } else {
-      // Otherwise create a new user
       const newUser = new User({
         email: req.body.email,
         password: req.body.password
       });
 
-      // generates a salted password to be stored in the db
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
@@ -57,7 +66,6 @@ router.post("/register", (req, res) => {
   });
 });
 
-// login route
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -76,19 +84,17 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name }; // set id and name equal to the user that was found by email
+        const payload = { id: user.id, name: user.name };
 
-        jwt.sign( // 
+        jwt.sign(
           payload,
           keys.secretOrKey,
-          // Tell the key to expire in one hour
           { expiresIn: 3600 },
           (err, token) => {
             res.json({
               success: true,
               token: "Bearer " + token
-            })
-            ;
+            });
           }
         );
       } else {
@@ -98,7 +104,6 @@ router.post("/login", (req, res) => {
   });
 });
 
-// current user
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
@@ -110,15 +115,4 @@ router.get(
   }
 );
 
-
-
-router.get('/users', (req, res) => {
-  User.find() 
-    .then(users => res.json(users))
-    .catch(err =>
-      res.status(404).json({ nousersfound: 'No users :(' }
-      )
-    );
-});
-
-module.exports = router; 
+module.exports = router;
