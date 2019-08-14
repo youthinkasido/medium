@@ -15,7 +15,6 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 // sign up route
 router.post("/register", (req, res) => {
   console.log("test");
-  debugger;
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
@@ -71,7 +70,8 @@ router.post("/login", (req, res) => {
       if (isMatch) {
         const payload = { id: user.id, name: user.name }; // set id and name equal to the user that was found by email
 
-        jwt.sign( // 
+        jwt.sign(
+          //
           payload,
           keys.secretOrKey,
           // Tell the key to expire in one hour
@@ -80,8 +80,7 @@ router.post("/login", (req, res) => {
             res.json({
               success: true,
               token: "Bearer " + token
-            })
-            ;
+            });
           }
         );
       } else {
@@ -103,13 +102,10 @@ router.get(
   }
 );
 
-router.get('/users', (req, res) => {
-  User.find() 
+router.get("/users", (req, res) => {
+  User.find()
     .then(users => res.json(users))
-    .catch(err =>
-      res.status(404).json({ nousersfound: 'No users :(' }
-      )
-    );
+    .catch(err => res.status(404).json({ nousersfound: "No users :(" }));
 });
 
-module.exports = router; 
+module.exports = router;

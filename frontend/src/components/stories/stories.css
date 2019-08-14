@@ -1,0 +1,29 @@
+.story-img {
+  height: 100px;
+  width: 100px;
+}
+
+.story-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.story-body {
+  padding: 20px 0;
+}
+
+
+.story-index-container {
+  width: 1032px;
+  margin: 0 auto;
+}
+
+.story-list-item{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.story-index-list{
+  max-width: 650px;
+}
