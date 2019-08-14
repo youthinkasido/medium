@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
-import StoryIndex from "./stories_index";
-import { fetchStories } from "../../actions/story_actions";
+import StoryShow from "./story_show";
+import { fetchStory } from "../../../actions/story_actions";
 
 const mapStateToProps = state => {
+  debugger;
   return {
     sessionId: state.session.user.id,
     stories: state.entities.stories.all
@@ -11,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchStories: story => dispatch(fetchStories(story))
+    fetchStory: story => dispatch(fetchStory(story))
   };
 };
 
