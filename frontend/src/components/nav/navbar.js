@@ -43,29 +43,53 @@ class NavBar extends React.Component {
         <div className="navbar-container">
           <div className="navbar-logo">Well Done</div>
           {this.props.loggedIn ? (
-            <div className="dropdown">
-              <button className="dropbtn" onClick={this.handleClick}>
-                <i className="fas fa-user-circle" />
-              </button>
-              <div
-                className={`dropdown-content ${
-                  this.state.clicked ? "reveal" : "hide"
-                }`}
-              >
-                <div className="dropdown-logout">
-                  <button onClick={this.handleLogout}>Sign out</button>
-                  <button onClick={this.handleLogout}>Sign out</button>
-                  <button onClick={this.handleLogout}>Sign out</button>
+            <div>
+              <div className="search">
+                <input
+                  type="text"
+                  className="form-control input-sm"
+                  maxlength="64"
+                  placeholder="Search"
+                />
+                <button type="submit" class="btn btn-primary btn-sm">
+                  <i className="fas fa-search" />
+                </button>
+              </div>
+              <div className="dropdown">
+                <button className="dropbtn" onClick={this.handleClick}>
+                  <i className="fas fa-user-circle" />
+                </button>
+                <div
+                  className={`dropdown-content ${
+                    this.state.clicked ? "reveal" : "hide"
+                  }`}
+                >
+                  <div className="dropdown-logout">
+                    <button onClick={this.handleLogout}>Sign out</button>
+                  </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="navbar-auth-container">
-              <div className="navbar-signin">
-                <Link to={"/login"}>Sign In</Link>
+            <div>
+              <div className="search">
+                <input
+                  type="text"
+                  className="form-control input-sm"
+                  maxlength="64"
+                  placeholder="Search"
+                />
+                <button type="submit" class="btn btn-primary btn-sm">
+                  <i className="fas fa-search" />
+                </button>
               </div>
-              <div className="navbar-signup">
-                <Link to={"/signup"}>Get Started</Link>
+              <div className="navbar-auth-container">
+                <div className="navbar-signin">
+                  <Link to={"/login"}>Sign In</Link>
+                </div>
+                <div className="navbar-signup">
+                  <Link to={"/signup"}>Get Started</Link>
+                </div>
               </div>
             </div>
           )}

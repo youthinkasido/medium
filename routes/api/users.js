@@ -15,7 +15,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 // sign up route
 router.post("/register", (req, res) => {
   console.log("test");
-  debugger;
+  
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
