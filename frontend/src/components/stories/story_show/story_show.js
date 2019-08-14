@@ -7,7 +7,6 @@ class StoryShow extends React.Component {
     super(props);
     this.state = {};
 
-    // this.handleFollow = this.handleFollow.bind(this);
   }
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId).then(() => {
@@ -21,9 +20,10 @@ class StoryShow extends React.Component {
       <div className="story-show-container">
         <div className="story-show-header">
           <h1 className="story-show-title">{story.title}</h1>
-          <p className="story-show-email">{author.email} </p>
+          <p className="story-show-name">
+            {author.firstName} {author.lastName}
+          </p>
           <p className="story-show-timestamp">{story.created_at}</p>
-          {/* <button onClick={this.handleFollow}>Follow</button> */}
         </div>
         <img
           src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"

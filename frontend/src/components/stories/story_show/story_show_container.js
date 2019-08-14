@@ -6,8 +6,8 @@ import { fetchUser } from "../../../actions/user_actions";
 const mapStateToProps = state => {
   return {
     sessionId: state.session.user.id,
-    story: state.entities.stories.all,
-    author: state.entities.users.all
+    story: state.entities.stories.story,
+    author: state.entities.users.user
   };
 };
 

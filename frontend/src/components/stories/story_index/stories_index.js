@@ -10,8 +10,6 @@ export default class new_story extends Component {
       body: "",
       errors: {}
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -23,18 +21,6 @@ export default class new_story extends Component {
       this.setState({
         [field]: e.currentTarget.value
       });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let story = {
-      title: this.state.title,
-      body: this.state.body,
-      authorId: this.props.sessionId
-    };
-
-    this.props.createStory(story);
   }
 
   render() {
