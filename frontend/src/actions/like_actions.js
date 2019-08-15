@@ -12,7 +12,7 @@ export const receiveLike = (like) => {
 
 export const removeLike = like => ({
     type: REMOVE_LIKE,
-    likeId: like.id
+    likeId: like.data._id
 });
 
 export const like = (data) => dispatch => APIUtil.like(data) // makes an axios request with the req body and then dispatches to the reducer

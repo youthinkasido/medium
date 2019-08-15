@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./story_show.css";
 import Follow from "../../follows/follow";
+import Like from "../../likes/like";
 
 
 class StoryShow extends React.Component {
@@ -50,6 +51,13 @@ class StoryShow extends React.Component {
           className="story-show-img"
         />
         <div className="story-show-content">{story.body}</div>
+        <Like 
+          story={story} 
+          currentUser={this.props.sessionUser} // should be sessionUser ?
+          like={this.props.like} 
+          unlike={this.props.unlike} 
+          toggle={this.toggle.bind(this)} 
+        />
       </div>
     );
   }
