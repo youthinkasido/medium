@@ -1,12 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Follow from '../../follows/follow';
+import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
 
-export default class StoriesIndexItem extends React.Component {
+class StoriesIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
   render() {
@@ -22,7 +27,7 @@ export default class StoriesIndexItem extends React.Component {
     }
 
     return (
-      <li className="story-list-item">
+      <li className="story-list-item" onClick={this.handleClick}>
         <div>
           <Link to={`stories/${_id}`}>
             <h1 className="story-title">{title}</h1>
@@ -57,3 +62,5 @@ export default class StoriesIndexItem extends React.Component {
     );
   }
 }
+
+export default withRouter(StoriesIndexItem);

@@ -2,6 +2,7 @@
   width: 680px;
   margin: 0 auto;
 }
+
 .story-show-content {
   font-size: 21px;
   color: #484848;
@@ -9,6 +10,7 @@
   margin-top: 2em;
   line-height: 1.58;
 }
+
 .story-show-content::first-letter {
   color: #018f69;
   font-weight: 700;
@@ -19,6 +21,7 @@
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15), 0 7px 8px rgba(0, 0, 0, 0.12);
   margin-right: 3px;
 }
+
 .story-show-img {
   display: block;
   max-width: 100%;
@@ -28,9 +31,11 @@
   margin: 0 auto;
   margin-top: 2em;
 }
+
 .story-show-header {
   margin-bottom: 1em;
 }
+
 .story-show-title {
   font-size: 40px;
   color: #272727;

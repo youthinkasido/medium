@@ -1,10 +1,12 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./story_show.css";
+
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
   }
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId).then(() => {
