@@ -21,7 +21,8 @@ class Follow extends React.Component {
 
   handleFollow(e) {
     e.preventDefault();
-    if (this.props.currentUser) {
+    
+    if (this.props.currentUser.id) {
       if (this.state.followed) {
         this.props.toggle(); // should trigger a re render of the parent component, passed in through inline props in stories_index_item
         let index = this.props.author.followerIds.indexOf(this.props.currentUser.id); // index of currentUsers id within author's followers array

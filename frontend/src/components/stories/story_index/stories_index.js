@@ -22,7 +22,6 @@ export default class new_story extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    debugger;
     return true;
   }
 
@@ -30,7 +29,6 @@ export default class new_story extends Component {
     this.setState({
       toggle: true
     });
-    debugger;
   }
 
   update(field) {

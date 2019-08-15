@@ -7,10 +7,14 @@
     border: none;
     color: #018f69;
     font-weight: 500;
-    padding: 0px;
+    padding: 5px;
+    border: 1px solid #018f69;
+    border-radius: 4px;
 
 }
 
 .follow-button:hover{
   font-weight: 900;
+  background:  #018f69;
+  color: white;
 }
