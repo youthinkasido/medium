@@ -23,6 +23,9 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json({ nouserfound: "No user found" }));
 });
 
+// test routes
+
+// sign up route
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 

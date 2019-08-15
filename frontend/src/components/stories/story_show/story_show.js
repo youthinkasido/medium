@@ -13,7 +13,6 @@ class StoryShow extends React.Component {
       this.props.fetchUser(this.props.story.authorId);
     });
   }
-
   render() {
     const { story, author } = this.props;
     return (
@@ -35,5 +34,4 @@ class StoryShow extends React.Component {
     );
   }
 }
-
 export default withRouter(StoryShow);

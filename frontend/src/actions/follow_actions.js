@@ -10,10 +10,9 @@ const receiveFollow = follow => {
   }
 }
 
-
 const removeFollow = follow => ({
   type: REMOVE_FOLLOW,
-  followId: follow.id
+  followId: follow.id // _id?
 });
 
 export const follow = data => dispatch =>
