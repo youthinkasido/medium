@@ -82,7 +82,7 @@ class Follow extends React.Component {
     return (
       <div className="follow">
         {this.props.author.followerIds.includes(this.props.currentUser.id) ? ( // if the author is being followed by the current user
-          <button className="follow-button" onClick={this.handleFollow}>Unfollow</button> // unfollow the author when button clicked
+          <button className="unfollow-button" onClick={this.handleFollow}>Unfollow</button> // unfollow the author when button clicked
         ) : (
           <button className='follow-button' onClick={this.handleFollow}>Follow</button> // follow the author when button clicked
         )}
