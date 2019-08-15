@@ -8,7 +8,8 @@ export default class new_story extends Component {
     this.state = {
       title: "",
       body: "",
-      errors: {}
+      errors: {},
+      toggle: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +19,18 @@ export default class new_story extends Component {
     this.props.fetchAllUsers();
 
     this.props.fetchStories();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    debugger;
+    return true;
+  }
+
+  toggle() {
+    this.setState({
+      toggle: true
+    });
+    debugger;
   }
 
   update(field) {
@@ -56,7 +69,7 @@ export default class new_story extends Component {
                 follow={this.props.follow}
                 unfollow={this.props.unfollow}
                 users={this.props.users}
-                fetchAllUsers={this.props.fetchAllUsers}
+                toggle={this.toggle.bind(this)} 
               />
             ))}
           </ul>

@@ -1,0 +1,16 @@
+.follow {
+
+}
+
+.follow-button {
+    background: none;
+    border: none;
+    color: #018f69;
+    font-weight: 500;
+    padding: 0px;
+
+}
+
+.follow-button:hover{
+  font-weight: 900;
+}

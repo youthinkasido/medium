@@ -24,7 +24,10 @@ router.patch("/unfollow", (req, res) => {
     for (let index = 0; index < user.followerIds.length; index++) {
       const element = user.followerIds[index];
       if (element == req.body.follower) {
-        user.followerIds.splice(index, 1);
+        user.followerIds.splice(index, 1); //
+        
+        
+         
       }
     }
 

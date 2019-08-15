@@ -17,8 +17,9 @@ const removeFollow = follow => {
   };
 };
 
-export const follow = data => dispatch =>
-  APIUtil.follow(data).then(follow => dispatch(receiveFollow(follow)));
+export const follow = data => dispatch => { 
+  return APIUtil.follow(data).then(follow => dispatch(receiveFollow(follow)));
+  }
 
 export const unfollow = data => dispatch => {
   return APIUtil.unfollow(data).then(follow => dispatch(removeFollow(follow)));

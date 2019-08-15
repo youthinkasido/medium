@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
 
+import './follow.css';
+
 class Follow extends React.Component {
   constructor(props) {
     super(props);
@@ -21,8 +23,11 @@ class Follow extends React.Component {
     e.preventDefault();
     if (this.props.currentUser) {
       if (this.state.followed) {
-        this.props
-          .unfollow({
+        this.props.toggle(); // should trigger a re render of the parent component, passed in through inline props in stories_index_item
+        let index = this.props.author.followerIds.indexOf(this.props.currentUser.id); // index of currentUsers id within author's followers array
+        this.props.author.followerIds.splice(index, 1);
+        
+        this.props.unfollow({
             follower: this.props.currentUser.id,
             followee: this.props.author._id
           })
@@ -32,8 +37,9 @@ class Follow extends React.Component {
             });
           });
       } else {
-        this.props
-          .follow({
+        this.props.toggle();
+        this.props.author.followerIds.push(this.props.currentUser.id);
+        this.props.follow({
             follower: this.props.currentUser.id,
             followee: this.props.author._id
           })
@@ -52,9 +58,9 @@ class Follow extends React.Component {
     return (
       <div className="follow">
         {this.props.author.followerIds.includes(this.props.currentUser.id) ? ( // if the author is being followed by the current user
-          <button onClick={this.handleFollow}>Unfollow</button> // unfollow the author when button clicked
+          <button className="follow-button" onClick={this.handleFollow}>Unfollow</button> // unfollow the author when button clicked
         ) : (
-          <button onClick={this.handleFollow}>Follow</button> // follow the author when button clicked
+          <button className='follow-button' onClick={this.handleFollow}>Follow</button> // follow the author when button clicked
         )}
       </div>
     );
