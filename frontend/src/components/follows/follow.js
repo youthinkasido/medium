@@ -77,7 +77,7 @@ class Follow extends React.Component {
       return null;
     }
 
-    debugger;
+
 
     return (
       <div className="follow">
