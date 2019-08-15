@@ -52,6 +52,8 @@ export default class new_story extends Component {
             className="story-form-input"
             placeholder="Tell your story..."
           />
+
+          <button className="publish-button">Publish</button>
         </form>
       </div>
     );

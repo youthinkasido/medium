@@ -1,5 +1,5 @@
 import React from "react";
-import Follow from '../../follows/follow';
+import Follow from "../../follows/follow";
 import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
 
@@ -14,18 +14,17 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
-
-
   render() {
     const { _id, title, body, created_at, authorId } = this.props.story;
 
     let author;
     let users = Object.values(this.props.users);
-    
-    for (let i = 0; i < users.length; i++){ // iterates through all users, finding user that matches author of a story.
-      if (users[i]._id === authorId){
+
+    for (let i = 0; i < users.length; i++) {
+      // iterates through all users, finding user that matches author of a story.
+      if (users[i]._id === authorId) {
         author = users[i];
-      };
+      }
     }
 
     return (
@@ -49,6 +48,7 @@ class StoriesIndexItem extends React.Component {
             follow={this.props.follow}
             unfollow={this.props.unfollow}
             author={author}
+            users={this.props.users}
             fetchAllUsers={this.props.fetchAllUsers}
           />
           <p className="story-body">{new Date(created_at).toString()}</p>

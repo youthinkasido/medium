@@ -5,7 +5,7 @@
 }
 
 .navbar-container {
-  max-width: 1032px;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
   margin: 20px auto 50px auto;
@@ -57,8 +57,23 @@
    display: block;
    outline: none;
  }
+ .dropdown-content a {
+   display: block;
+   outline: none;
+ }
 
  .dropdown-logout button {
+   border: none;
+   background: white;
+   color: gray;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   padding: 10px;
+   width: 100%;
+   text-align: left;
+ }
+ .dropdown-logout a {
    border: none;
    background: white;
    color: gray;

@@ -12,6 +12,7 @@ class NavBar extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleNewStory = this.handleNewStory.bind(this);
   }
 
   handleLogout(e) {
@@ -21,6 +22,14 @@ class NavBar extends React.Component {
       clicked: false
     });
     this.props.logout();
+  }
+
+  handleNewStory(e) {
+    e.preventDefault();
+
+    this.setState({
+      clicked: false
+    });
   }
 
   handleClick(e) {
@@ -54,8 +63,9 @@ class NavBar extends React.Component {
               >
                 <div className="dropdown-logout">
                   <button onClick={this.handleLogout}>Sign out</button>
-                  <button onClick={this.handleLogout}>Sign out</button>
-                  <button onClick={this.handleLogout}>Sign out</button>
+                </div>
+                <div className="dropdown-logout">
+                  <Link to={"/new-story"} onClick={this.handleNewStory}>New Story</Link>
                 </div>
               </div>
             </div>

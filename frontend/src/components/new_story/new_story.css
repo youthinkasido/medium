@@ -13,11 +13,24 @@
   max-width: 100%;
   background: white;
   color: #484848;
-  padding: 20px;
   border: none;
+  margin: 20px 0 5px 0;
   resize: none;
 }
 
 .story-form-title {
   font-size: 40px;
+}
+
+.publish-button {
+  width: 150px;
+  border-radius: 4px;
+  background: #018f69;
+  color: white;
+  border: white;
+  padding: 10px 10px;
+}
+
+.publish-button:hover {
+
 }

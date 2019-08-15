@@ -1,12 +1,5 @@
-const mongoose = require("mongoose"); //required to make models
-const Schema = mongoose.Schema; // allows schema creation 
-
-
-// follower_id, followee_id
-
-// user database schema
-
-// says that each user should have a handle, email, password
+const mongoose = require("mongoose"); 
+const Schema = mongoose.Schema; 
 const FollowSchema = new Schema({
   follower: {
     type: Schema.Types.ObjectId,

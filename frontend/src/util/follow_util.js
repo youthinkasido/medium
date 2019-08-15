@@ -1,10 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const follow = data => {
-    return axios.post('/api/follows/', data);
-}
+  return axios.patch("/api/follows/follow", data);
+};
 
 export const unfollow = data => {
-    debugger
-    return axios.delete('/api/follows/', data);
-}
+  return axios.patch("/api/follows/unfollow", data);
+};
