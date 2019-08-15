@@ -42,3 +42,11 @@
   font-weight: 400;
   padding-bottom: 10px;
 }
+
+.story-show-name {
+  margin-right: 20px;
+}
+
+.story-show-timestamp {
+  margin-top: 15px;
+}

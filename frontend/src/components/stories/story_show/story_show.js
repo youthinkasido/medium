@@ -1,27 +1,47 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./story_show.css";
+import Follow from "../../follows/follow";
+
 
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
 
+    this.state = {
+      toggle: false
+    };
   }
+
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId).then(() => {
       this.props.fetchUser(this.props.story.authorId);
     });
   }
+
+  toggle () {
+    this.setState({
+      toggle: true
+    });
+  }
+
   render() {
     const { story, author } = this.props;
     return (
       <div className="story-show-container">
         <div className="story-show-header">
           <h1 className="story-show-title">{story.title}</h1>
-          <p className="story-show-name">
+          <span className="story-show-name">
             {author.firstName} {author.lastName}
-          </p>
+          </span>
+          <Follow
+            story={story}
+            currentUser={this.props.sessionUser} // should be sessionUser ?
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            author={author} 
+            toggle={this.toggle.bind(this)} 
+          />
           <p className="story-show-timestamp">{story.created_at}</p>
         </div>
         <img
