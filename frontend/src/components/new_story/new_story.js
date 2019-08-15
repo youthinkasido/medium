@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Textarea from "react-textarea-autosize";
+import "./new_story.css"
 
 export default class new_story extends Component {
   constructor(props) {
@@ -33,24 +35,23 @@ export default class new_story extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="story-form-container">
+        <form className="story-form" onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.title}
             onChange={this.update("title")}
             placeholder="Title"
-            className="session-form-input"
+            className="story-form-input story-form-title"
           />
 
-          <textarea
+          <Textarea
+            useCacheForDOMMeasurements
             value={this.state.body}
             onChange={this.update("body")}
+            className="story-form-input"
             placeholder="Tell your story..."
-            className="session-form-input"
           />
-
-          <button>Publish now</button>
         </form>
       </div>
     );
