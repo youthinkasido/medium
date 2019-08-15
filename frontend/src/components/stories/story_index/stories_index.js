@@ -10,6 +10,8 @@ export default class new_story extends Component {
       body: "",
       errors: {}
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +27,18 @@ export default class new_story extends Component {
       });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+
+    let story = {
+      title: this.state.title,
+      body: this.state.body,
+      authorId: this.props.sessionId
+    };
+
+    this.props.createStory(story);
+  }
+
   render() {
     if (this.props.stories.length === 0 || this.props.users.length === 0) {
       return null;
@@ -35,13 +49,14 @@ export default class new_story extends Component {
         <div className="story-index">
           <ul className="story-index-list">
             {this.props.stories.map(story => (
-              <StoryIndexItem 
-                key={story._id} 
-                story={story} 
-                currentUserId={this.props.sessionId} 
-                follow={this.props.follow} 
-                unfollow={this.props.unfollow} 
-                users={this.props.users} 
+              <StoryIndexItem
+                key={story._id}
+                story={story}
+                currentUser={this.props.sessionUser}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                users={this.props.users}
+                fetchAllUsers={this.props.fetchAllUsers}
               />
             ))}
           </ul>

@@ -5,5 +5,6 @@ export const follow = data => {
 }
 
 export const unfollow = data => {
+    debugger
     return axios.delete('/api/follows/', data);
 }

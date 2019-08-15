@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post("/",
   (req, res) => {
+    debugger
     const newFollow = new Follow({
       follower: req.body.follower,
       followee: req.body.followee
@@ -17,6 +18,7 @@ router.post("/",
     .catch(err => console.log(err)));
 
     User.findById(req.body.followee).then(user => {
+      debugger
         user
           .update({ $push: { followerIds: req.body.follower }})
           .then(user => {

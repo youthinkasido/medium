@@ -7,7 +7,7 @@ import { follow, unfollow } from '../../../actions/follow_actions';
 const mapStateToProps = ({ session, entities }) => {
  
   return {
-    sessionId: session.user.id, 
+    sessionUser: session.user, 
     stories: entities.stories.all,
     users: entities.users.all
   };

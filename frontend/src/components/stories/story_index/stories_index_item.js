@@ -14,6 +14,8 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
+
+
   render() {
     const { _id, title, body, created_at, authorId } = this.props.story;
 
@@ -27,7 +29,7 @@ class StoriesIndexItem extends React.Component {
     }
 
     return (
-      <li className="story-list-item" onClick={this.handleClick}>
+      <li className="story-list-item">
         <div>
           <Link to={`stories/${_id}`}>
             <h1 className="story-title">{title}</h1>
@@ -41,12 +43,13 @@ class StoriesIndexItem extends React.Component {
                 .join(" ")}
             </p>
           </Link>
-          <Follow 
-            story={this.props.story} 
-            currentUserId={this.props.currentUserId} 
-            follow={this.props.follow} 
-            unfollow={this.props.unfollow} 
-            author={author} 
+          <Follow
+            story={this.props.story}
+            currentUser={this.props.currentUser} // should be sessionUser ?
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            author={author}
+            fetchAllUsers={this.props.fetchAllUsers}
           />
           <p className="story-body">{new Date(created_at).toString()}</p>
         </div>
