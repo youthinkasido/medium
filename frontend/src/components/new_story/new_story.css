@@ -1,0 +1,23 @@
+.story-form {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.story-form-input {
+  max-width: 100%;
+  background: white;
+  color: #484848;
+  padding: 20px;
+  border: none;
+  resize: none;
+}
+
+.story-form-title {
+  font-size: 40px;
+}
