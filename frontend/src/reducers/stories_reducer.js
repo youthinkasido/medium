@@ -6,7 +6,7 @@ import {
 } from "../actions/story_actions";
 
 const storiesReducer = (
-  state = { all: [], user: {}, new: undefined },
+  state = { all: [], user: {}, story: {}, new: undefined },
   action
 ) => {
   Object.freeze(state);
@@ -16,7 +16,7 @@ const storiesReducer = (
       newState.all = action.stories.data;
       return newState;
     case RECEIVE_STORY:
-      newState.all = action.story.data;
+      newState.story = action.story.data;
       return newState;
     case RECEIVE_USER_STORIES:
       newState.user = action.stories.data;

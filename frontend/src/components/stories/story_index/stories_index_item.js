@@ -1,17 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Follow from '../../follows/follow';
+import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
 
-export default class StoriesIndexItem extends React.Component {
+class StoriesIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
   render() {
-    const { _id, title, body, created_at } = this.props.story;
+    const { _id, title, body, created_at, authorId } = this.props.story;
+
+    let author;
+    let users = Object.values(this.props.users);
+    
+    for (let i = 0; i < users.length; i++){ // iterates through all users, finding user that matches author of a story.
+      if (users[i]._id === authorId){
+        author = users[i];
+      };
+    }
+
     return (
-      <li className="story-list-item">
+      <li className="story-list-item" onClick={this.handleClick}>
         <div>
           <Link to={`stories/${_id}`}>
             <h1 className="story-title">{title}</h1>
@@ -25,6 +41,13 @@ export default class StoriesIndexItem extends React.Component {
                 .join(" ")}
             </p>
           </Link>
+          <Follow 
+            story={this.props.story} 
+            currentUserId={this.props.currentUserId} 
+            follow={this.props.follow} 
+            unfollow={this.props.unfollow} 
+            author={author} 
+          />
           <p className="story-body">{new Date(created_at).toString()}</p>
         </div>
 
@@ -39,3 +62,5 @@ export default class StoriesIndexItem extends React.Component {
     );
   }
 }
+
+export default withRouter(StoriesIndexItem);

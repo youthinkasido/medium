@@ -75,16 +75,17 @@
 
 .dropdown {
   text-align: right;
-  display: inline;
+  margin-top: -2px;
+  position: relative;
  }
 
  .dropdown-content {
    border: 1px solid lightgray;
    border-radius: 3px;
    background: white;
-   position: relative;
-   left: 144px;
-   width: 200px;
+   width: 100px;;
+   position: absolute;
+   right: 0;
  }
 
  .dropdown-content button {
@@ -100,6 +101,8 @@
    font-size: 16px;
    font-weight: 300;
    padding: 10px;
+   width: 100%;
+   text-align: left;
  }
 
  .dropbtn {

@@ -23,6 +23,9 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json({ nouserfound: "No user found" }));
 });
 
+// test routes
+
+// sign up route
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -37,6 +40,8 @@ router.post("/register", (req, res) => {
     } else {
       const newUser = new User({
         email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         password: req.body.password
       });
 
