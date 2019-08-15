@@ -4,13 +4,9 @@ const db = require("./config/keys").mongoURI;
 const passport = require("passport");
 const app = express();
 const users = require("./routes/api/users");
-<<<<<<< HEAD
 const likes = require("./routes/api/likes")
 const follows = require('./routes/api/follows')
-=======
 const stories = require("./routes/api/stories");
-const follows = require("./routes/api/follows");
->>>>>>> 55630047bcb51d5d3e85764a4237890b83deebed
 const bodyParser = require("body-parser");
 require("./config/passport")(passport);
 
