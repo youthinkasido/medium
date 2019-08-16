@@ -50,7 +50,9 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="navbar-logo">Well Done</div>
+          <Link to="/">
+            <div className="navbar-logo">Well Done</div>
+          </Link>
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
@@ -65,7 +67,9 @@ class NavBar extends React.Component {
                   <button onClick={this.handleLogout}>Sign out</button>
                 </div>
                 <div className="dropdown-logout">
-                  <Link to={"/new-story"} onClick={this.handleNewStory}>New Story</Link>
+                  <Link to={"/new-story"} onClick={this.handleNewStory}>
+                    New Story
+                  </Link>
                 </div>
               </div>
             </div>

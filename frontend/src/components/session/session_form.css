@@ -53,12 +53,12 @@
 
 .session-form-button {
   cursor: pointer;
-  background-color: rgb(10, 25, 47);
-  border: white;
+  background-color: white;
+  border: 1px solid #7e04b6;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
-  color: white;
+  color: #7e04b6;
   margin-top: 20px;
   transition: all 0.3s ease 0s;
   opacity: 1;

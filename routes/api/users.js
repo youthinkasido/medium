@@ -23,9 +23,6 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json({ nouserfound: "No user found" }));
 });
 
-// test routes
-
-// sign up route
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -35,13 +32,14 @@ router.post("/register", (req, res) => {
 
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      errors.email = "Email already exists";
-      return res.status(400).json(errors);
+      return res
+        .status(400)
+        .json({ email: "A user has already registered with this address" });
     } else {
       const newUser = new User({
-        email: req.body.email,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        email: req.body.email,
         password: req.body.password
       });
 
@@ -49,9 +47,28 @@ router.post("/register", (req, res) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
+
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user => {
+              const payload = {
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
+              };
+              jwt.sign(
+                payload,
+                keys.secretOrKey,
+                { expiresIn: 3600 },
+                (err, token) => {
+                  res.json({
+                    success: true,
+                    token: "Bearer " + token
+                  });
+                }
+              );
+            })
             .catch(err => console.log(err));
         });
       });

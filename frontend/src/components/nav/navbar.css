@@ -8,7 +8,9 @@
   max-width: 1100px;
   display: flex;
   justify-content: space-between;
-  margin: 20px auto 50px auto;
+  margin: 0 auto 20px auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.795);
 }
 
 .navbar-auth-container {
@@ -95,14 +97,14 @@
  }
 
 .navbar-signin {
-  font-size: 18px;
+  font-size: 16px;
   margin-right: 10px;
   position: relative;
   top: 9px;
 }
 
 .navbar-signup{
-  font-size: 18px;
+  font-size: 16px;
   border: 1px solid #018f69;
   border-radius: 3px;
   padding: 8px 10px 8px 10px;

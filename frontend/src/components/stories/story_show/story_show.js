@@ -57,7 +57,11 @@ class StoryShow extends React.Component {
               toggle={this.toggle.bind(this)}
             />
 
-            <p className="story-show-timestamp">{story.created_at}</p>
+            <p className="story-show-timestamp">{new Date(story.created_at)
+              .toString()
+              .split(" ")
+              .slice(1, 4)
+              .join(" ")}</p>
           </div>
           <img
             src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"

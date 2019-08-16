@@ -52,7 +52,10 @@ class StoriesIndexItem extends React.Component {
             users={this.props.users}
             toggle={this.props.toggle} 
           />
-          <p className="story-body">{new Date(created_at).toString()}</p>
+          <p className="story-body">{new Date(created_at).toString()
+            .split(" ")
+            .slice(1, 4)
+            .join(" ")}</p>
         </div>
 
         <Link to={`stories/${_id}`}>
