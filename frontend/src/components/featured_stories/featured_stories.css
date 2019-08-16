@@ -1,0 +1,13 @@
+.featured-story-container {
+  width: 328px;
+  height: auto;
+  color: black;
+}
+
+.featured-header {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 7px;
+}
