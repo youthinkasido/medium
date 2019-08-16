@@ -50,5 +50,13 @@
   border-radius: 4px;
   border: 1px solid #7e04b6;
   margin: 25px auto;
-  width: 100%;
+  width: 100%; 
+}
+
+.story-show-name {
+  margin-right: 20px;
+}
+
+.story-show-timestamp {
+  margin-top: 15px;
 }

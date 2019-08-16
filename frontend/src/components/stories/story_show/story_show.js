@@ -2,16 +2,22 @@ import React, { Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import "./story_show.css";
 import CommentsContainer from "../../comments/comments_container";
+import Follow from "../../follows/follow";
+import Like from "../../likes/like";
 
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      commentsOpen: false
+      commentsOpen: false,
+      toggle: false
     };
 
     this.openComments = this.openComments.bind(this);
+
   }
+
   componentDidMount() {
     this.props.fetchStory(this.props.match.params.storyId).then(() => {
       this.props.fetchUser(this.props.story.authorId);
@@ -26,6 +32,12 @@ class StoryShow extends React.Component {
     document.querySelector(".view-comments").scrollIntoView();
   }
 
+  toggle () {
+    this.setState({
+      toggle: true
+    });
+  }
+
   render() {
     const { story, author } = this.props;
     return (
@@ -36,6 +48,16 @@ class StoryShow extends React.Component {
             <p className="story-show-name">
               {author.firstName} {author.lastName}
             </p>
+      
+          <Follow
+            story={story}
+            currentUser={this.props.sessionUser} // should be sessionUser ?
+            follow={this.props.follow}
+            unfollow={this.props.unfollow}
+            author={author} 
+            toggle={this.toggle.bind(this)} 
+          />
+
             <p className="story-show-timestamp">{story.created_at}</p>
           </div>
           <img
@@ -44,6 +66,15 @@ class StoryShow extends React.Component {
             className="story-show-img"
           />
           <div className="story-show-content">{story.body}</div>
+
+        <Like 
+          story={story} 
+          currentUser={this.props.sessionUser}
+          like={this.props.like} 
+          unlike={this.props.unlike} 
+          toggle={this.toggle.bind(this)} 
+        />
+            
           <div className="view-comments-button-container">
             <button onClick={this.openComments} className="view-comments">
               See Comments

@@ -24,6 +24,7 @@ class StoriesIndexItem extends React.Component {
       // iterates through all users, finding user that matches author of a story.
       if (users[i]._id === authorId) {
         author = users[i];
+       
       }
     }
 
@@ -49,7 +50,7 @@ class StoriesIndexItem extends React.Component {
             unfollow={this.props.unfollow}
             author={author}
             users={this.props.users}
-            fetchAllUsers={this.props.fetchAllUsers}
+            toggle={this.props.toggle} 
           />
           <p className="story-body">{new Date(created_at).toString()}</p>
         </div>

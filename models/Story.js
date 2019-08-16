@@ -7,6 +7,12 @@ const StorySchema = new Schema({
     ref: "users",
     required: true
   },
+  likerIds: [
+    {
+      type: Schema.ObjectId,
+      ref: "users"
+    }
+  ],
   body: {
     type: String,
     required: true

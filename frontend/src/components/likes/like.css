@@ -1,0 +1,18 @@
+.like button {
+    border: none;
+    width: 50px;
+}
+
+.like-img {
+    width: 50px;
+}
+
+.claps {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.like-container {
+    text-align: center;
+}
