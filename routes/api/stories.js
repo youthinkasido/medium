@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 
 const Story = require("../../models/Story");
+const Comment = require("../../models/Comment");
 const validateStoryInput = require("../../validation/stories");
 
 router.get("/", (req, res) => {
@@ -21,6 +22,16 @@ router.get("/:storyId", (req, res) => {
       res.json(story);
     })
     .catch(err => res.status(404).json({ nostoryfound: "No Story found" }));
+});
+
+router.get("/:storyId/comments", (req, res) => {
+  Comment.find({ storyId: req.params.storyId })
+    .then(comments => {
+      res.json(comments);
+    })
+    .catch(err =>
+      res.status(404).json({ nocommentsfound: "No Comments found" })
+    );
 });
 
 // router.get("/user/:user_id", (req, res) => {
@@ -62,8 +73,7 @@ router.post(
 
     try {
       let createdStory = await newStory.save();
-    } catch (error) {
-    }
+    } catch (error) {}
   }
 );
 
