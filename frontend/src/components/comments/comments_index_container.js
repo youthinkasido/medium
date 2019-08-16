@@ -7,8 +7,10 @@ import {
 } from "../../actions/comment_actions";
 
 const mapStateToProps = state => {
+  debugger;
   return {
     comments: state.entities.comments.all,
+    // comment: state.entities.comments.comment,
     currentUser: state.session.user,
     story: state.entities.stories.story
   };

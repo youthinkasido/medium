@@ -17,7 +17,13 @@ class CommentsIndexItem extends React.Component {
             <p className="comment-name">{comment._id}</p>
           </div>
           <div className="comment-date-container">
-            <p className="comment-date">{new Date(comment.date).toString()}</p>
+            <p className="comment-date">
+              {new Date(comment.date)
+                .toString()
+                .split(" ")
+                .slice(1, 3)
+                .join(" ")}
+            </p>
           </div>
           <div className="comment-body-container">
             <p className="comment-body">{comment.body}</p>

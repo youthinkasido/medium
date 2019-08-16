@@ -8,14 +8,13 @@ import Like from "../../likes/like";
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       commentsOpen: false,
       toggle: false
     };
 
     this.openComments = this.openComments.bind(this);
-
   }
 
   componentDidMount() {
@@ -32,7 +31,7 @@ class StoryShow extends React.Component {
     document.querySelector(".view-comments").scrollIntoView();
   }
 
-  toggle () {
+  toggle() {
     this.setState({
       toggle: true
     });
@@ -48,15 +47,15 @@ class StoryShow extends React.Component {
             <p className="story-show-name">
               {author.firstName} {author.lastName}
             </p>
-      
-          <Follow
-            story={story}
-            currentUser={this.props.sessionUser} // should be sessionUser ?
-            follow={this.props.follow}
-            unfollow={this.props.unfollow}
-            author={author} 
-            toggle={this.toggle.bind(this)} 
-          />
+
+            <Follow
+              story={story}
+              currentUser={this.props.sessionUser}
+              follow={this.props.follow}
+              unfollow={this.props.unfollow}
+              author={author}
+              toggle={this.toggle.bind(this)}
+            />
 
             <p className="story-show-timestamp">{story.created_at}</p>
           </div>
@@ -67,14 +66,14 @@ class StoryShow extends React.Component {
           />
           <div className="story-show-content">{story.body}</div>
 
-        <Like 
-          story={story} 
-          currentUser={this.props.sessionUser}
-          like={this.props.like} 
-          unlike={this.props.unlike} 
-          toggle={this.toggle.bind(this)} 
-        />
-            
+          <Like
+            story={story}
+            currentUser={this.props.sessionUser}
+            like={this.props.like}
+            unlike={this.props.unlike}
+            toggle={this.toggle.bind(this)}
+          />
+
           <div className="view-comments-button-container">
             <button onClick={this.openComments} className="view-comments">
               See Comments
