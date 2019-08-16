@@ -10,7 +10,8 @@ export default class Comments extends Component {
     this.state = {
       body: "",
       commenterId: props.currentUser.id,
-      storyId: props.story._id
+      storyId: props.story._id,
+      image: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

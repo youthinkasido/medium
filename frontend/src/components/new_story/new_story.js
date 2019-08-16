@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Textarea from "react-textarea-autosize";
 import "./new_story.css"
+import axios from 'axios'
 
 export default class new_story extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ export default class new_story extends Component {
     this.state = {
       title: "",
       body: "",
-      errors: {}
+      errors: {},
+      image: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +24,7 @@ export default class new_story extends Component {
       });
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     let story = {
@@ -29,14 +32,18 @@ export default class new_story extends Component {
       body: this.state.body,
       authorId: this.props.sessionId
     };
-
-    this.props.createStory(story);
   }
+
+  
 
   render() {
     return (
       <div className="story-form-container">
         <form className="story-form" onSubmit={this.handleSubmit}>
+       
+      
+       
+
           <input
             type="text"
             value={this.state.title}
@@ -44,6 +51,8 @@ export default class new_story extends Component {
             placeholder="Title"
             className="story-form-input story-form-title"
           />
+
+        
 
           <Textarea
             useCacheForDOMMeasurements
