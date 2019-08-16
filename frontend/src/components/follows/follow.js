@@ -81,8 +81,6 @@ class Follow extends React.Component {
       return null;
     }
 
-    debugger;
-
     return (
       <div className="follow">
         {this.props.author.followerIds.includes(this.props.currentUser.id) ? (

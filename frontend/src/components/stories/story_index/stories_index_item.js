@@ -21,10 +21,8 @@ class StoriesIndexItem extends React.Component {
     let users = Object.values(this.props.users);
 
     for (let i = 0; i < users.length; i++) {
-      // iterates through all users, finding user that matches author of a story.
       if (users[i]._id === authorId) {
         author = users[i];
-       
       }
     }
 
@@ -43,19 +41,25 @@ class StoriesIndexItem extends React.Component {
                 .join(" ")}
             </p>
           </Link>
+          <div className="index-author-follow">
+          <p className="story-index-inline">{author.firstName} {author.lastName}</p>
           <Follow
             story={this.props.story}
-            currentUser={this.props.currentUser} // should be sessionUser ?
+            currentUser={this.props.currentUser}
             follow={this.props.follow}
             unfollow={this.props.unfollow}
             author={author}
             users={this.props.users}
-            toggle={this.props.toggle} 
+            toggle={this.props.toggle}
           />
-          <p className="story-body">{new Date(created_at).toString()
-            .split(" ")
-            .slice(1, 4)
-            .join(" ")}</p>
+          </div>
+          <p className="story-date">
+            {new Date(created_at)
+              .toString()
+              .split(" ")
+              .slice(1, 4)
+              .join(" ")}
+          </p>
         </div>
 
         <Link to={`stories/${_id}`}>

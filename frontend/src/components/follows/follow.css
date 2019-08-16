@@ -1,18 +1,15 @@
 .follow-button {
-    background: none;
-    border: none;
-    color: #018f69;
-    padding: 3px;
-    border: 1px solid #018f69;
-    border-radius: 4px;
-    font-family: sans-serif;
-    font-size: 12px;
-    padding-left: 3%;
-    padding-right: 3%;
+  background: none;
+  color: #018f69;
+  border: 1px solid #018f69;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 12px;
+  padding: 2px 10px;
 }
 
-.follow-button:hover{
-  background:  #018f69;
+.follow-button:hover {
+  background: #018f69;
   color: white;
 }
 
@@ -20,14 +17,12 @@
   display: contents;
 }
 
-.unfollow-button{
-  background:  #018f69;
-  color: white;
-  padding: 3px;
+.unfollow-button {
+  background: none;
+  color: #018f69;
   border: 1px solid #018f69;
   border-radius: 4px;
   font-family: sans-serif;
   font-size: 12px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 2px 10px;
 }

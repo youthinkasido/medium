@@ -44,7 +44,7 @@ class StoryShow extends React.Component {
         <div className="story-show-container">
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
-            <p className="story-show-name">
+            <p className="story-index-inline">
               {author.firstName} {author.lastName}
             </p>
 
@@ -55,9 +55,10 @@ class StoryShow extends React.Component {
               unfollow={this.props.unfollow}
               author={author}
               toggle={this.toggle.bind(this)}
+              className="story-show-follow"
             />
 
-            <p className="story-show-timestamp">{new Date(story.created_at)
+            <p className="story-date">{new Date(story.created_at)
               .toString()
               .split(" ")
               .slice(1, 4)
