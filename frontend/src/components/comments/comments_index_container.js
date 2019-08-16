@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
 import CommentsIndex from "./comments_index";
-
 import {
   createStoryComment,
   fetchStoryComments
 } from "../../actions/comment_actions";
+import { fetchAllUsers } from "../../actions/user_actions";
 
 const mapStateToProps = state => {
-  debugger;
   return {
     comments: state.entities.comments.all,
-    // comment: state.entities.comments.comment,
+    comment: state.entities.comments.comment,
     currentUser: state.session.user,
+    users: state.entities.users.all,
     story: state.entities.stories.story
   };
 };
@@ -19,7 +19,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     createStoryComment: comment => dispatch(createStoryComment(comment)),
-    fetchStoryComments: id => dispatch(fetchStoryComments(id))
+    fetchStoryComments: id => dispatch(fetchStoryComments(id)),
+    fetchAllUsers: () => dispatch(fetchAllUsers())
   };
 };
 

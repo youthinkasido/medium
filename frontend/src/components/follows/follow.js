@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 
-import './follow.css';
+import "./follow.css";
 
 class Follow extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Follow extends React.Component {
 
   handleFollow(e) {
     e.preventDefault();
-    
+
     if (this.props.currentUser.id) {
       if (!this.state) {
         if (this.props.author.followerIds.includes(this.props.currentUser.id)) {
@@ -43,8 +43,9 @@ class Follow extends React.Component {
         
         let index = this.props.author.followerIds.indexOf(this.props.currentUser.id); // index of currentUsers id within author's followers array
         this.props.author.followerIds.splice(index, 1);
-        
-        this.props.unfollow({
+
+        this.props
+          .unfollow({
             follower: this.props.currentUser.id,
             followee: this.props.author._id
           })
@@ -56,8 +57,9 @@ class Follow extends React.Component {
       } else if (!this.state.followed && !this.props.author.followerIds.includes(this.props.currentUser.id)) {
         this.props.toggle();
         this.props.author.followerIds.push(this.props.currentUser.id);
-        
-        this.props.follow({
+
+        this.props
+          .follow({
             follower: this.props.currentUser.id,
             followee: this.props.author._id
           })
@@ -77,14 +79,16 @@ class Follow extends React.Component {
       return null;
     }
 
-
-
     return (
       <div className="follow">
-        {this.props.author.followerIds.includes(this.props.currentUser.id) ? ( // if the author is being followed by the current user
-          <button className="unfollow-button" onClick={this.handleFollow}>Unfollow</button> // unfollow the author when button clicked
+        {this.props.author.followerIds.includes(this.props.currentUser.id) ? (
+          <button className="unfollow-button" onClick={this.handleFollow}>
+            Unfollow
+          </button>
         ) : (
-          <button className='follow-button' onClick={this.handleFollow}>Follow</button> // follow the author when button clicked
+          <button className="follow-button" onClick={this.handleFollow}>
+            Follow
+          </button>
         )}
       </div>
     );

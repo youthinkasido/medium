@@ -10,11 +10,14 @@
 
 .story-body {
   padding: 20px 0;
+  color: #777;
 }
 
 .story-index-container {
-  width: 1032px;
-  margin: 0 auto;
+  width: 1100px;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .story-list-item {
@@ -27,6 +30,28 @@
   max-width: 650px;
 }
 
+
+
 .story {
   display: flex;
+}
+.story-index-inline {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.story-date {
+  color: #777;
+  font-size: 14px;
+}
+
+.something {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+  left: 50%;
+  top: 3%;
+  transform: translateX(67.65%);
 }

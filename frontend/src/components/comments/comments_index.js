@@ -7,11 +7,12 @@ export default class CommentIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchStoryComments(this.props.story._id);
+    this.props
+      .fetchAllUsers()
+      .then(() => this.props.fetchStoryComments(this.props.story._id));
   }
 
   render() {
-    debugger;
     if (this.props.comments.length === 0) {
       return null;
     }
@@ -24,6 +25,7 @@ export default class CommentIndex extends Component {
               <CommentIndexItem
                 key={comment._id}
                 comment={comment}
+                users={this.props.users}
                 currentUser={this.props.currentUser}
               />
             ))}

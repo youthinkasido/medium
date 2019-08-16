@@ -8,20 +8,22 @@ class CommentsIndexItem extends React.Component {
   }
 
   render() {
-    let { comment } = this.props;
-
+    let { comment, users } = this.props;
+    let user = Object.values(users).find(user => user._id === comment.commenterId);
     return (
       <li className="comment-list-item">
         <div>
           <div className="comment-name-container">
-            <p className="comment-name">{comment._id}</p>
+            <p className="comment-name">
+              {user.firstName} {user.lastName}
+            </p>
           </div>
           <div className="comment-date-container">
             <p className="comment-date">
               {new Date(comment.date)
                 .toString()
                 .split(" ")
-                .slice(1, 3)
+                .slice(1, 4)
                 .join(" ")}
             </p>
           </div>

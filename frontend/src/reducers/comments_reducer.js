@@ -12,10 +12,8 @@ const commentsReducer = (
       newState.all = action.comments.data;
       return newState;
     case RECEIVE_COMMENT:
-      debugger;
       newState.all.push(action.comment.data);
       newState.comment = action.comment.data;
-      debugger;
       return newState;
     default:
       return state;

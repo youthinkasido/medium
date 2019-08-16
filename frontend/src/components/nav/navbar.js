@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -21,6 +21,7 @@ class NavBar extends React.Component {
     this.setState({
       clicked: false
     });
+
     this.props.logout();
   }
 
@@ -30,6 +31,7 @@ class NavBar extends React.Component {
     this.setState({
       clicked: false
     });
+    this.props.history.push("/new-story");
   }
 
   handleClick(e) {
@@ -50,7 +52,9 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar">
         <div className="navbar-container">
-          <div className="navbar-logo">Well Done</div>
+          <Link to="/">
+            <div className="navbar-logo">Well Done</div>
+          </Link>
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
@@ -64,8 +68,8 @@ class NavBar extends React.Component {
                 <div className="dropdown-logout">
                   <button onClick={this.handleLogout}>Sign out</button>
                 </div>
-                <div className="dropdown-logout">
-                  <Link to={"/new-story"} onClick={this.handleNewStory}>New Story</Link>
+                <div className="dropdown-logout" onClick={this.handleNewStory}>
+                  <button>New Story</button>
                 </div>
               </div>
             </div>
@@ -85,4 +89,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

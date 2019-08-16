@@ -5,7 +5,7 @@
 
 .story-show-content {
   font-size: 21px;
-
+  margin-bottom: 2em;
   color: #484848;
   font-family: "Montserrat", sans-serif;
   margin-top: 2em;
@@ -60,4 +60,18 @@
 
 .story-show-timestamp {
   margin-top: 15px;
+}
+
+.story-index-inline{
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.story-date {
+  color: #777;
+  font-size: 14px;
+}
+
+.story-show-follow {
+  padding: 20px;
 }
