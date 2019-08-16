@@ -16,6 +16,8 @@
 .story-index-container {
   width: 1100px;
   margin: 80px auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .story-list-item {
@@ -28,7 +30,7 @@
   max-width: 650px;
 }
 
-.story-index-inline{
+.story-index-inline {
   display: inline-block;
   margin-right: 12px;
 }
@@ -36,4 +38,17 @@
 .story-date {
   color: #777;
   font-size: 14px;
+}
+
+.something {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+  /* top: 16px;
+  right: 162.5px; */
+  left: 50%;
+  top: 3%;
+  transform: translateX(67.65%);
 }

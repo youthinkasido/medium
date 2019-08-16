@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import FeaturedStories from "./Featured_stories";
-import { fetchStories } from "../../../actions/story_actions";
-import { fetchAllUsers } from '../../../actions/user_actions';
-import { follow, unfollow } from '../../../actions/follow_actions';
+import FeaturedStories from "./featured_stories_index";
+import { fetchStories } from "../../actions/story_actions";
+import { fetchAllUsers } from '../../actions/user_actions';
+import { follow, unfollow } from '../../actions/follow_actions';
 
 const mapStateToProps = ({ session, entities }) => {
 
