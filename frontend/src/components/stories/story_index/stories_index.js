@@ -6,18 +6,13 @@ export default class new_story extends Component {
     super(props);
 
     this.state = {
-      title: "",
-      body: "",
-      errors: {},
       toggle: false
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllUsers();
-
     this.props.fetchStories();
   }
 
@@ -29,25 +24,6 @@ export default class new_story extends Component {
     this.setState({
       toggle: true
     });
-  }
-
-  update(field) {
-    return e =>
-      this.setState({
-        [field]: e.currentTarget.value
-      });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    let story = {
-      title: this.state.title,
-      body: this.state.body,
-      authorId: this.props.sessionId
-    };
-
-    this.props.createStory(story);
   }
 
   render() {
