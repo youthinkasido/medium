@@ -1,6 +1,5 @@
 import {
   RECEIVE_STORIES,
-  RECEIVE_USER_STORIES,
   RECEIVE_NEW_STORY,
   RECEIVE_STORY
 } from "../actions/story_actions";
@@ -17,9 +16,6 @@ const storiesReducer = (
       return newState;
     case RECEIVE_STORY:
       newState.story = action.story.data;
-      return newState;
-    case RECEIVE_USER_STORIES:
-      newState.user = action.stories.data;
       return newState;
     case RECEIVE_NEW_STORY:
       newState.new = action.story.data;

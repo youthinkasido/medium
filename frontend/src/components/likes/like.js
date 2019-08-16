@@ -25,7 +25,7 @@ class Like extends React.Component {
                 }
             }
 
-            if (this.state.liked) {
+            if (this.state.liked && this.props.story.likerIds.includes(this.props.currentUser.id)) {
                 this.props.toggle(); // should trigger a re render of the parent component, passed in through inline props in stories_index_item
 
                 let index = this.props.story.likerIds.indexOf(this.props.currentUser.id); // index of currentUsers id within story's followers array
@@ -40,7 +40,7 @@ class Like extends React.Component {
                         liked: false
                     });
                 });
-            } else {
+            } else if (!this.state.liked && !this.props.story.likerIds.includes(this.props.currentUser.id)) {
                 this.props.toggle();
                 this.props.story.likerIds.push(this.props.currentUser.id);
 

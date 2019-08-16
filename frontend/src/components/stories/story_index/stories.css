@@ -26,3 +26,7 @@
 .story-index-list {
   max-width: 650px;
 }
+
+.story {
+  display: flex;
+}

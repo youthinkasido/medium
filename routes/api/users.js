@@ -9,7 +9,22 @@ const validateLoginInput = require("../../validation/login");
 
 const router = express.Router();
 
+router.patch("/:id", (req, res) => {
+  debugger
+  User.findById(req.params.id)
+    .then(user => {
+      user.description = req.body.description;
+
+      user.save((err, user) => {
+        console.log(err)
+      });
+
+      res.send(user);
+    })
+})
+
 router.get("/", (req, res) => {
+  debugger
   User.find()
     .then(users => res.json(users))
     .catch(err => res.status(404).json({ nousersfound: "No users :(" }));
