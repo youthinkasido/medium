@@ -11,6 +11,7 @@ export default class CommentIndex extends Component {
   }
 
   render() {
+    debugger;
     if (this.props.comments.length === 0) {
       return null;
     }

@@ -23,7 +23,8 @@ export default class Comments extends Component {
       });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     const comment = {
       storyId: this.state.storyId,
       commenterId: this.state.commenterId,
@@ -35,26 +36,26 @@ export default class Comments extends Component {
   render() {
     return (
       <div className="comment-wrapper">
-      <div className="comment-container">
-        <div className="comment-content">
-          <form className="comment-form" onSubmit={this.handleSubmit}>
-            <div className="commenter-name">
-              {this.props.currentUser.firstName}
-            </div>
-            <div className="comment-input-container">
-              <Textarea
-                useCacheForDOMMeasurements
-                value={this.state.body}
-                onChange={this.update("body")}
-                className="comment-form-input"
-                placeholder="Write a response..."
-              />
-            </div>
-            <button className="comment-button">Publish</button>
-          </form>
+        <div className="comment-container">
+          <div className="comment-content">
+            <form className="comment-form" onSubmit={this.handleSubmit}>
+              <div className="commenter-name">
+                {this.props.currentUser.firstName}
+              </div>
+              <div className="comment-input-container">
+                <Textarea
+                  useCacheForDOMMeasurements
+                  value={this.state.body}
+                  onChange={this.update("body")}
+                  className="comment-form-input"
+                  placeholder="Write a response..."
+                />
+              </div>
+              <button className="comment-button">Publish</button>
+            </form>
+          </div>
+          <CommentIndexContainer />
         </div>
-        <CommentIndexContainer />
-      </div>
       </div>
     );
   }
