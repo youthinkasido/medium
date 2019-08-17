@@ -1,9 +1,9 @@
-import { RECEIVE_USER, RECEIVE_USERS } from "../actions/user_actions";
+import { RECEIVE_USER, RECEIVE_USERS, RECEIVE_USER_AVATAR } from "../actions/user_actions";
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions";
 import { merge } from 'lodash';
 
 const usersReducer = (
-  state = { all: [], user: {}, new: undefined },
+  state = { all: [], user: {}, new: undefined, avatarURL: '' },
   action
 ) => {
   Object.freeze(state);
@@ -22,6 +22,10 @@ const usersReducer = (
       newState.user = action.user.data;
 
       return newState;
+
+      case RECEIVE_USER_AVATAR:
+        newState.avatarURL = action.avatarURL
+        return newState
     default:
       return state;
   }

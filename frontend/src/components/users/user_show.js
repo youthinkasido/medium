@@ -9,19 +9,19 @@ import firebase from "firebase";
 import config from "../firebase-config";
 
 
-
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      avatarPhoto: ''
-    }
+      avatarURL: "",
+      image: "",
+      progress: 0
+    };
 
     this.state = {
       toggle: false
     };
-
-    this.uploadAvatar = this.uploadAvatar.bind(this)
   }
 
   componentDidMount() {
@@ -35,9 +35,36 @@ class UserShow extends React.Component {
     });
   }
 
-  uploadAvatar(){
+  handleUploadStart = () => {
+    this.setState({
+      progress: 0
+    });
+  };
 
-  }
+  handleUploadSuccess = filename => {
+    this.setState({
+      image: filename,
+      progress: 100
+    });
+
+    firebase
+      .storage()
+      .ref("avatarimage")
+      .child(filename)
+      .getDownloadURL()
+      .then(url =>
+        this.setState({
+          avatarURL: url
+        })
+      )
+      .then(() => this.props.receiveNewAvatarImageURL(this.state.avatarURL));
+  };
+
+  handleProgress = progress => {
+    this.setState({
+      progress: progress
+    });
+  };
 
   render() {
     let name;
@@ -63,17 +90,30 @@ class UserShow extends React.Component {
             <div className="username">{fullName}</div>
             {/* <p className='user-description'>{this.props.author.description}</p> */}
             <div className="user-description-container">
+              <FileUploader
+                accept="image/*"
+                name="image"
+                storageRef={firebase.storage().ref("avatarimage")}
+                onUploadStart={this.handleUploadStart}
+                onUploadSuccess={this.handleUploadSuccess}
+                onProgress={this.handleProgress}
+              />
+
               <p className="user-description">
-                Hello, welcome to my wonderous blog of wonders. I like dogs
-                and pizza and session tokens. I have a pretty cool authentic
-                yo yo collection that is sure to impress even the toughest
-                of critics!
+                Hello, welcome to my wonderous blog of wonders. I like dogs and
+                pizza and session tokens. I have a pretty cool authentic yo yo
+                collection that is sure to impress even the toughest of critics!
               </p>
+
               <div className="avatar-container">
-                
-                <div onClick={this.uploadAvatar} className="first-letter">{name}</div>
+                {this.props.avatarURL ? <img src={this.props.avatarURL} />
+                : <div className="first-letter"> 
+                  {name}
+                </div>
+                }
               </div>
             </div>
+
             <div className="button-container">
               <Follow
                 currentUser={this.props.currentUser}
