@@ -33,18 +33,15 @@ export default class new_story extends Component {
       body: this.state.body,
       authorId: this.props.sessionId
     };
+      this.props.createStory(story);
   }
-
-  
 
   render() {
     return (
       <div className="story-form-container">
         <form className="story-form" onSubmit={this.handleSubmit}>
        
-      
-       
-
+    
           <input
             type="text"
             value={this.state.title}
@@ -53,8 +50,7 @@ export default class new_story extends Component {
             className="story-form-input story-form-title"
           />
 
-        
-
+      
           <Textarea
             useCacheForDOMMeasurements
             value={this.state.body}

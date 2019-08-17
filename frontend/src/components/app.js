@@ -10,13 +10,6 @@ import StoryShowContainer from "./stories/story_show/story_show_container";
 import CommentsContainer from "./comments/comments_container";
 import UserShowContainer from "./users/user_show_container";
 
-// import FileUploader from 'react-firebase-file-uploader'
-// import firebase from 'firebase'
-// import config from "./firebase-config";
-
-// firebase.initializeApp(config)
-
-
 const App = () => (
 
  
