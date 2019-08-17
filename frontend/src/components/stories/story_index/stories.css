@@ -46,8 +46,7 @@
 
 .fixed {
   position: fixed;
-  /* top: 16px;
-  right: 162.5px; */
+
   left: 50%;
   top: 3%;
   transform: translateX(67.65%);
