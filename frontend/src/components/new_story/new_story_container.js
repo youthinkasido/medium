@@ -4,7 +4,8 @@ import { createStory } from "../../actions/story_actions";
 
 const mapStateToProps = state => {
   return {
-    sessionId: state.session.user.id
+    sessionId: state.session.user.id,
+    imageURL: state.entities.stories.imageURL
   };
 };
 

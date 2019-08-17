@@ -22,16 +22,6 @@ const usersReducer = (
       newState.user = action.user.data;
 
       return newState;
-
-    // case RECEIVE_FOLLOW:
-    //   return merge({}, state.user, {
-    //     [action.follow.id]: action.follow
-    //   });      
-    // case REMOVE_FOLLOW:
-    //   let newState = merge({}, state.user);
-    //   delete newState[action.followId];
-
-    //   return newState;
     default:
       return state;
   }

@@ -28,6 +28,10 @@ const UserSchema = new Schema({
     }
   ],
 
+  avatarURL: {
+    type: String
+  },
+
   date: {
     type: Date,
     default: Date.now

@@ -39,7 +39,9 @@ router.get("/user/:userId", (req, res) => {
     .sort({ date: -1 })
     .then(stories => res.json(stories))
     .catch(err =>
-      res.status(404).json({ nostoriesfound: "No stories found from that user" })
+      res
+        .status(404)
+        .json({ nostoriesfound: "No stories found from that user" })
     );
 });
 
@@ -60,11 +62,12 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
+    debugger;
     const newStory = new Story({
       body: req.body.body,
       authorId: req.body.authorId,
-      title: req.body.title
+      title: req.body.title,
+      imageURL: req.body.imageURL
     });
 
     // newStory.save().then(story => {

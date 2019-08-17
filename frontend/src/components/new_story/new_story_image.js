@@ -1,80 +1,81 @@
-import React from 'react'
-import {withRouter} from 'react-router-dom'
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
-import config from '../firebase-config';
-
+import config from "../firebase-config";
 
 firebase.initializeApp(config);
 
+class StoryImageUpload extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      image: "",
+      progress: "",
+      imageURL: "",
+      progress: 0
+    };
+  }
 
-class StoryImageUpload extends React.Component{
-    constructor(props){
-        super(props)
+  handleUploadStart = () => {
+    this.setState({
+      progress: 0
+    });
+  };
 
-        this.state = {
-            image: '',
-            progress: '',
-            imageURL: '',
-            progress: 0
-        }
-    }
+  handleUploadSuccess = filename => {
+    this.setState({
+      image: filename,
+      progress: 100
+    });
+   
 
-    handleUploadStart = () => {
+    firebase
+      .storage()
+      .ref("storyimage")
+      .child(filename)
+      .getDownloadURL()
+      .then(url =>
         this.setState({
-            progress: 0
+          imageURL: url
         })
-    }
+      )
+      .then(() => this.props.receiveNewStoryImageURL(this.state.imageURL));
+  };
 
-    handleUploadSuccess = filename => {
+  handleProgress = progress => {
+    this.setState({
+      progress: progress
+    });
+  };
 
-        this.setState({
-            image: filename,
-            progress: 100
-        })
-        
-        firebase.storage().ref('storyimage').child(filename).getDownloadURL()
-        .then(url => this.setState({
-            imageURL: url
-        }))
-    }
+  render() {
+    console.log(this.state);
+    return (
+      <div>
+        <label>Progress</label>
+        <p className="image-progress">{this.state.progress}%</p>
 
-    handleProgress = progress => {
-        this.setState({
-            progress:progress
-        })
-    }
+        <br />
+        <br />
+        <br />
 
+        <label>Image:</label>
+        {this.state.image && <img src={this.state.imageURL} />}
 
-    render(){
-
-        console.log(this.state)
-        return (
-          <div>
-            <label>Progress</label>
-            <p className="image-progress">{this.state.progress}%</p>
-
-            <br />
-            <br />
-            <br />
-
-            <label>Image:</label>
-            {this.state.image && <img src={this.state.imageURL} />}
-
-            <FileUploader
-              accept="image/*"
-              name="image"
-              storageRef={firebase.storage().ref("storyimage")}
-              onUploadStart={this.handleUploadStart}
-              onUploadSuccess={this.handleUploadSuccess}
-              onProgress={this.handleProgress}
-            />
-          </div>
-        );
-    }
+        <FileUploader
+          accept="image/*"
+          name="image"
+          storageRef={firebase.storage().ref("storyimage")}
+          onUploadStart={this.handleUploadStart}
+          onUploadSuccess={this.handleUploadSuccess}
+          onProgress={this.handleProgress}
+        />
+      </div>
+    );
+  }
 }
 
-export default withRouter(StoryImageUpload)
-
+export default withRouter(StoryImageUpload);

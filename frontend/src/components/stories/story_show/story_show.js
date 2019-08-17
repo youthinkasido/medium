@@ -5,7 +5,6 @@ import CommentsContainer from "../../comments/comments_container";
 import Follow from "../../follows/follow";
 import Like from "../../likes/like";
 
-
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +45,9 @@ class StoryShow extends React.Component {
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
-              <Link to={`/users/${author._id}`}>{author.firstName} {author.lastName}</Link>
+              <Link to={`/users/${author._id}`}>
+                {author.firstName} {author.lastName}
+              </Link>
             </p>
 
             <Follow
@@ -59,14 +60,16 @@ class StoryShow extends React.Component {
               className="story-show-follow"
             />
 
-            <p className="story-date">{new Date(story.created_at)
-              .toString()
-              .split(" ")
-              .slice(1, 4)
-              .join(" ")}</p>
+            <p className="story-date">
+              {new Date(story.created_at)
+                .toString()
+                .split(" ")
+                .slice(1, 4)
+                .join(" ")}
+            </p>
           </div>
           <img
-            src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+            src={this.props.story.imageURL}
             alt="city image"
             className="story-show-img"
           />

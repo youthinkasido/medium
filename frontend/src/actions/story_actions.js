@@ -3,6 +3,7 @@ import * as APIUtil from "../util/story_api_util";
 export const RECEIVE_STORIES = "RECEIVE_STORIES";
 export const RECEIVE_STORY = "RECEIVE_STORY";
 export const RECEIVE_NEW_STORY = "RECEIVE_NEW_STORY";
+export const RECEIVE_NEW_STORY_IMAGE = "RECEIVE_NEW_STORY_IMAGE";
 
 export const receiveStories = stories => ({
   type: RECEIVE_STORIES,
@@ -20,6 +21,13 @@ export const receiveNewStory = story => {
   return {
     type: RECEIVE_NEW_STORY,
     story
+  };
+};
+
+export const receiveNewStoryImageURL = imageURL => {
+  return {
+    type: RECEIVE_NEW_STORY_IMAGE,
+    imageURL
   };
 };
 

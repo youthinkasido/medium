@@ -1,54 +1,54 @@
 .user-info-container {
-    margin: auto;
-    max-width: 30%;
+  margin: auto;
+  max-width: 30%;
 }
 
 .user-description-container {
-    display: inline;
-    max-width: 80%;
+  display: inline;
+  max-width: 80%;
 }
 
 .user-description {
-    max-width: 80%;
-    display: inline-flex;
+  max-width: 80%;
+  display: inline-flex;
 }
 
 .user-avatar {
-    float: right;
-    font-size: 80px;
-    margin-right: 20px;
-    position: relative;
-    bottom: 25px;
+  float: right;
+  font-size: 80px;
+  margin-right: 20px;
+  position: relative;
+  bottom: 25px;
 }
 
 .avatar-container {
-    display: inline;
+  display: inline;
 }
 
 .button-container {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
 .username {
-    margin-bottom: 10px;
-    font-size: 30px;
+  margin-bottom: 10px;
+  font-size: 30px;
 }
 
 .edit-profile {
-    margin-left: 20px;
-    background: none;
-    border: none;
-    color: black;
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 4px;
-    font-family: sans-serif;
-    font-size: 12px;
-    padding-left: 3%;
-    padding-right: 3%;
+  margin-left: 20px;
+  background: none;
+  border: none;
+  color: black;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 12px;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
-.edit-profile:hover{
+.edit-profile:hover {
   background: black;
   color: white;
 }
@@ -65,20 +65,20 @@
 }
 
 .user-show-hr {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
-.first-letter{
-    font-size: 50px;
-    background: blue;
-    color: white;
-    width: 100px;
-    height: 100px;
-    border-radius: 99px;
-    text-align: center;
-    padding-top: 23px;
-    float: right;
-    position: relative;
-    bottom: 40px;
-    left: 5px;
+.first-letter {
+  font-size: 50px;
+  background: blue;
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 99px;
+  text-align: center;
+  padding-top: 23px;
+  float: right;
+  position: relative;
+  bottom: 40px;
+  left: 5px;
 }
