@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import firebase from 'firebase/app'
 
-// We will create this component shortly
+
+
+
+
 import Root from "./components/root";
 
 // We set this up in the last section

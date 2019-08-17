@@ -25,6 +25,9 @@ const StorySchema = new Schema({
     type: Date,
     default: Date.now,
     required: true
+  },
+  imageURL: {
+    type: String
   }
 });
 

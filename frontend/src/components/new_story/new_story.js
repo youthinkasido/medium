@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Textarea from "react-textarea-autosize";
 import "./new_story.css"
-import axios from 'axios'
+import NewStoryImage from "./new_story_image";
+
 
 export default class new_story extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export default class new_story extends Component {
       title: "",
       body: "",
       errors: {},
-      image: false
+      imageURL: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,6 +62,8 @@ export default class new_story extends Component {
             className="story-form-input"
             placeholder="Tell your story..."
           />
+
+          <NewStoryImage />
 
           <button className="publish-button">Publish</button>
         </form>
