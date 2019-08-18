@@ -3,10 +3,8 @@ import { withRouter, Link } from "react-router-dom";
 import Follow from "../follows/follow";
 import StoryIndexItem from "../stories/story_index/stories_index_item";
 import "./user_show.css";
-
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
-import config from "../firebase-config";
 
 
 class UserShow extends React.Component {
@@ -27,7 +25,6 @@ class UserShow extends React.Component {
     this.props.fetchUserStories(this.props.match.params.userId);
   }
 
-
   toggle() {
     this.setState({
       toggle: true
@@ -41,10 +38,10 @@ class UserShow extends React.Component {
   };
 
   handleUploadSuccess = filename => {
-     this.setState({
-       image: filename,
-       progress: 100
-     });
+    this.setState({
+      image: filename,
+      progress: 100
+    });
 
     firebase
       .storage()
@@ -59,8 +56,8 @@ class UserShow extends React.Component {
           email: this.props.author.email,
           id: this.props.author._id
         })
-      ).then(()=>this.props.createUserAvatar(this.state))
-   
+      )
+      .then(() => this.props.createUserAvatar(this.state));
   };
 
   handleProgress = progress => {
@@ -73,7 +70,6 @@ class UserShow extends React.Component {
     let name;
     let fullName;
 
-    // lower.charAt(0).toUpperCase() + lower.substring(1);
     if (this.props.author.firstName) {
       name = this.props.author.firstName[0].toUpperCase();
 
@@ -109,11 +105,11 @@ class UserShow extends React.Component {
               </p>
 
               <div className="avatar-container">
-                {this.props.avatarURL ? <img src={this.props.avatarURL} />
-                : <div className="first-letter"> 
-                  {name}
-                </div>
-                }
+                {this.props.avatarURL ? (
+                  <img src={this.props.avatarURL} />
+                ) : (
+                  <div className="first-letter">{name}</div>
+                )}
               </div>
             </div>
 

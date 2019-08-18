@@ -62,17 +62,19 @@ class StoryImageUpload extends React.Component {
         <br />
         <br />
 
-        <label>Image:</label>
         {this.state.image && <img src={this.state.imageURL} />}
 
-        <FileUploader
-          accept="image/*"
-          name="image"
-          storageRef={firebase.storage().ref("storyimage")}
-          onUploadStart={this.handleUploadStart}
-          onUploadSuccess={this.handleUploadSuccess}
-          onProgress={this.handleProgress}
-        />
+        <div className="file-uploader" id="upload" className="hide-input">
+          <label for="upload">Upload</label>
+          <FileUploader
+            accept="image/*"
+            name="image"
+            storageRef={firebase.storage().ref("storyimage")}
+            onUploadStart={this.handleUploadStart}
+            onUploadSuccess={this.handleUploadSuccess}
+            onProgress={this.handleProgress}
+          />
+        </div>
       </div>
     );
   }

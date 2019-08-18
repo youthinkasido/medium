@@ -43,3 +43,31 @@
 .image-progress{
   font-size: 40px;
 }
+
+
+/* photo uploader */
+
+
+
+ .hide-input{
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+ }
+
+ label{
+   display: inline-block;
+   cursor: pointer;
+   background-color: orange;
+  padding: 15px 30px;
+  color: white;
+  box-shadow: shadow;
+  transition: all 0.3s;
+ }
+  label:hover{
+    box-shadow:shadow-2;
+  }
+ 
