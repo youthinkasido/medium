@@ -56,7 +56,7 @@ router.post("/register", (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        avatarURL: 'testavatarurl'
+        avatarURL: ''
 
       });
 

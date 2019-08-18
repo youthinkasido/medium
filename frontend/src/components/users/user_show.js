@@ -20,8 +20,6 @@ class UserShow extends React.Component {
       toggle: false,
       id: this.props.author._id
     };
-
-
   }
 
   componentDidMount() {
@@ -29,9 +27,6 @@ class UserShow extends React.Component {
     this.props.fetchUserStories(this.props.match.params.userId);
   }
 
-  componentWillReceiveProps(nextProps){
-  
-  }
 
   toggle() {
     this.setState({
