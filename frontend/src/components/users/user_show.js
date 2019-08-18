@@ -16,12 +16,11 @@ class UserShow extends React.Component {
     this.state = {
       avatarURL: "",
       image: "",
-      progress: 0
-    };
-
-    this.state = {
+      progress: 0,
       toggle: false
     };
+
+
   }
 
   componentDidMount() {
@@ -45,20 +44,12 @@ class UserShow extends React.Component {
   };
 
   handleUploadSuccess = filename => {
-
-    this.setState({
-      image: filename,
-      progress: 100
-    });
-
-          let user = {
-            firstName: this.props.currentUser.firstName,
-            lastName: this.props.currentUser.LastName,
-            email: this.props.currentUser.email,
-            avatarURL: this.state.avatarURL
-          };
-
-
+ 
+   
+     this.setState({
+       image: filename,
+       progress: 100
+     });
 
     firebase
       .storage()
@@ -67,17 +58,18 @@ class UserShow extends React.Component {
       .getDownloadURL()
       .then(url =>
         this.setState({
-          avatarURL: url
+          avatarURL: url,
+        progress: 30
         })
-      )
-     
-      .then(() => this.props.receiveNewAvatarImageURL(this.state.avatarURL))
- 
+      ).then( ()=> this.props.receiveNewAvatarImageURL(this.state.avatarURL))
+      
+      if (this.state.avatarURL){
+        console.log('pants')
+      }
 
 
-        if (this.state.avatarURL && user){
-     this.props.createUserAvatar(user)
- }
+    //  .then(() => this.props.createUserAvatar(user))
+
    
   };
 

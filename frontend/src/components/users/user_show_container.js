@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => {
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
     receiveNewAvatarImageURL: avatar => dispatch(receiveNewAvatarImageURL(avatar)),
-    createUserAvatar: user => dispatch(createUserAvatar(user))
+    // git
   };
 };
 
