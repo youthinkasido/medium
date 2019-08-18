@@ -34,14 +34,14 @@ router.get("/:storyId/comments", (req, res) => {
     );
 });
 
-// router.get("/user/:user_id", (req, res) => {
-//   Story.find({ user: req.params.user_id })
-//     .sort({ date: -1 })
-//     .then(stories => res.json(stories))
-//     .catch(err =>
-//       res.status(404).json({ nostoriesfound: "No stories found from that user" })
-//     );
-// });
+router.get("/user/:userId", (req, res) => {
+  Story.find({ authorId: req.params.userId })
+    .sort({ date: -1 })
+    .then(stories => res.json(stories))
+    .catch(err =>
+      res.status(404).json({ nostoriesfound: "No stories found from that user" })
+    );
+});
 
 // router.get("/:id", (req, res) => {
 //   Story.findById(req.params.id)

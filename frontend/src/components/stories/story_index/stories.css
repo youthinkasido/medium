@@ -30,6 +30,9 @@
   max-width: 650px;
 }
 
+.story {
+  display: flex;
+}
 .story-index-inline {
   display: inline-block;
   margin-right: 12px;
@@ -46,7 +49,6 @@
 
 .fixed {
   position: fixed;
-
   left: 50%;
   top: 3%;
   transform: translateX(67.65%);

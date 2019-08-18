@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./story_show.css";
 import CommentsContainer from "../../comments/comments_container";
 import Follow from "../../follows/follow";
 import Like from "../../likes/like";
+
 
 class StoryShow extends React.Component {
   constructor(props) {
@@ -44,8 +45,8 @@ class StoryShow extends React.Component {
         <div className="story-show-container">
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
-            <p className="story-index-inline">
-              {author.firstName} {author.lastName}
+            <p className="story-show-name">
+              <Link to={`/users/${author._id}`}>{author.firstName} {author.lastName}</Link>
             </p>
 
             <Follow
