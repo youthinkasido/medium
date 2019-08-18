@@ -33,7 +33,6 @@ class StoryImageUpload extends React.Component {
 
 
   handleUploadSuccess = filename => {
-    debugger;
     this.setState({
       image: filename,
       progress: 100
@@ -58,24 +57,37 @@ class StoryImageUpload extends React.Component {
     alert('error')
   }
 
+  removePhoto = () =>{
+    this.setState({
+      image: "",
+      imageURL: ""
+    })
+  }
+
   render() {
-    console.log(this.state);
+
     return (
       <div>
         <div className="progress-bar">
           <label>Progress</label>
           <p className="image-progress">{this.state.progress}%</p>
         </div>
+        {
+          <div
+            className={
+              this.state.image
+                ? "show-story-image"
+                : "hide-story-image show-remove-photo"
+            }
+          >
+            <img src={this.state.imageURL} />
+            <img src="./remove.svg" onClick={this.removePhoto} />
+          </div>
+        }
 
-        <br />
-        <br />
-        <br />
+        <div className="show-remove-photo" />
 
-   
-
-        {<div className={ this.state.image ? 'show-story-image': 'hide-story-image' }><img src={this.state.imageURL} /></div>}
-        {/* {this.state.image && <img src={this.state.imageURL} />} */}
-        <div className="file-uploader">
+        <div className="show-add-photo">
           <img src="./addimage.svg" />
           <FileUploader
             accept="image/*"

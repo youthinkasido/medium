@@ -49,7 +49,7 @@
 
 /* photo uploader */
 
-.file-uploader input[type="file"]{
+.show-add-photo input[type="file"]{
     cursor: pointer;
     height: 100%;
     position: absolute;
@@ -65,30 +65,29 @@
 
 }
 
-.file-uploader{
-    height: 32px;
+.show-add-photo{
+  height: 32px;
     width: 64px;
     position: relative;
-
     margin-bottom: 90px;
+    margin: auto;
+    top: -40px;
+    left: -528px;
 }
 
-.file-uploader img{
+.show-add-photo img{
   width: 40px;
-z-index: 200;
+  z-index: 200;
   fill:red;
 }
 
-.file-uploader:hover{
+.show-add-photo:hover{
     cursor: pointer;
 }
 
-.file-uploader:hover{
-  cursor: pointer;
 
-}
 
-.show-story-image{
+.show-story-image img:nth-child(1){
     border: 2px solid green;
     border-radius: 20px;
     margin: auto;
@@ -99,6 +98,24 @@ z-index: 200;
 
 .hide-story-image{
   display: none;
+}
+
+
+.show-remove-photo{
+position: relative;
+margin: auto;
+
+}
+
+
+.show-story-image img:nth-child(2){
+   position: relative;
+
+    width: 40px;
+    margin: auto;
+
+    
+  
 }
 
 
