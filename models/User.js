@@ -27,7 +27,6 @@ const UserSchema = new Schema({
       ref: "users"
     }
   ],
-
   avatarURL: {
     type: String
   },

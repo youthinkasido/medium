@@ -11,6 +11,7 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     receiveNewStoryImageURL: imgURL => dispatch(receiveNewStoryImageURL(imgURL))
+  
   };
 };
 

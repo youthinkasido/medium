@@ -56,7 +56,7 @@ router.post("/register", (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        avatarURL: req.body.avatarURL
+        avatarURL: 'testavatarurl'
 
       });
 
@@ -73,6 +73,7 @@ router.post("/register", (req, res) => {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email
+                // avatarURL: user.avatarURL
               };
               jwt.sign(
                 payload,
@@ -128,6 +129,21 @@ router.post("/login", (req, res) => {
         return res.status(400).json({ password: "Incorrect password" });
       }
     });
+  });
+});
+
+
+
+////////// profile image
+router.post("/:id", (req, res) => {
+  debugger;
+  User.findById(req.params.id).then(user => {
+    user.avatarURL = req.body.avatarURL;
+    user.save((err, user) => {
+      console.log(err);
+    });
+
+    res.send(user);
   });
 });
 

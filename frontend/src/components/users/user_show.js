@@ -25,8 +25,11 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
+   
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchUserStories(this.props.match.params.userId);
+
+    
   }
 
   toggle() {
@@ -42,10 +45,20 @@ class UserShow extends React.Component {
   };
 
   handleUploadSuccess = filename => {
+
     this.setState({
       image: filename,
       progress: 100
     });
+
+          let user = {
+            firstName: this.props.currentUser.firstName,
+            lastName: this.props.currentUser.LastName,
+            email: this.props.currentUser.email,
+            avatarURL: this.state.avatarURL
+          };
+
+
 
     firebase
       .storage()
@@ -57,7 +70,15 @@ class UserShow extends React.Component {
           avatarURL: url
         })
       )
-      .then(() => this.props.receiveNewAvatarImageURL(this.state.avatarURL));
+     
+      .then(() => this.props.receiveNewAvatarImageURL(this.state.avatarURL))
+ 
+
+
+        if (this.state.avatarURL && user){
+     this.props.createUserAvatar(user)
+ }
+   
   };
 
   handleProgress = progress => {

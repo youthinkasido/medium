@@ -7,3 +7,9 @@ export const fetchAllUsers = () => {
 export const fetchUser = id => {
   return axios.get(`api/users/${id}`, id);
 };
+
+//////
+export const createUserAvatar = user => {
+  debugger
+  return axios.post(`api/users/${user.id}`, user);
+}

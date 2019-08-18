@@ -62,7 +62,7 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    debugger;
+  
     const newStory = new Story({
       body: req.body.body,
       authorId: req.body.authorId,
