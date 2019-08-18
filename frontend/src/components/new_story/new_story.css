@@ -60,19 +60,19 @@
     opacity: 0;
     -moz-opacity: 0;
     width: 53px;
-
     border: 1px solid black;
 
 }
 
 .show-add-photo{
-  height: 32px;
+    height: 32px;
     width: 64px;
     position: relative;
     margin-bottom: 90px;
     margin: auto;
-    top: -40px;
+    top: 10px;
     left: -528px;
+    margin-bottom: 40px;
 }
 
 .show-add-photo img{
@@ -84,8 +84,6 @@
 .show-add-photo:hover{
     cursor: pointer;
 }
-
-
 
 .show-story-image img:nth-child(1){
     border: 2px solid green;
@@ -101,21 +99,15 @@
 }
 
 
-.show-remove-photo{
-position: relative;
-margin: auto;
-
-}
-
-
 .show-story-image img:nth-child(2){
-   position: relative;
-
+    position: relative;
     width: 40px;
     margin: auto;
-
-    
-  
+    display: inherit;
+    margin-top: 20px;
 }
 
 
+.hide-camera{
+  display:none;
+}
