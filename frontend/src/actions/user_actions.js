@@ -33,12 +33,8 @@ export const fetchUser = id => dispatch => {
   return APIUtil.fetchUser(id).then(user => dispatch(receiveUser(user)));
 };
 
-
-
 /////
-
 export const createUserAvatar = user => dispatch => {
-  debugger
   return APIUtil.createUserAvatar(user).then(avatarURL =>
     dispatch(receiveNewAvatarImageURL(avatarURL))
   );

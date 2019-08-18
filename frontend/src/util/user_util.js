@@ -10,6 +10,5 @@ export const fetchUser = id => {
 
 //////
 export const createUserAvatar = user => {
-  debugger
   return axios.post(`api/users/${user.id}`, user);
 }

@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import UserShow from "./user_show";
 import {
   fetchUser,
-  receiveNewAvatarImageURL,
   createUserAvatar
 } from "../../actions/user_actions";
 import {
@@ -15,7 +14,7 @@ const mapStateToProps = ({ session, entities }) => {
     currentUser: session.user,
     author: entities.users.user,
     stories: entities.stories.all,
-    avatarURL: entities.users.avatarURL
+    avatarURL: entities.users.user.avatarURL
   };
 };
 
@@ -25,8 +24,7 @@ const mapDispatchToProps = dispatch => {
     fetchUser: id => dispatch(fetchUser(id)),
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
-    receiveNewAvatarImageURL: avatar => dispatch(receiveNewAvatarImageURL(avatar)),
-    // git
+    createUserAvatar: avatar => dispatch(createUserAvatar(avatar)),
   };
 };
 

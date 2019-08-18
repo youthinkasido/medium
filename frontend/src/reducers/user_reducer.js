@@ -23,9 +23,10 @@ const usersReducer = (
 
       return newState;
 
-      case RECEIVE_USER_AVATAR:
-        newState.avatarURL = action.avatarURL
-        return newState
+    case RECEIVE_USER_AVATAR:
+      newState.avatarURL = action.avatarURL.data.avatarURL;
+      newState.user.avatarURL = action.avatarURL.data.avatarURL;
+      return newState;
     default:
       return state;
   }

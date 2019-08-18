@@ -17,18 +17,20 @@ class UserShow extends React.Component {
       avatarURL: "",
       image: "",
       progress: 0,
-      toggle: false
+      toggle: false,
+      id: this.props.author._id
     };
 
 
   }
 
   componentDidMount() {
-   
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchUserStories(this.props.match.params.userId);
+  }
 
-    
+  componentWillReceiveProps(nextProps){
+  
   }
 
   toggle() {
@@ -44,8 +46,6 @@ class UserShow extends React.Component {
   };
 
   handleUploadSuccess = filename => {
- 
-   
      this.setState({
        image: filename,
        progress: 100
@@ -59,17 +59,12 @@ class UserShow extends React.Component {
       .then(url =>
         this.setState({
           avatarURL: url,
-        progress: 30
+          firstName: this.props.author.firstName,
+          lastName: this.props.author.lastName,
+          email: this.props.author.email,
+          id: this.props.author._id
         })
-      ).then( ()=> this.props.receiveNewAvatarImageURL(this.state.avatarURL))
-      
-      if (this.state.avatarURL){
-        console.log('pants')
-      }
-
-
-    //  .then(() => this.props.createUserAvatar(user))
-
+      ).then(()=>this.props.createUserAvatar(this.state))
    
   };
 

@@ -136,7 +136,6 @@ router.post("/login", (req, res) => {
 
 ////////// profile image
 router.post("/:id", (req, res) => {
-  debugger;
   User.findById(req.params.id).then(user => {
     user.avatarURL = req.body.avatarURL;
     user.save((err, user) => {
