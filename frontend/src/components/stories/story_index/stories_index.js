@@ -12,16 +12,24 @@ export default class NewStory extends Component {
       toggle: false
     };
 
+    this.fixedClassAdded = false;
     this.featuredListFixedOnScroll = this.featuredListFixedOnScroll.bind(this);
   }
 
   featuredListFixedOnScroll(e) {
     this.featuredList =
       this.featuredList || document.getElementById("featured");
+
     if (window.scrollY > 132) {
-      this.featuredList.classList.add("fixed");
+      if (!this.fixedClassAdded) {
+        this.featuredList.classList.add("fixed");
+        this.fixedClassAdded = true;
+      }
     } else {
-      this.featuredList.classList.remove("fixed");
+      if (this.fixedClassAdded) {
+        this.featuredList.classList.remove("fixed");
+        this.fixedClassAdded = false;
+      }
     }
   }
 
