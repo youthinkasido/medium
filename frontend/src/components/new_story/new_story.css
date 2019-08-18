@@ -35,10 +35,12 @@
 
 }
 
-
-
 /* Image uploader */
 
+
+.progress-bar{
+
+}
 
 .image-progress{
   font-size: 40px;
@@ -47,27 +49,56 @@
 
 /* photo uploader */
 
+.file-uploader input[type="file"]{
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    font-size: 30px;
+    opacity: 0;
+    -moz-opacity: 0;
+    width: 53px;
+
+    border: 1px solid black;
+
+}
+
+.file-uploader{
+    height: 32px;
+    width: 64px;
+    position: relative;
+
+    margin-bottom: 90px;
+}
+
+.file-uploader img{
+  width: 40px;
+z-index: 200;
+  fill:red;
+}
+
+.file-uploader:hover{
+    cursor: pointer;
+}
+
+.file-uploader:hover{
+  cursor: pointer;
+
+}
+
+.show-story-image{
+    border: 2px solid green;
+    border-radius: 20px;
+    margin: auto;
+    padding: 0px;
+    width: 55%;
+    overflow: auto;
+}
+
+.hide-story-image{
+  display: none;
+}
 
 
- .hide-input{
-  position: absolute;
-  overflow: hidden;
-  z-index: -1;
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
- }
-
- label{
-   display: inline-block;
-   cursor: pointer;
-   background-color: orange;
-  padding: 15px 30px;
-  color: white;
-  box-shadow: shadow;
-  transition: all 0.3s;
- }
-  label:hover{
-    box-shadow:shadow-2;
-  }
- 

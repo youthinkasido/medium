@@ -25,12 +25,21 @@ class StoryImageUpload extends React.Component {
     });
   };
 
+  handleProgress = progress => {
+    this.setState({
+      progress: progress
+    });
+  };
+
+
   handleUploadSuccess = filename => {
+    debugger;
     this.setState({
       image: filename,
       progress: 100
     });
-   
+
+    // if (filename.size)
 
     firebase
       .storage()
@@ -45,27 +54,29 @@ class StoryImageUpload extends React.Component {
       .then(() => this.props.receiveNewStoryImageURL(this.state.imageURL));
   };
 
-  handleProgress = progress => {
-    this.setState({
-      progress: progress
-    });
-  };
+  handleUploadError = () => { 
+    alert('error')
+  }
 
   render() {
     console.log(this.state);
     return (
       <div>
-        <label>Progress</label>
-        <p className="image-progress">{this.state.progress}%</p>
+        <div className="progress-bar">
+          <label>Progress</label>
+          <p className="image-progress">{this.state.progress}%</p>
+        </div>
 
         <br />
         <br />
         <br />
 
-        {this.state.image && <img src={this.state.imageURL} />}
+   
 
-        <div className="file-uploader" id="upload" className="hide-input">
-          <label for="upload">Upload</label>
+        {<div className={ this.state.image ? 'show-story-image': 'hide-story-image' }><img src={this.state.imageURL} /></div>}
+        {/* {this.state.image && <img src={this.state.imageURL} />} */}
+        <div className="file-uploader">
+          <img src="./addimage.svg" />
           <FileUploader
             accept="image/*"
             name="image"
@@ -73,6 +84,9 @@ class StoryImageUpload extends React.Component {
             onUploadStart={this.handleUploadStart}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
+            // onUploadError={this.handleUploadError}
+            maxHeight={400}
+            maxWidth={600}
           />
         </div>
       </div>
