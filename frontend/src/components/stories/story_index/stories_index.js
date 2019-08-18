@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import StoryIndexItem from "./stories_index_item";
 import FeaturedStoryContainer from "../../featured_stories/featured_stories_container";
 import "./stories.css";
-import debounce from "lodash/debounce";
+import throttle from "lodash/throttle";
 
 export default class NewStory extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export default class NewStory extends Component {
     this.featuredListFixedOnScroll = this.featuredListFixedOnScroll.bind(this);
   }
 
-  featuredListFixedOnScroll = debounce(e => {
+  featuredListFixedOnScroll(e) {
     this.featuredList =
       this.featuredList || document.getElementById("featured");
     if (window.scrollY > 132) {
@@ -23,10 +23,13 @@ export default class NewStory extends Component {
     } else {
       this.featuredList.classList.remove("fixed");
     }
-  }, 10);
+  }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.featuredListFixedOnScroll);
+    window.addEventListener(
+      "scroll",
+      throttle(this.featuredListFixedOnScroll, 25)
+    );
     this.props.fetchAllUsers();
     this.props.fetchStories();
   }
