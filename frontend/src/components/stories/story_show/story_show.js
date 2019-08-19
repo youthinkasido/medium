@@ -5,6 +5,11 @@ import CommentsContainer from "../../comments/comments_container";
 import Follow from "../../follows/follow";
 import Like from "../../likes/like";
 
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
+
+
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +17,7 @@ class StoryShow extends React.Component {
     this.state = {
       commentsOpen: false,
       toggle: false
+    
     };
 
     this.openComments = this.openComments.bind(this);
@@ -45,6 +51,7 @@ class StoryShow extends React.Component {
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
+
               <Link to={`/users/${author._id}`}>
                 {author.firstName} {author.lastName}
               </Link>
@@ -73,7 +80,7 @@ class StoryShow extends React.Component {
             alt="city image"
             className="story-show-img"
           />
-          <div className="story-show-content">{story.body}</div>
+          <FroalaEditorView className="story-show-content" model={this.props.story.body} />
 
           <Like
             story={story}

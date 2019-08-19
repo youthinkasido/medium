@@ -50,7 +50,9 @@ export const fetchUserStories = id => dispatch =>
     .then(stories => dispatch(receiveStories(stories)))
     .catch(err => console.log(err));
 
-export const createStory = data => dispatch =>
-  APIUtil.createStory(data)
+export const createStory = data => dispatch => { 
+  debugger
+  return APIUtil.createStory(data)
     .then(story => dispatch(receiveNewStory(story)))
     .catch(err => console.log(err));
+}

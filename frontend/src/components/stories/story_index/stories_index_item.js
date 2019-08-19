@@ -2,6 +2,9 @@ import React from "react";
 import Follow from "../../follows/follow";
 import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
+// import "froala-editor/css/froala_style.min.css";
+// import "froala-editor/css/froala_editor.pkgd.min.css";
+import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
 
 class StoriesIndexItem extends React.Component {
   constructor(props) {
@@ -30,6 +33,7 @@ class StoriesIndexItem extends React.Component {
       }
     }
 
+    debugger
     return (
       <li className="story-list-item">
         {!this.props.users ? (
@@ -41,13 +45,17 @@ class StoriesIndexItem extends React.Component {
 
               <Link to={`/stories/${_id}`}>
                 <p className="story-body">
-                  {body
-                    .split(" ")
-                    .slice(0, 25)
-                    .join(" ")}
+               
+
+                  <FroalaEditorView
+                    className="story-show-content"
+                    model={this.props.story.body}
+                  />
                 </p>
               </Link>
-              <p className="story-body">{new Date(created_at).toString()}</p>
+              <p className="story-body">
+                {new Date(created_at).toString()}
+              </p>
             </div>
 
             <Link to={`/stories/${_id}`}>
@@ -82,7 +90,9 @@ class StoriesIndexItem extends React.Component {
                 users={this.props.users}
                 toggle={this.props.toggle}
               />
-              <p className="story-body">{new Date(created_at).toString()}</p>
+              <p className="story-body">
+                {new Date(created_at).toString()}
+              </p>
             </div>
 
             <Link to={`stories/${_id}`}>

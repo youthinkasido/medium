@@ -16,7 +16,7 @@ export default class NewStory extends Component {
     this.featuredListFixedOnScroll = this.featuredListFixedOnScroll.bind(this);
   }
 
-  featuredListFixedOnScroll(e) {
+  featuredListFixedOnScroll = throttle(e => {
     this.featuredList =
       this.featuredList || document.getElementById("featured");
 
@@ -31,13 +31,10 @@ export default class NewStory extends Component {
         this.fixedClassAdded = false;
       }
     }
-  }
+  }, 25);
 
   componentDidMount() {
-    window.addEventListener(
-      "scroll",
-      throttle(this.featuredListFixedOnScroll, 25)
-    );
+    window.addEventListener("scroll", this.featuredListFixedOnScroll);
     this.props.fetchAllUsers();
     this.props.fetchStories();
   }

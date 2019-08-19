@@ -5,18 +5,18 @@ import NewStoryImageContainer from "./new_story_image_container";
 import FroalaEditor from "react-froala-wysiwyg";
 
 
-
 export default class new_story extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       title: "",
-      body: "",
+      model: "",
       errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModelChange = this.handleModelChange.bind(this);
   }
 
   update(field) {
@@ -26,12 +26,21 @@ export default class new_story extends Component {
       });
   }
 
+   handleModelChange(model) {
+    
+    this.setState({
+      model: model
+    });
+   
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
    
     let story = {
       title: this.state.title,
-      body: this.state.body,
+      body: this.state.model,
       authorId: this.props.sessionId,
       imageURL: this.props.imageURL
     };
@@ -39,6 +48,8 @@ export default class new_story extends Component {
   }
 
   render() {
+
+    
     return (
       <div className="story-form-container">
         <form className="story-form" onSubmit={this.handleSubmit}>
@@ -60,13 +71,14 @@ export default class new_story extends Component {
 
           <FroalaEditor
             tag="textarea"
-            config={this.config}
-            value={this.state.body}
-            onChange={this.update("body")}
+            config={{
+              placeholderText: "this is content !",
+              charCounterCount: false,
+              // enter: $.FroalaEditor.ENTER_BR
+            }}
             model={this.state.model}
             onModelChange={this.handleModelChange}
             placeholder="Tell your story..."
-            onSubmit={this.handleSubmit}
           />
 
           <NewStoryImageContainer />
@@ -77,3 +89,7 @@ export default class new_story extends Component {
     );
   }
 }
+
+// new FroalaEditor(".selector", {
+//   enter: $.FroalaEditor.ENTER_BR
+// });
