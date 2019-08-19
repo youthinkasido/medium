@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
 import config from "../firebase-config";

@@ -58,7 +58,11 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                <i className="fas fa-user-circle" />
+                {this.props.avatarURL ? (
+                  <img className="nav-user-icon" src={this.props.avatarURL} />
+                ) : (
+                  <i className="fas fa-user-circle" />
+                )}
               </button>
               <div
                 className={`dropdown-content ${

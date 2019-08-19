@@ -31,6 +31,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  
   User.findById(req.params.id)
     .then(user => {
       res.json(user);
@@ -68,12 +69,13 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then(user => {
+             
               const payload = {
                 id: user.id,
                 firstName: user.firstName,
                 lastName: user.lastName,
-                email: user.email
-                // avatarURL: user.avatarURL
+                email: user.email,
+                avatarURL: user.avatarURL
               };
               jwt.sign(
                 payload,
@@ -95,6 +97,7 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
+ 
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
@@ -112,7 +115,7 @@ router.post("/login", (req, res) => {
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const payload = { id: user.id, name: user.name };
+        const payload = { id: user.id, name: user.name, avatarURL: user.avatarURL };
 
         jwt.sign(
           payload,
