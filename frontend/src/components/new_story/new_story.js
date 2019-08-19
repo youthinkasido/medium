@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Textarea from "react-textarea-autosize";
 import "./new_story.css";
 import NewStoryImageContainer from "./new_story_image_container";
+import FroalaEditor from "react-froala-wysiwyg";
+
+
 
 export default class new_story extends Component {
   constructor(props) {
@@ -47,12 +50,23 @@ export default class new_story extends Component {
             className="story-form-input story-form-title"
           />
 
-          <Textarea
+          {/* <Textarea
             useCacheForDOMMeasurements
             value={this.state.body}
             onChange={this.update("body")}
             className="story-form-input"
             placeholder="Tell your story..."
+          /> */}
+
+          <FroalaEditor
+            tag="textarea"
+            config={this.config}
+            value={this.state.body}
+            onChange={this.update("body")}
+            model={this.state.model}
+            onModelChange={this.handleModelChange}
+            placeholder="Tell your story..."
+            onSubmit={this.handleSubmit}
           />
 
           <NewStoryImageContainer />
