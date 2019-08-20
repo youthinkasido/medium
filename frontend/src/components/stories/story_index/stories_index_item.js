@@ -26,14 +26,12 @@ class StoriesIndexItem extends React.Component {
       let users = Object.values(this.props.users);
 
       for (let i = 0; i < users.length; i++) {
-        // iterates through all users, finding user that matches author of a story.
         if (users[i]._id === authorId) {
           author = users[i];
         }
       }
     }
 
-    debugger
     return (
       <li className="story-list-item">
         {!this.props.users ? (
@@ -45,17 +43,13 @@ class StoriesIndexItem extends React.Component {
 
               <Link to={`/stories/${_id}`}>
                 <p className="story-body">
-               
-
                   <FroalaEditorView
                     className="story-show-content"
                     model={this.props.story.body}
                   />
                 </p>
               </Link>
-              <p className="story-body">
-                {new Date(created_at).toString()}
-              </p>
+              <p className="story-body">{new Date(created_at).toString()}</p>
             </div>
 
             <Link to={`/stories/${_id}`}>
@@ -90,9 +84,7 @@ class StoriesIndexItem extends React.Component {
                 users={this.props.users}
                 toggle={this.props.toggle}
               />
-              <p className="story-body">
-                {new Date(created_at).toString()}
-              </p>
+              <p className="story-body">{new Date(created_at).toString()}</p>
             </div>
 
             <Link to={`stories/${_id}`}>
