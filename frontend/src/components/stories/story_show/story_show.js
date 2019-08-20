@@ -6,6 +6,7 @@ import Follow from "../../follows/follow";
 import Like from "../../likes/like";
 import "react-quill/dist/quill.snow.css";
 import renderHTML from "react-render-html";
+import hljs from "highlightjs";
 
 class StoryShow extends React.Component {
   constructor(props) {
@@ -24,9 +25,16 @@ class StoryShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStory(this.props.match.params.storyId).then(() => {
-      this.props.fetchUser(this.props.story.authorId);
-    });
+    this.props
+      .fetchStory(this.props.match.params.storyId)
+      .then(() => {
+        this.props.fetchUser(this.props.story.authorId);
+      })
+      .then(() => {
+        document.querySelectorAll("pre").forEach(block => {
+          hljs.highlightBlock(block);
+        });
+      });
   }
 
   openComments() {

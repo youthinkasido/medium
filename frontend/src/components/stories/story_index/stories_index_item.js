@@ -4,7 +4,8 @@ import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
 // import "froala-editor/css/froala_style.min.css";
 // import "froala-editor/css/froala_editor.pkgd.min.css";
-import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
+// import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
+import renderHTML from "react-render-html";
 
 class StoriesIndexItem extends React.Component {
   constructor(props) {
@@ -42,12 +43,7 @@ class StoriesIndexItem extends React.Component {
               </Link>
 
               <Link to={`/stories/${_id}`}>
-                <p className="story-body">
-                  <FroalaEditorView
-                    className="story-show-content"
-                    model={this.props.story.body}
-                  />
-                </p>
+                {renderHTML(`${this.props.story.body}`)}
               </Link>
               <p className="story-body">{new Date(created_at).toString()}</p>
             </div>
@@ -69,10 +65,7 @@ class StoriesIndexItem extends React.Component {
 
               <Link to={`stories/${_id}`}>
                 <p className="story-body">
-                  {body
-                    .split(" ")
-                    .slice(0, 25)
-                    .join(" ")}
+                  {renderHTML(`${this.props.story.body}`)}
                 </p>
               </Link>
               <Follow
