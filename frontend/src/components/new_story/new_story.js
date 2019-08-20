@@ -41,7 +41,6 @@ export default class NewStory extends Component {
       imageURL: this.props.imageURL
     };
 
-    debugger;
 
     this.props.createStory(story);
   }

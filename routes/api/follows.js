@@ -19,12 +19,11 @@ router.patch("/follow", (req, res) => {
 
 router.patch("/unfollow", (req, res) => {
   User.findById(req.body.followee).then(user => {
-    // user.followerIds.filter(id => id !== req.body.follower);
-    
+
     for (let index = 0; index < user.followerIds.length; index++) {
       const element = user.followerIds[index];
       if (element == req.body.follower) {
-        user.followerIds.splice(index, 1); //
+        user.followerIds.splice(index, 1); 
         
         
          
@@ -38,15 +37,6 @@ router.patch("/unfollow", (req, res) => {
     });
     
     res.send(user);
-
-    // user
-    //   .update({ $pull: { followerIds: req.body.follower } })
-    //   .then(user => {
-    //     res.json("User updated!");
-    //   })
-    //   .catch(err => {
-    //     res.status(400).send("Update not possible");
-    //   });
   });
 });
 

@@ -85,7 +85,7 @@ class StoryShow extends React.Component {
           </div>
           <img
             src={this.props.story.imageURL}
-            alt="city image"
+            alt="image"
             className="story-show-img"
           />
 

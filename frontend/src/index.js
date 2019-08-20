@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import firebase from 'firebase/app'
-
-
-
-
+import firebase from "firebase/app";
 
 import Root from "./components/root";
 
@@ -13,7 +9,6 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 
 import { setAuthToken } from "./util/session_api_util";
-
 
 import { logout } from "./actions/session_actions";
 import { follow } from "./actions/follow_actions";
@@ -24,10 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
-  
+
     // Decode the token to obtain the user's information
     const decodedUser = jwt_decode(localStorage.jwtToken);
- 
 
     // Create a preconfigured state we can immediately add to our store
     const preloadedState = {
@@ -50,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById("root");
-window.follow = follow
-window.fetchAllUsers = fetchAllUsers;
-  window.store = store
+  window.follow = follow;
+  window.fetchAllUsers = fetchAllUsers;
+  window.store = store;
   ReactDOM.render(<Root store={store} />, root);
 });

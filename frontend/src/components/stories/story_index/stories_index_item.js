@@ -114,8 +114,8 @@ class StoriesIndexItem extends React.Component {
 
             <Link to={`stories/${_id}`}>
               <img
-                src={this.props.story.imageURL}
-                alt="city image"
+                src={this.props.story.imageURL} 
+                alt='image' 
                 className="story-img"
               />
             </Link>

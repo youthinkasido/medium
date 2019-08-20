@@ -28,11 +28,6 @@ class StoryImageUpload extends React.Component {
     this.removePhoto = this.removePhoto.bind(this);
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    debugger;
-    return true;
-  }
-
   handleUploadStart = () => {
     this.setState({
       progress: 0,
@@ -56,12 +51,7 @@ class StoryImageUpload extends React.Component {
 
     let imageURL = this.state.imageURL
 
-      //  this.setState({
-      //    progress: 0,
-      //    image: "",
-      //    imageURL: ""
-      //  });
-    // if (filename.size)
+
     firebase
     .storage()
     .ref("storyimage")
@@ -88,11 +78,7 @@ class StoryImageUpload extends React.Component {
       image: "",
       imageURL: "",
       progress: 0
-    }, () => {
-      console.log(this.state)
     });
-
-    debugger;
   }
 
   render() {
@@ -137,14 +123,11 @@ class StoryImageUpload extends React.Component {
           <FileUploader
             accept="image/*"
             name="image"
-            randomizeFilename
             storageRef={firebase.storage().ref("storyimage")}
             onUploadStart={this.handleUploadStart}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
-            // onUploadError={this.handleUploadError}
-            // maxHeight={1100}
-            // maxWidth={1100}
+
           />
         </div>
       </div>
