@@ -4,6 +4,7 @@ import FeaturedStoryContainer from "../../featured_stories/featured_stories_cont
 import "./stories.css";
 import throttle from "lodash/throttle";
 
+
 export default class NewStory extends Component {
   constructor(props) {
     super(props);

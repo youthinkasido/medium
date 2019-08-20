@@ -4,11 +4,9 @@ import "./story_show.css";
 import CommentsContainer from "../../comments/comments_container";
 import Follow from "../../follows/follow";
 import Like from "../../likes/like";
-
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
-
+import "react-quill/dist/quill.snow.css";
+import renderHTML from "react-render-html";
+import hljs from "highlightjs";
 
 class StoryShow extends React.Component {
   constructor(props) {
@@ -17,16 +15,26 @@ class StoryShow extends React.Component {
     this.state = {
       commentsOpen: false,
       toggle: false
-    
     };
 
     this.openComments = this.openComments.bind(this);
   }
 
+  createMarkup() {
+    return { __html: this.props.story.body };
+  }
+
   componentDidMount() {
-    this.props.fetchStory(this.props.match.params.storyId).then(() => {
-      this.props.fetchUser(this.props.story.authorId);
-    });
+    this.props
+      .fetchStory(this.props.match.params.storyId)
+      .then(() => {
+        this.props.fetchUser(this.props.story.authorId);
+      })
+      .then(() => {
+        document.querySelectorAll("pre").forEach(block => {
+          hljs.highlightBlock(block);
+        });
+      });
   }
 
   openComments() {
@@ -45,13 +53,13 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
+    let body = this.props.story.body;
     return (
       <div>
         <div className="story-show-container">
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
-
               <Link to={`/users/${author._id}`}>
                 {author.firstName} {author.lastName}
               </Link>
@@ -80,7 +88,12 @@ class StoryShow extends React.Component {
             alt="city image"
             className="story-show-img"
           />
-          <FroalaEditorView className="story-show-content" model={this.props.story.body} />
+
+          <div className="ql-snow">
+            <div className="ql-editor">
+              {renderHTML(`${this.props.story.body}`)}
+            </div>
+          </div>
 
           <Like
             story={story}

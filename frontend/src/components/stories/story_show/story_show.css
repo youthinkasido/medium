@@ -62,7 +62,7 @@
   margin-top: 15px;
 }
 
-.story-index-inline{
+.story-index-inline {
   display: inline-block;
   margin-right: 12px;
 }
@@ -74,4 +74,19 @@
 
 .story-show-follow {
   padding: 20px;
+}
+
+#story-show-post > pre {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+#story-show-post > h1 {
+  font-size: 2em;
 }

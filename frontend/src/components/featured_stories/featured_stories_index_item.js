@@ -10,7 +10,6 @@ class StoriesIndexItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  
   handleClick() {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
@@ -30,14 +29,14 @@ class StoriesIndexItem extends React.Component {
     return (
       <li className="story-list-item">
         <div>
-          <div>
-            0{this.props.i + 1}
-          </div>
+          <div>0{this.props.i + 1}</div>
           <Link to={`stories/${_id}`}>
             <h1 className="story-title">{title}</h1>
           </Link>
           <div className="index-author-follow">
-            <p className="story-index-inline">{author.firstName} {author.lastName}</p>
+            <p className="story-index-inline">
+              {author.firstName} {author.lastName}
+            </p>
             <Follow
               story={this.props.story}
               currentUser={this.props.currentUser}
@@ -56,7 +55,6 @@ class StoriesIndexItem extends React.Component {
               .join(" ")}
           </p>
         </div>
-
       </li>
     );
   }
