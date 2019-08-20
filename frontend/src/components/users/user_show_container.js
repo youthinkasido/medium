@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
     fetchUser: id => dispatch(fetchUser(id)),
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
-    createUserAvatar: avatar => dispatch(createUserAvatar(avatar)),
+    createUserAvatar: user => dispatch(createUserAvatar(user)),
     updateUser: user => dispatch(updateUser(user))
   };
 };

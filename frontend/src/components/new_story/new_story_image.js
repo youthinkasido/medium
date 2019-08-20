@@ -49,9 +49,6 @@ class StoryImageUpload extends React.Component {
       progress: 100
     });
 
-    let imageURL = this.state.imageURL
-
-
     firebase
     .storage()
     .ref("storyimage")
@@ -63,7 +60,7 @@ class StoryImageUpload extends React.Component {
       })
       )
       .then(() => {
-        this.props.receiveNewStoryImageURL(imageURL);
+        this.props.receiveNewStoryImageURL(this.state.imageURL);
       });
   }
   

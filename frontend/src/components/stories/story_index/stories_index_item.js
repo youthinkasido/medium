@@ -20,16 +20,16 @@ class StoriesIndexItem extends React.Component {
 
   // 60 seconds, 200 words
   // [word,word,word]
-  // words / 3.3 = 60 
+  // words / 3.3 = 60
 
   read(body) {
     let wordLength = body.split(" ").length;
-    let float = (wordLength / 3.3) / 60;
+    let float = wordLength / 3.3 / 60;
     let minutes = Math.floor(float);
 
     if (minutes === 0) {
-      return ""
-    };
+      return "";
+    }
 
     return minutes + " " + `${minutes > 1 ? "mins" : "min"}` + " " + "read";
   }
@@ -64,10 +64,9 @@ class StoriesIndexItem extends React.Component {
               <p className="story-body">
                 {new Date(created_at)
                   .toString()
-                  .split(' ')
-                  .slice(1,4)
-                  .join(' ')
-                  }
+                  .split(" ")
+                  .slice(1, 4)
+                  .join(" ")}
               </p>
               {this.read(body)}
             </div>
@@ -104,18 +103,17 @@ class StoriesIndexItem extends React.Component {
               <p className="story-body">
                 {new Date(created_at)
                   .toString()
-                  .split(' ')
+                  .split(" ")
                   .slice(1, 4)
-                  .join(' ')
-                  }
+                  .join(" ")}
               </p>
               {this.read(body)}
             </div>
 
             <Link to={`stories/${_id}`}>
               <img
-                src={this.props.story.imageURL} 
-                alt='image' 
+                src={this.props.story.imageURL}
+                alt="image"
                 className="story-img"
               />
             </Link>

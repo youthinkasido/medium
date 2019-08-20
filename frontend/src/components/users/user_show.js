@@ -63,14 +63,16 @@ class UserShow extends React.Component {
           id: this.props.author._id
         })
       )
-      .then(() => this.props.createUserAvatar(this.state));
-  };
+      .then(() => {
+        this.props.createUserAvatar(this.state);
+      });
+  }
 
   handleProgress = progress => {
     this.setState({
       progress: progress
-    });
-  };
+    })
+  }
 
   update (field) {
     return (e) => this.setState({
@@ -86,7 +88,7 @@ class UserShow extends React.Component {
 
     this.setState({
       class: "hide-input"
-    });
+    })
   }
 
   handleShow (e) {
@@ -98,6 +100,10 @@ class UserShow extends React.Component {
   }
 
   render() {
+    if (Object.values(this.props.author).length === 0) {
+      return null
+    };
+
     let name;
     let fullName;
 
@@ -147,7 +153,7 @@ class UserShow extends React.Component {
                   this.props.currentUser.id === this.props.author._id
                     ? "reveal"
                     : "hide"
-                } ${this.state.class}`} 
+                } ${this.state.class}`}
               >
                 <textarea
                   onChange={this.update("description")}
@@ -164,7 +170,9 @@ class UserShow extends React.Component {
                 )}
               </div>
             </div>
-
+            <strong className="follower-count">
+              {`${this.props.author.followerIds.length} ${this.props.author.followerIds.length > 1 || this.props.author.followerIds.length === 0 ? "followers" : "follower"}`}
+            </strong>
             <div className="button-container">
               <Follow
                 currentUser={this.props.currentUser}
@@ -176,11 +184,12 @@ class UserShow extends React.Component {
               <Link
                 to="#"
                 className={`edit-profile ${
-                  this.props.currentUser.id === this.props.author._id && this.state.class === "hide-input"
+                  this.props.currentUser.id === this.props.author._id &&
+                  this.state.class === "hide-input"
                     ? "reveal"
                     : "hide"
-                }`} 
-                onClick={this.handleShow} 
+                }`}
+                onClick={this.handleShow}
               >
                 Edit Bio
               </Link>
@@ -203,7 +212,6 @@ class UserShow extends React.Component {
               </ul>
             </div>
           </div>
-          );
         </div>
       </div>
     );

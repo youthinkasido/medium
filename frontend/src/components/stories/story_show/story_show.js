@@ -64,7 +64,6 @@ class StoryShow extends React.Component {
                 {author.firstName} {author.lastName}
               </Link>
             </p>
-
             <Follow
               story={story}
               currentUser={this.props.sessionUser}

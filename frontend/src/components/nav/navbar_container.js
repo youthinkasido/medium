@@ -1,18 +1,21 @@
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions";
+import { fetchAllUsers } from "../../actions/user_actions";
 
 import NavBar from "./navbar";
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ session, entities }) => {
   return {
-    loggedIn: state.session.isAuthenticated,
-    avatarURL: state.session.user.avatarURL
-
+    loggedIn: session.isAuthenticated,
+    avatarURL: session.user.avatarURL,
+    users: entities.users.all,
+    user: session.user
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 export default connect(

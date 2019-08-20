@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Textarea from "react-textarea-autosize";
 import CommentIndexContainer from "./comments_index_container";
+import { Redirect, withRouter } from 'react-router-dom';
 import "./comments.css";
 
-export default class Comments extends Component {
+class Comments extends Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +32,16 @@ export default class Comments extends Component {
       commenterId: this.state.commenterId,
       body: this.state.body
     };
-    this.props.createStoryComment(comment);
+
+    if (Object.values(this.props.currentUser).length > 0) {
+      this.props.createStoryComment(comment);
+
+      this.setState({
+        body: ""
+      });
+    } else {
+      this.props.history.push('/login');
+    }
   }
 
   render() {
@@ -61,3 +71,5 @@ export default class Comments extends Component {
     );
   }
 }
+
+export default withRouter(Comments);

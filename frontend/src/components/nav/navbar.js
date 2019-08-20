@@ -7,12 +7,18 @@ class NavBar extends React.Component {
     super(props);
 
     this.state = {
-      clicked: false
+      clicked: false,
+      reload: false
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleNewStory = this.handleNewStory.bind(this);
+    this.handleProfile = this.handleProfile.bind(this);
+  }
+
+  componentDidMount () {
+    this.props.fetchAllUsers();
   }
 
   handleLogout(e) {
@@ -23,6 +29,7 @@ class NavBar extends React.Component {
     });
 
     this.props.logout();
+    this.props.history.push("/");
   }
 
   handleNewStory(e) {
@@ -48,7 +55,26 @@ class NavBar extends React.Component {
     }
   }
 
+  handleProfile(e){
+    e.preventDefault();
+
+    this.setState({
+      clicked: false
+    });
+
+    this.props.history.push(`/users/${this.props.user.id}`);
+  }
+
   render() {
+    let user = {};
+    let usersArr = Object.values(this.props.users);
+
+    for (let i = 0; i < usersArr.length; i++) {
+      if (this.props.user.id === usersArr[i]._id) {
+        user = usersArr[i]
+      };
+    };
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -58,8 +84,8 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.avatarURL ? (
-                  <img className="nav-user-icon" src={this.props.avatarURL} />
+                {user.avatarURL ? (
+                  <img className="nav-user-icon" src={user.avatarURL} />
                 ) : (
                   <i className="fas fa-user-circle" />
                 )}
@@ -69,11 +95,14 @@ class NavBar extends React.Component {
                   this.state.clicked ? "reveal" : "hide"
                 }`}
               >
-                <div className="dropdown-logout">
-                  <button onClick={this.handleLogout}>Sign out</button>
-                </div>
-                <div className="dropdown-logout" onClick={this.handleNewStory}>
+                <div className="dropdown-item" onClick={this.handleNewStory}>
                   <button>New Story</button>
+                </div>
+                <div className="dropdown-item">
+                  <button onClick={this.handleProfile}>Profile</button>
+                </div>
+                <div className="dropdown-item">
+                  <button onClick={this.handleLogout}>Sign out</button>
                 </div>
               </div>
             </div>
