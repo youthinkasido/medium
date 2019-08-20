@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import Follow from "../follows/follow";
-import StoryIndexItem from "../stories/story_index/stories_index_item";
+import UserStoryShow from "./user_story_show";
 import "./user_show.css";
 import FileUploader from "react-firebase-file-uploader";
 import firebase from "firebase";
-
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -72,13 +71,14 @@ class UserShow extends React.Component {
     });
   };
 
-  update (field) {
-    return (e) => this.setState({
-      [field]: e.target.value
-    });
+  update(field) {
+    return e =>
+      this.setState({
+        [field]: e.target.value
+      });
   }
 
-  handleSubmit (e) {
+  handleSubmit(e) {
     e.preventDefault();
 
     let author = Object.assign({}, this.state);
@@ -89,7 +89,7 @@ class UserShow extends React.Component {
     });
   }
 
-  handleShow (e) {
+  handleShow(e) {
     e.preventDefault();
 
     this.setState({
@@ -117,7 +117,7 @@ class UserShow extends React.Component {
       <div>
         <div className="user-show-container">
           <div className="user-info-container">
-            <div className="username">{fullName}</div>
+            <div className="username">About {fullName}</div>
             {/* <p className='user-description'>{this.props.author.description}</p> */}
             <div className="user-description-container">
               <div
@@ -147,7 +147,7 @@ class UserShow extends React.Component {
                   this.props.currentUser.id === this.props.author._id
                     ? "reveal"
                     : "hide"
-                } ${this.state.class}`} 
+                } ${this.state.class}`}
               >
                 <textarea
                   onChange={this.update("description")}
@@ -176,22 +176,25 @@ class UserShow extends React.Component {
               <Link
                 to="#"
                 className={`edit-profile ${
-                  this.props.currentUser.id === this.props.author._id && this.state.class === "hide-input"
+                  this.props.currentUser.id === this.props.author._id &&
+                  this.state.class === "hide-input"
                     ? "reveal"
                     : "hide"
-                }`} 
-                onClick={this.handleShow} 
+                }`}
+                onClick={this.handleShow}
               >
                 Edit Bio
               </Link>
             </div>
           </div>
           <hr className="user-show-hr" />
-          <div className="user-story-container">
-            <div className="story-index">
-              <ul className="user-story-list">
+          <div className="user-story-index-container">
+            <div className="user-story-index">
+              <ul className="user-story-index-list">
                 {this.props.stories.map(story => (
-                  <StoryIndexItem
+                  <UserStoryShow
+                    avatar={this.props.avatarURL}
+                    author={this.props.author}
                     key={story._id}
                     story={story}
                     currentUser={this.props.currentUser}

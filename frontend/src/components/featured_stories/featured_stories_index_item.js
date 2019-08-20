@@ -15,7 +15,7 @@ class StoriesIndexItem extends React.Component {
   }
 
   render() {
-    const { _id, title, body, created_at, authorId } = this.props.story;
+    const { _id, title, created_at, authorId } = this.props.story;
 
     let author;
     let users = Object.values(this.props.users);
