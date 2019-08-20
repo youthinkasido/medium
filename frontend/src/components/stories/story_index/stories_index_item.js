@@ -17,6 +17,22 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
+  // 60 seconds, 200 words
+  // [word,word,word]
+  // words / 3.3 = 60 
+
+  read(body) {
+    let wordLength = body.split(" ").length;
+    let float = (wordLength / 3.3) / 60;
+    let minutes = Math.floor(float);
+
+    if (minutes === 0) {
+      return ""
+    };
+
+    return minutes + " " + `${minutes > 1 ? "mins" : "min"}` + " " + "read";
+  }
+
   render() {
     const { _id, title, body, created_at, authorId } = this.props.story;
 
@@ -33,7 +49,6 @@ class StoriesIndexItem extends React.Component {
       }
     }
 
-    debugger
     return (
       <li className="story-list-item">
         {!this.props.users ? (
@@ -54,8 +69,14 @@ class StoriesIndexItem extends React.Component {
                 </p>
               </Link>
               <p className="story-body">
-                {new Date(created_at).toString()}
+                {new Date(created_at)
+                  .toString()
+                  .split(' ')
+                  .slice(1,4)
+                  .join(' ')
+                  }
               </p>
+              {this.read(body)}
             </div>
 
             <Link to={`/stories/${_id}`}>
@@ -91,8 +112,14 @@ class StoriesIndexItem extends React.Component {
                 toggle={this.props.toggle}
               />
               <p className="story-body">
-                {new Date(created_at).toString()}
+                {new Date(created_at)
+                  .toString()
+                  .split(' ')
+                  .slice(1, 4)
+                  .join(' ')
+                  }
               </p>
+              {this.read(body)}
             </div>
 
             <Link to={`stories/${_id}`}>

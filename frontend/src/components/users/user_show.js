@@ -16,8 +16,14 @@ class UserShow extends React.Component {
       image: "",
       progress: 0,
       toggle: false,
-      id: this.props.author._id
+      id: this.props.author._id,
+      description: "Bio has not been created.",
+      class: "hide-input"
     };
+
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   componentDidMount() {
@@ -66,6 +72,31 @@ class UserShow extends React.Component {
     });
   };
 
+  update (field) {
+    return (e) => this.setState({
+      [field]: e.target.value
+    });
+  }
+
+  handleSubmit (e) {
+    e.preventDefault();
+
+    let author = Object.assign({}, this.state);
+    this.props.updateUser(author);
+
+    this.setState({
+      class: "hide-input"
+    });
+  }
+
+  handleShow (e) {
+    e.preventDefault();
+
+    this.setState({
+      class: "reveal-input"
+    });
+  }
+
   render() {
     let name;
     let fullName;
@@ -89,20 +120,41 @@ class UserShow extends React.Component {
             <div className="username">{fullName}</div>
             {/* <p className='user-description'>{this.props.author.description}</p> */}
             <div className="user-description-container">
-              <FileUploader
-                accept="image/*"
-                name="image"
-                storageRef={firebase.storage().ref("avatarimage")}
-                onUploadStart={this.handleUploadStart}
-                onUploadSuccess={this.handleUploadSuccess}
-                onProgress={this.handleProgress}
-              />
+              <div
+                className={`${
+                  this.props.currentUser.id === this.props.author._id
+                    ? "reveal"
+                    : "hide"
+                }`}
+              >
+                <FileUploader
+                  accept="image/*"
+                  name="image"
+                  storageRef={firebase.storage().ref("avatarimage")}
+                  onUploadStart={this.handleUploadStart}
+                  onUploadSuccess={this.handleUploadSuccess}
+                  onProgress={this.handleProgress}
+                />
+              </div>
 
               <p className="user-description">
-                Hello, welcome to my wonderous blog of wonders. I like dogs and
-                pizza and session tokens. I have a pretty cool authentic yo yo
-                collection that is sure to impress even the toughest of critics!
+                {this.props.author.description}
               </p>
+
+              <form
+                onSubmit={this.handleSubmit}
+                className={`${
+                  this.props.currentUser.id === this.props.author._id
+                    ? "reveal"
+                    : "hide"
+                } ${this.state.class}`} 
+              >
+                <textarea
+                  onChange={this.update("description")}
+                  value={this.state.description}
+                />
+                <button className="update-profile">Update</button>
+              </form>
 
               <div className="avatar-container">
                 {this.props.avatarURL ? (
@@ -124,12 +176,13 @@ class UserShow extends React.Component {
               <Link
                 to="#"
                 className={`edit-profile ${
-                  this.props.currentUser.id === this.props.author._id
+                  this.props.currentUser.id === this.props.author._id && this.state.class === "hide-input"
                     ? "reveal"
                     : "hide"
-                }`}
+                }`} 
+                onClick={this.handleShow} 
               >
-                Edit Profile
+                Edit Bio
               </Link>
             </div>
           </div>

@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import UserShow from "./user_show";
 import {
   fetchUser,
-  createUserAvatar
+  createUserAvatar,
+  updateUser
 } from "../../actions/user_actions";
 import {
   fetchUserStories
@@ -25,6 +26,7 @@ const mapDispatchToProps = dispatch => {
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
     createUserAvatar: avatar => dispatch(createUserAvatar(avatar)),
+    updateUser: user => dispatch(updateUser(user))
   };
 };
 

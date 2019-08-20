@@ -53,6 +53,20 @@
   color: white;
 }
 
+.update-profile{
+  margin-left: 20px;
+  background: none;
+  border: none;
+  color: black;
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 12px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
 .user-story-container {
   width: 1032px;
   margin: auto;
@@ -81,4 +95,23 @@
   position: relative;
   bottom: 40px;
   left: 5px;
+}
+
+.avatar-container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 99px;
+  float: right;
+  position: relative;
+  bottom: 40px;
+  left: 5px;
+}
+
+.reveal-input {
+  visibility: visible;
+}
+
+.hide-input {
+  display: none;
+  position: absolute;
 }

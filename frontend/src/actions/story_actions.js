@@ -51,7 +51,6 @@ export const fetchUserStories = id => dispatch =>
     .catch(err => console.log(err));
 
 export const createStory = data => dispatch => { 
-  debugger
   return APIUtil.createStory(data)
     .then(story => dispatch(receiveNewStory(story)))
     .catch(err => console.log(err));
