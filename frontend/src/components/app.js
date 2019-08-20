@@ -7,7 +7,6 @@ import NavbarContainer from "./nav/navbar_container";
 import NewStoryContainer from "./new_story/new_story_container";
 import StoriesIndexContainer from "./stories/story_index/stories_index_container";
 import StoryShowContainer from "./stories/story_show/story_show_container";
-import CommentsContainer from "./comments/comments_container";
 import UserShowContainer from "./users/user_show_container";
 
 const App = () => (
