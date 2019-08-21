@@ -6,7 +6,6 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       clicked: false,
       reload: false
@@ -18,7 +17,7 @@ class NavBar extends React.Component {
     this.handleProfile = this.handleProfile.bind(this);
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchAllUsers();
     this.props.fetchCurrentUser(this.props.user.id);
   }
@@ -65,20 +64,19 @@ class NavBar extends React.Component {
   //   }
   // }
 
-  handleProfile(e){
+  handleProfile(e) {
     e.preventDefault();
 
     this.setState({
       clicked: false
     });
 
+    
+
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
-
-
   render() {
- 
     // let user = {};
     // let usersArr = Object.values(this.props.users);
 
@@ -87,10 +85,6 @@ class NavBar extends React.Component {
     //     user = usersArr[i]
     //   };
     // };
-
-  
-    
-
 
     return (
       <nav className="navbar">
@@ -101,7 +95,7 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.currentUser.avatarURL ? (
+                {this.props.currentUser && this.props.currentUser.avatarURL ? (
                   <img
                     className="nav-user-icon"
                     src={this.props.currentUser.avatarURL}
@@ -115,10 +109,7 @@ class NavBar extends React.Component {
                   this.state.clicked ? "reveal" : "hide"
                 }`}
               >
-                <div
-                  className="dropdown-item"
-                  onClick={this.handleNewStory}
-                >
+                <div className="dropdown-item" onClick={this.handleNewStory}>
                   <button>New Story</button>
                 </div>
                 <div className="dropdown-item">
@@ -147,10 +138,8 @@ class NavBar extends React.Component {
 
 export default withRouter(NavBar);
 
+// case RECEIVE_CURRENT_USER:
+//     debugger
+//     newState.currentUser = action.currentUser.data;
 
-
-  // case RECEIVE_CURRENT_USER:
-  //     debugger
-  //     newState.currentUser = action.currentUser.data;
-
-  //     return newState;
+//     return newState;

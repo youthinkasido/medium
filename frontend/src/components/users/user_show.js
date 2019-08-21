@@ -81,7 +81,6 @@ class UserShow extends React.Component {
   };
 
   update(field) {
- 
     return e =>
       this.setState({
         [field]: e.target.value
@@ -92,7 +91,6 @@ class UserShow extends React.Component {
     e.preventDefault();
     // let author = Object.assign(this.state)
     this.props.updateUser(this.props.author);
-    debugger
 
     this.setState({
       class: "hide-input"
@@ -102,7 +100,6 @@ class UserShow extends React.Component {
   handleShow(e) {
     e.preventDefault();
     this.setState({
-
       class: "reveal-input"
     });
   }
@@ -126,8 +123,6 @@ class UserShow extends React.Component {
         this.props.author.lastName.substring(1);
       fullName = first + " " + last;
     }
-
-   
 
     return (
       <div>
@@ -153,10 +148,7 @@ class UserShow extends React.Component {
                 />
               </div>
 
-              <p className="user-description">
-                {this.state.description}
-              
-              </p>
+              <p className="user-description">{this.state.description}</p>
 
               <form
                 onSubmit={this.handleSubmit}
