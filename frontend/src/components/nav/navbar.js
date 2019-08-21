@@ -71,8 +71,7 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-    
-
+  
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
