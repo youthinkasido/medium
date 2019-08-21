@@ -10,6 +10,7 @@ const usersReducer = (
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_USERS:
+    
       let newObj = {};
 
       action.users.data.forEach(user => {
@@ -19,11 +20,13 @@ const usersReducer = (
       newState.all = newObj;
       return newState;
     case RECEIVE_USER:
+      
       newState.user = action.user.data;
 
       return newState;
 
     case RECEIVE_USER_AVATAR:
+      
       newState.avatarURL = action.avatarURL.data.avatarURL;
       newState.user.avatarURL = action.avatarURL.data.avatarURL;
       return newState;

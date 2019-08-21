@@ -12,7 +12,7 @@ class UserShow extends React.Component {
     super(props);
 
     this.state = {
-      avatarURL: "",
+      avatarURL: this.props.avatarURL,
       image: "",
       progress: 0,
       toggle: false,
@@ -171,7 +171,12 @@ class UserShow extends React.Component {
               </div>
             </div>
             <strong className="follower-count">
-              {`${this.props.author.followerIds.length} ${this.props.author.followerIds.length > 1 || this.props.author.followerIds.length === 0 ? "followers" : "follower"}`}
+              {`${this.props.author.followerIds.length} ${
+                this.props.author.followerIds.length > 1 ||
+                this.props.author.followerIds.length === 0
+                  ? "followers"
+                  : "follower"
+              }`}
             </strong>
             <div className="button-container">
               <Follow

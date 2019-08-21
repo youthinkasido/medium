@@ -6,6 +6,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       clicked: false,
       reload: false
@@ -55,6 +56,14 @@ class NavBar extends React.Component {
     }
   }
 
+  // componentDidUpdate(prevProps){
+  //   if (this.props.user.avatarURL !== prevProps.user.avatarURL){
+  //     this.setState({
+
+  //     })
+  //   }
+  // }
+
   handleProfile(e){
     e.preventDefault();
 
@@ -65,15 +74,18 @@ class NavBar extends React.Component {
     this.props.history.push(`/users/${this.props.user.id}`);
   }
 
-  render() {
-    let user = {};
-    let usersArr = Object.values(this.props.users);
 
-    for (let i = 0; i < usersArr.length; i++) {
-      if (this.props.user.id === usersArr[i]._id) {
-        user = usersArr[i]
-      };
-    };
+
+  render() {
+ 
+    // let user = {};
+    // let usersArr = Object.values(this.props.users);
+
+    // for (let i = 0; i < usersArr.length; i++) {
+    //   if (this.props.user.id === usersArr[i]._id) {
+    //     user = usersArr[i]
+    //   };
+    // };
 
     return (
       <nav className="navbar">
@@ -84,8 +96,8 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {user.avatarURL ? (
-                  <img className="nav-user-icon" src={user.avatarURL} />
+                {this.props.avatarURL ? (
+                  <img className="nav-user-icon" src={this.props.avatarURL} />
                 ) : (
                   <i className="fas fa-user-circle" />
                 )}
