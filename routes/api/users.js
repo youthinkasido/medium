@@ -31,13 +31,15 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  
+ 
   User.findById(req.params.id)
     .then(user => {
+ 
       res.json(user);
     })
     .catch(err => res.status(404).json({ nouserfound: "No user found" }));
 });
+
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -141,6 +143,7 @@ router.post("/login", (req, res) => {
 router.post("/:id", (req, res) => {
   User.findById(req.params.id).then(user => {
     user.avatarURL = req.body.avatarURL;
+  
     user.save((err, user) => {
       console.log(err);
     });

@@ -20,6 +20,7 @@ class NavBar extends React.Component {
 
   componentDidMount () {
     this.props.fetchAllUsers();
+    this.props.fetchCurrentUser(this.props.user.id);
   }
 
   handleLogout(e) {
@@ -71,7 +72,7 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-    this.props.history.push(`/users/${this.props.user.id}`);
+    this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
 
@@ -87,6 +88,10 @@ class NavBar extends React.Component {
     //   };
     // };
 
+  
+    
+
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -96,8 +101,11 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.avatarURL ? (
-                  <img className="nav-user-icon" src={this.props.avatarURL} />
+                {this.props.currentUser.avatarURL ? (
+                  <img
+                    className="nav-user-icon"
+                    src={this.props.currentUser.avatarURL}
+                  />
                 ) : (
                   <i className="fas fa-user-circle" />
                 )}
@@ -107,7 +115,10 @@ class NavBar extends React.Component {
                   this.state.clicked ? "reveal" : "hide"
                 }`}
               >
-                <div className="dropdown-item" onClick={this.handleNewStory}>
+                <div
+                  className="dropdown-item"
+                  onClick={this.handleNewStory}
+                >
                   <button>New Story</button>
                 </div>
                 <div className="dropdown-item">
@@ -135,3 +146,11 @@ class NavBar extends React.Component {
 }
 
 export default withRouter(NavBar);
+
+
+
+  // case RECEIVE_CURRENT_USER:
+  //     debugger
+  //     newState.currentUser = action.currentUser.data;
+
+  //     return newState;

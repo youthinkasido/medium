@@ -30,6 +30,13 @@ class UserShow extends React.Component {
     this.props.fetchUserStories(this.props.match.params.userId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId) {
+      this.props.fetchUser(this.props.match.params.userId);
+      this.props.fetchUserStories(this.props.match.params.userId);
+    }
+  }
+
   toggle() {
     this.setState({
       toggle: true
@@ -65,15 +72,16 @@ class UserShow extends React.Component {
       .then(() => {
         this.props.createUserAvatar(this.state);
       });
-  }
+  };
 
   handleProgress = progress => {
     this.setState({
       progress: progress
-    })
-  }
+    });
+  };
 
   update(field) {
+ 
     return e =>
       this.setState({
         [field]: e.target.value
@@ -82,27 +90,27 @@ class UserShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    let author = Object.assign({}, this.state);
-    this.props.updateUser(author);
+    // let author = Object.assign(this.state)
+    this.props.updateUser(this.props.author);
+    debugger
 
     this.setState({
       class: "hide-input"
-    })
+    });
   }
 
   handleShow(e) {
     e.preventDefault();
-
     this.setState({
+
       class: "reveal-input"
     });
   }
 
   render() {
     if (Object.values(this.props.author).length === 0) {
-      return null
-    };
+      return null;
+    }
 
     let name;
     let fullName;
@@ -118,6 +126,8 @@ class UserShow extends React.Component {
         this.props.author.lastName.substring(1);
       fullName = first + " " + last;
     }
+
+   
 
     return (
       <div>
@@ -144,7 +154,8 @@ class UserShow extends React.Component {
               </div>
 
               <p className="user-description">
-                {this.props.author.description}
+                {this.state.description}
+              
               </p>
 
               <form
