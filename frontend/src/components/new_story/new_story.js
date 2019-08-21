@@ -111,21 +111,3 @@ NewStory.modules = {
     ["clean"]
   ]
 };
-
-// new FroalaEditor(".selector", {
-//   enter: $.FroalaEditor.ENTER_BR
-// });
-
-{
-  /* <FroalaEditor
-  tag="textarea"
-  config={{
-    placeholderText: "this is content !",
-    charCounterCount: false
-    // enter: $.FroalaEditor.ENTER_BR
-  }}
-  model={this.state.model}
-  onModelChange={this.handleModelChange}
-  placeholder="Tell your story..."
-/> */
-}

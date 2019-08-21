@@ -2,9 +2,6 @@ import React from "react";
 import Follow from "../../follows/follow";
 import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
-// import "froala-editor/css/froala_style.min.css";
-// import "froala-editor/css/froala_editor.pkgd.min.css";
-// import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
 import renderHTML from "react-render-html";
 
 class StoriesIndexItem extends React.Component {
