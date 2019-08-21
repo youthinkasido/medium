@@ -4,6 +4,7 @@
   "description": "<h2>Website Description:</h2>     An online publishing platform where authors create stories to interact with their readers.",
   "main": "app.js",
   "scripts": {
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
     "start": "node app.js",
     "server": "nodemon app.js",
     "server:debug": "nodemon --inspect app.js",
@@ -24,7 +25,6 @@
   },
   "homepage": "https://github.com/youthinkasido/medium#readme",
   "dependencies": {
-    "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.1",
@@ -41,18 +41,6 @@
     "node": "^12.8.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-firebase-file-uploader": "^2.4.2",
-    "react-quill": "^1.3.3",
-    "react-redux": "^7.1.0",
-    "react-render-html": "^0.6.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.0",
-    "react-textarea-autosize": "^7.1.0",
-    "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
     "validator": "^11.1.0"
   },
   "devDependencies": {

@@ -39,7 +39,13 @@
 
 
 .progress-bar{
+  margin-top: 40px;
+  font-size: 12px;
+}
 
+.hide-progress {
+  display: none;
+  margin-top: 0px;
 }
 
 .image-progress{
@@ -61,7 +67,6 @@
     -moz-opacity: 0;
     width: 53px;
     border: 1px solid black;
-
 }
 
 .show-add-photo{
@@ -86,12 +91,13 @@
 }
 
 .show-story-image img:nth-child(1){
-    border: 2px solid green;
+    border: 1px solid green;
     border-radius: 20px;
     margin: auto;
     padding: 0px;
-    width: 55%;
-    overflow: auto;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 40px;
 }
 
 .hide-story-image{

@@ -4,7 +4,6 @@ import FeaturedStoryContainer from "../../featured_stories/featured_stories_cont
 import "./stories.css";
 import throttle from "lodash/throttle";
 
-
 export default class NewStory extends Component {
   constructor(props) {
     super(props);
@@ -74,9 +73,7 @@ export default class NewStory extends Component {
             </ul>
           </div>
           <div id="featured" className="something">
-            <FeaturedStoryContainer
-            // className="featured-story-container"
-            />
+            <FeaturedStoryContainer />
           </div>
         </div>
       </div>

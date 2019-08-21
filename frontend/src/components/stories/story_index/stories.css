@@ -1,9 +1,10 @@
 .story-img {
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: 152px;
 }
 
 .story-title {
+  overflow-wrap: break-word;
   font-size: 22px;
   font-weight: 700;
 }
@@ -20,6 +21,11 @@
   justify-content: space-between;
 }
 
+.story-index-name {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 .story-list-item {
   display: flex;
   justify-content: space-between;
@@ -27,11 +33,13 @@
 }
 
 .story-index-list {
-  max-width: 650px;
+  width: 650px;
 }
 
 .story {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .story-index-inline {
   display: inline-block;
@@ -41,6 +49,12 @@
 .story-date {
   color: #777;
   font-size: 14px;
+}
+
+.index-story-date {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 .something {

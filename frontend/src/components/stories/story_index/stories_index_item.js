@@ -15,6 +15,18 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
+  read(body) {
+    let wordLength = body.split(" ").length;
+    let float = wordLength / 3.3 / 60;
+    let minutes = Math.floor(float);
+
+    if (minutes === 0) {
+      return "";
+    }
+
+    return minutes + " " + `${minutes > 1 ? "min" : "min"}` + " " + "read";
+  }
+
   render() {
     const { _id, title, body, created_at, authorId } = this.props.story;
 
@@ -40,14 +52,27 @@ class StoriesIndexItem extends React.Component {
               </Link>
 
               <Link to={`/stories/${_id}`}>
-                {renderHTML(`${this.props.story.body}`)}
+                {renderHTML(
+                  `${this.props.story.body
+                    .toString()
+                    .split(" ")
+                    .slice(1, 20)
+                    .join(" ")} ...`
+                )}
               </Link>
-              <p className="story-body">{new Date(created_at).toString()}</p>
+              <p className="story-date">
+                {new Date(created_at)
+                  .toString()
+                  .split(" ")
+                  .slice(1, 4)
+                  .join(" ")}
+              </p>
+              {this.read(body)}
             </div>
 
             <Link to={`/stories/${_id}`}>
               <img
-                src={this.props.story.imageURL}
+                src={`${this.props.story.imageURL}`}
                 alt="city image"
                 className="story-img"
               />
@@ -59,12 +84,22 @@ class StoriesIndexItem extends React.Component {
               <Link to={`stories/${_id}`}>
                 <h1 className="story-title">{title}</h1>
               </Link>
-
               <Link to={`stories/${_id}`}>
-                <p className="story-body">
-                  {renderHTML(`${this.props.story.body}`)}
-                </p>
+                <div className="story-body">
+                  {renderHTML(
+                    `${this.props.story.body
+                      .toString()
+                      .split(" ")
+                      .slice(1, 20)
+                      .join(" ")} ...`
+                  )}
+                </div>
               </Link>
+              <div className="story-index-name">
+                <Link to={`/users/${author._id}`}>
+                  {author.firstName} {author.lastName}
+                </Link>
+              </div>
               <Follow
                 story={this.props.story}
                 currentUser={this.props.currentUser}
@@ -74,13 +109,20 @@ class StoriesIndexItem extends React.Component {
                 users={this.props.users}
                 toggle={this.props.toggle}
               />
-              <p className="story-body">{new Date(created_at).toString()}</p>
+              <p className="index-story-date">
+                {new Date(created_at)
+                  .toString()
+                  .split(" ")
+                  .slice(1, 4)
+                  .join(" ")}{" "}
+                · {this.read(body)}
+              </p>
             </div>
 
             <Link to={`stories/${_id}`}>
               <img
-                src={this.props.story.imageURL}
-                alt="city image"
+                src={`${this.props.story.imageURL}`}
+                alt="image"
                 className="story-img"
               />
             </Link>

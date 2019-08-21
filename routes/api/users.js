@@ -10,7 +10,6 @@ const validateLoginInput = require("../../validation/login");
 const router = express.Router();
 
 router.patch("/:id", (req, res) => {
-  
   User.findById(req.params.id)
     .then(user => {
       user.description = req.body.description;
@@ -21,6 +20,7 @@ router.patch("/:id", (req, res) => {
 
       res.send(user);
     })
+    .catch(err => console.log(err));
 })
 
 router.get("/", (req, res) => {
@@ -57,8 +57,8 @@ router.post("/register", (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        avatarURL: ''
-
+        avatarURL: "",
+        description: "Bio has not been created."
       });
 
       bcrypt.genSalt(10, (err, salt) => {

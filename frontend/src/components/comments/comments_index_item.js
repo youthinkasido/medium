@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./comments.css";
 
 class CommentsIndexItem extends React.Component {
@@ -9,7 +9,9 @@ class CommentsIndexItem extends React.Component {
 
   render() {
     let { comment, users } = this.props;
-    let user = Object.values(users).find(user => user._id === comment.commenterId);
+    let user = Object.values(users).find(
+      user => user._id === comment.commenterId
+    );
     return (
       <li className="comment-list-item">
         <div>

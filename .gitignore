@@ -1,5 +1,4 @@
-config/keys
+
 /node_modules
 node_modules
-/config
-config/keys.js
+config/keys_dev

@@ -53,7 +53,6 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
-    let body = this.props.story.body;
     return (
       <div>
         <div className="story-show-container">
@@ -85,7 +84,7 @@ class StoryShow extends React.Component {
           </div>
           <img
             src={this.props.story.imageURL}
-            alt="city image"
+            alt="image"
             className="story-show-img"
           />
 

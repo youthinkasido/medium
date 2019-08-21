@@ -3,8 +3,9 @@ import Textarea from "react-textarea-autosize";
 import "./new_story.css";
 import NewStoryImageContainer from "./new_story_image_container";
 import ReactQuill from "react-quill";
+import { withRouter } from "react-router-dom";
 
-export default class NewStory extends Component {
+class NewStory extends Component {
   constructor(props) {
     super(props);
 
@@ -41,9 +42,8 @@ export default class NewStory extends Component {
       imageURL: this.props.imageURL
     };
 
-    debugger;
-
     this.props.createStory(story);
+    this.props.history.push(`/users/${story.authorId}`);
   }
 
   render() {
@@ -63,7 +63,6 @@ export default class NewStory extends Component {
             onChange={this.handleModelChange}
             modules={NewStory.modules}
             formats={NewStory.formats}
-            // dangerouslySetInnerHTML={{ __html: this.props.value }}
           />
 
           <NewStoryImageContainer />
@@ -100,14 +99,11 @@ NewStory.modules = {
       { align: "right" },
       { align: "justify" }
     ],
-    [
-      { list: "ordered" },
-      { list: "bullet" }
-      // { indent: "-1" },
-      // { indent: "+1" }
-    ],
+    [{ list: "ordered" }, { list: "bullet" }],
     ["link", "image", "video"],
     ["code-block"],
     ["clean"]
   ]
 };
+
+export default withRouter(NewStory);
