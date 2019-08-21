@@ -58,7 +58,7 @@ class StoriesIndexItem extends React.Component {
                   `${this.props.story.body
                     .toString()
                     .split(" ")
-                    .slice(1, 20)
+                    .slice(0, 20)
                     .join(" ")} ...`
                 )}
               </Link>
@@ -92,7 +92,7 @@ class StoriesIndexItem extends React.Component {
                     `${this.props.story.body
                       .toString()
                       .split(" ")
-                      .slice(1, 20)
+                      .slice(0, 20)
                       .join(" ")} ...`
                   )}
                 </div>

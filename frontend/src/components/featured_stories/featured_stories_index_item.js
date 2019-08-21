@@ -29,31 +29,36 @@ class StoriesIndexItem extends React.Component {
     return (
       <li className="story-list-item">
         <div>
-          <div>0{this.props.i + 1}</div>
-          <Link to={`stories/${_id}`}>
-            <h1 className="story-title">{title}</h1>
-          </Link>
-          <div className="index-author-follow">
-            <p className="story-index-inline">
-              {author.firstName} {author.lastName}
-            </p>
-            <Follow
-              story={this.props.story}
-              currentUser={this.props.currentUser}
-              follow={this.props.follow}
-              unfollow={this.props.unfollow}
-              author={author}
-              users={this.props.users}
-              toggle={this.props.toggle}
-            />
+          <div className="number-container">
+            <div className="number">0{this.props.i + 1}</div>
+
+            <Link to={`stories/${_id}`}>
+              <h1 className="story-title">{title}</h1>
+            </Link>
           </div>
-          <p className="story-date">
-            {new Date(created_at)
-              .toString()
-              .split(" ")
-              .slice(1, 4)
-              .join(" ")}
-          </p>
+          <div className="name-container">
+            <div className="index-author-follow">
+              <p className="story-index-inline">
+                {author.firstName} {author.lastName}
+              </p>
+              <Follow
+                story={this.props.story}
+                currentUser={this.props.currentUser}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                author={author}
+                users={this.props.users}
+                toggle={this.props.toggle}
+              />
+            </div>
+            <p className="story-date">
+              {new Date(created_at)
+                .toString()
+                .split(" ")
+                .slice(1, 4)
+                .join(" ")}
+            </p>
+          </div>
         </div>
       </li>
     );

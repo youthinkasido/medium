@@ -9,5 +9,31 @@
   font-weight: 700;
   text-align: center;
   border-bottom: 1px solid black;
-  margin-bottom: 7px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.number-container{
+  display: flex;
+  
+}
+
+.number{
+  margin-right: 10px;
+  font-size: 34px;
+  font-weight: 700;
+  color: rgb(113, 107, 107) ;
+}
+
+/* .story-date{
+  padding: 5px 0;
+  
+} */
+
+.story-index-inline{
+  padding: 15px 0 5px 0;
+}
+
+.name-container{
+  padding-left: 43px;
 }

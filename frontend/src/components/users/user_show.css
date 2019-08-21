@@ -133,12 +133,13 @@
 }
 
 .user-story-show {
-  border: 1px solid black;
+  border: 1px solid #eee;
   border-radius: 4px;
   width: 500px;
-  height: 400px;
+  height: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px; 
+  box-shadow: 0 20px 28px rgba(0, 0, 0, 0.35), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .user-story-show:hover {
@@ -148,6 +149,10 @@
 .user-story-show-img {
   width: 100%;
   height: 150px;
+}
+
+.user-story-show-date{
+  padding-bottom: 50px;
 }
 
 .user-story-show-title-container {
