@@ -116,22 +116,14 @@ class StoriesIndexItem extends React.Component {
                   .toString()
                   .split(" ")
                   .slice(1, 4)
-<<<<<<< HEAD
-                  .join(" ")}
-=======
                   .join(" ")}{" "}
                 · {this.read(body)}
->>>>>>> ad45e39adf17c625062cf2c1ec09e2f428689cce
               </p>
             </div>
 
             <Link to={`stories/${_id}`}>
               <img
-<<<<<<< HEAD
-                src={this.props.story.imageURL}
-=======
                 src={`${this.props.story.imageURL}`}
->>>>>>> ad45e39adf17c625062cf2c1ec09e2f428689cce
                 alt="image"
                 className="story-img"
               />
