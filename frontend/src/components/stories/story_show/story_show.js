@@ -53,7 +53,6 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
-    let body = this.props.story.body;
     return (
       <div>
         <div className="story-show-container">

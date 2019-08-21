@@ -2,9 +2,6 @@ import React from "react";
 import Follow from "../../follows/follow";
 import { Link, withRouter } from "react-router-dom";
 import "./stories.css";
-// import "froala-editor/css/froala_style.min.css";
-// import "froala-editor/css/froala_editor.pkgd.min.css";
-// import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
 import renderHTML from "react-render-html";
 
 class StoriesIndexItem extends React.Component {
@@ -18,9 +15,7 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
-  // 60 seconds, 200 words
-  // [word,word,word]
-  // words / 3.3 = 60
+
 
   read(body) {
     let wordLength = body.split(" ").length;
@@ -31,7 +26,7 @@ class StoriesIndexItem extends React.Component {
       return "";
     }
 
-    return minutes + " " + `${minutes > 1 ? "mins" : "min"}` + " " + "read";
+    return minutes + " " + `${minutes > 1 ? "min" : "min"}` + " " + "read";
   }
 
   render() {
@@ -59,9 +54,15 @@ class StoriesIndexItem extends React.Component {
               </Link>
 
               <Link to={`/stories/${_id}`}>
-                {renderHTML(`${this.props.story.body}`)}
+                {renderHTML(
+                  `${this.props.story.body
+                    .toString()
+                    .split(" ")
+                    .slice(1, 20)
+                    .join(" ")} ...`
+                )}
               </Link>
-              <p className="story-body">
+              <p className="story-date">
                 {new Date(created_at)
                   .toString()
                   .split(" ")
@@ -73,7 +74,7 @@ class StoriesIndexItem extends React.Component {
 
             <Link to={`/stories/${_id}`}>
               <img
-                src={this.props.story.imageURL}
+                src={`${this.props.story.imageURL}`}
                 alt="city image"
                 className="story-img"
               />
@@ -85,12 +86,22 @@ class StoriesIndexItem extends React.Component {
               <Link to={`stories/${_id}`}>
                 <h1 className="story-title">{title}</h1>
               </Link>
-
               <Link to={`stories/${_id}`}>
-                <p className="story-body">
-                  {renderHTML(`${this.props.story.body}`)}
-                </p>
+                <div className="story-body">
+                  {renderHTML(
+                    `${this.props.story.body
+                      .toString()
+                      .split(" ")
+                      .slice(1, 20)
+                      .join(" ")} ...`
+                  )}
+                </div>
               </Link>
+              <div className="story-index-name">
+                <Link to={`/users/${author._id}`}>
+                  {author.firstName} {author.lastName}
+                </Link>
+              </div>
               <Follow
                 story={this.props.story}
                 currentUser={this.props.currentUser}
@@ -100,19 +111,27 @@ class StoriesIndexItem extends React.Component {
                 users={this.props.users}
                 toggle={this.props.toggle}
               />
-              <p className="story-body">
+              <p className="index-story-date">
                 {new Date(created_at)
                   .toString()
                   .split(" ")
                   .slice(1, 4)
+<<<<<<< HEAD
                   .join(" ")}
+=======
+                  .join(" ")}{" "}
+                · {this.read(body)}
+>>>>>>> ad45e39adf17c625062cf2c1ec09e2f428689cce
               </p>
-              {this.read(body)}
             </div>
 
             <Link to={`stories/${_id}`}>
               <img
+<<<<<<< HEAD
                 src={this.props.story.imageURL}
+=======
+                src={`${this.props.story.imageURL}`}
+>>>>>>> ad45e39adf17c625062cf2c1ec09e2f428689cce
                 alt="image"
                 className="story-img"
               />
