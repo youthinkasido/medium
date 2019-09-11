@@ -1,5 +1,6 @@
 <h2>Website Description:</h2>
     An online publishing platform where authors create stories to interact with their readers.
+    https://scarebandb.herokuapp.com
 
 <h2>Functionality and MVP:</h2>
 * Stories
