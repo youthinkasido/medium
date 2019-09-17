@@ -64,6 +64,8 @@ class NavBar extends React.Component {
   //   }
   // }
 
+
+
   handleProfile(e) {
     e.preventDefault();
 
@@ -71,9 +73,11 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-  
+
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
+
+
 
   render() {
     // let user = {};
@@ -85,6 +89,15 @@ class NavBar extends React.Component {
     //   };
     // };
 
+    document.addEventListener('click', (e) => {
+      debugger
+      let dropdownContent = document.getElementById('dropdown-content')
+      if (dropdownContent && e.target.id != 'dropdown' && !dropdownContent.classList.contains('hide')) {
+        // dropdownContent.classList.toggle('hide')
+        this.setState({ clicked: false })
+      }
+    })
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -95,18 +108,17 @@ class NavBar extends React.Component {
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
                 {this.props.currentUser && this.props.currentUser.avatarURL ? (
-                  <img
+                  <img id="dropdown"
                     className="nav-user-icon"
                     src={this.props.currentUser.avatarURL}
                   />
                 ) : (
-                  <i className="fas fa-user-circle" />
-                )}
+                    <i className="fas fa-user-circle" />
+                  )}
               </button>
-              <div
-                className={`dropdown-content ${
-                  this.state.clicked ? "reveal" : "hide"
-                }`}
+              <div id="dropdown-content"
+                className={`dropdown-content ${this.state.clicked ? 'reveal' : 'hide'}`}
+
               >
                 <div className="dropdown-item" onClick={this.handleNewStory}>
                   <button>New Story</button>
@@ -120,17 +132,17 @@ class NavBar extends React.Component {
               </div>
             </div>
           ) : (
-            <div className="navbar-auth-container">
-              <div className="navbar-signin">
-                <Link to={"/login"}>Sign In</Link>
+              <div className="navbar-auth-container">
+                <div className="navbar-signin">
+                  <Link to={"/login"}>Sign In</Link>
+                </div>
+                <div className="navbar-signup">
+                  <Link to={"/signup"}>Get Started</Link>
+                </div>
               </div>
-              <div className="navbar-signup">
-                <Link to={"/signup"}>Get Started</Link>
-              </div>
-            </div>
-          )}
+            )}
         </div>
-      </nav>
+      </nav >
     );
   }
 }

@@ -10,7 +10,13 @@
 
 .user-description {
   max-width: 80%;
+  margin-bottom: 10px;
   /* display: inline-flex; */
+    font-family: sans-serif;
+}
+
+.follower-count{
+  font-family: sans-serif;
 }
 
 .user-avatar {
@@ -32,6 +38,7 @@
 .username {
   margin-bottom: 10px;
   font-size: 30px;
+  font-family: sans-serif;
 }
 
 .edit-profile {

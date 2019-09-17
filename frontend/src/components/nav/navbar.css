@@ -28,6 +28,7 @@
   font-weight: 800;
   font-family: 'Times New Roman', Times, serif;
   font-size: 32px;
+  cursor: pointer;
 }
 
 .navbar-profile {
@@ -77,6 +78,10 @@
    width: 100%;
    text-align: left;
  }
+
+.dropdown-item{
+     cursor: pointer;
+}
  .dropdown-item a {
    border: none;
    background: white;

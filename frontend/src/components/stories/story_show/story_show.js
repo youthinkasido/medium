@@ -18,6 +18,7 @@ class StoryShow extends React.Component {
     };
 
     this.openComments = this.openComments.bind(this);
+
   }
 
   createMarkup() {
@@ -82,8 +83,8 @@ class StoryShow extends React.Component {
             </p>
           </div>
           <img
-            src={this.props.story.imageURL ? this.props.story.imageURL : ''}
-            alt="image"
+            src={this.props.story.imageURL}
+            alt=""
             className="story-show-img"
           />
 
