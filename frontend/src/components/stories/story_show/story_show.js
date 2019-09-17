@@ -82,7 +82,7 @@ class StoryShow extends React.Component {
             </p>
           </div>
           <img
-            src={this.props.story.imageURL}
+            src={this.props.story.imageURL ? this.props.story.imageURL : ''}
             alt="image"
             className="story-show-img"
           />
@@ -113,8 +113,8 @@ class StoryShow extends React.Component {
               <CommentsContainer /> {this.scrollTo()}
             </Fragment>
           ) : (
-            <div />
-          )}
+              <div />
+            )}
         </div>
       </div>
     );
