@@ -8,7 +8,9 @@ class NavBar extends React.Component {
 
     this.state = {
       clicked: false,
-      reload: false
+      reload: false,
+      email: "",
+      password: ""
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -56,14 +58,6 @@ class NavBar extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps){
-  //   if (this.props.user.avatarURL !== prevProps.user.avatarURL){
-  //     this.setState({
-
-  //     })
-  //   }
-  // }
-
   handleProfile(e) {
     e.preventDefault();
 
@@ -71,20 +65,42 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-  
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
+  logInDemoUser(e) {
+    e.preventDefault();
+
+    this.state = {
+      email: "",
+      password: ""
+    };
+
+    const demoUser = {
+      email: "demo@gmail.com",
+      password: "123456"
+    };
+
+    let password = "123456";
+    const demoLoginCallback = () => {
+      setTimeout(() => {
+        if (password.length > 0) {
+          this.setState({
+            email: "demo@gmail.com",
+            password: this.state.password.concat(password[0])
+          });
+          password = password.slice(1);
+          demoLoginCallback();
+        } else {
+          this.props.login(demoUser);
+        }
+      }, 1);
+    };
+
+    demoLoginCallback();
+  }
+
   render() {
-    // let user = {};
-    // let usersArr = Object.values(this.props.users);
-
-    // for (let i = 0; i < usersArr.length; i++) {
-    //   if (this.props.user.id === usersArr[i]._id) {
-    //     user = usersArr[i]
-    //   };
-    // };
-
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -126,6 +142,15 @@ class NavBar extends React.Component {
               </div>
               <div className="navbar-signup">
                 <Link to={"/signup"}>Get Started</Link>
+              </div>
+              <div className="navbar-demo">
+                <button
+                  type="button"
+                  id="demo-user-button"
+                  onClick={e => this.logInDemoUser(e)}
+                >
+                  Log in as demo user
+                </button>
               </div>
             </div>
           )}
