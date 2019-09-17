@@ -45,13 +45,6 @@ router.get("/user/:userId", (req, res) => {
     );
 });
 
-// router.get("/:id", (req, res) => {
-//   Story.findById(req.params.id)
-//     .then(story => res.json(story))
-//     .catch(err =>
-//       res.status(404).json({ nostoryfound: "No story found with that ID" })
-//     );
-// });
 
 router.post(
   "/",
@@ -69,10 +62,6 @@ router.post(
       title: req.body.title,
       imageURL: req.body.imageURL
     });
-
-    // newStory.save().then(story => {
-    //   res.json(story);
-    // });
 
     try {
       let createdStory = await newStory.save();
