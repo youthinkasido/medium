@@ -65,6 +65,7 @@ router.post(
 
     try {
       let createdStory = await newStory.save();
+      res.send(createdStory);
     } catch (error) {}
   }
 );
