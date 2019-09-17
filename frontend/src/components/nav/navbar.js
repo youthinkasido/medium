@@ -65,7 +65,7 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-    this.props.history.push(`/users/${this.props.currentUser._id}`);
+    this.props.history.push(`/users/${this.props.user.id}`);
   }
 
   logInDemoUser(e) {
@@ -77,7 +77,7 @@ class NavBar extends React.Component {
     };
 
     const demoUser = {
-      email: "demo@gmail.com",
+      email: "newuserdemo@gmail.com",
       password: "123456"
     };
 
@@ -86,7 +86,7 @@ class NavBar extends React.Component {
       setTimeout(() => {
         if (password.length > 0) {
           this.setState({
-            email: "demo@gmail.com",
+            email: "newuserdemo@gmail.com",
             password: this.state.password.concat(password[0])
           });
           password = password.slice(1);
@@ -143,8 +143,9 @@ class NavBar extends React.Component {
               <div className="navbar-signup">
                 <Link to={"/signup"}>Get Started</Link>
               </div>
-              <div className="navbar-demo">
+              <div className="demo">
                 <button
+                  className="navbar-signup"
                   type="button"
                   id="demo-user-button"
                   onClick={e => this.logInDemoUser(e)}
