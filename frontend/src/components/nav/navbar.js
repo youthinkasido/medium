@@ -85,7 +85,7 @@ class NavBar extends React.Component {
     // let user = {};
     // let usersArr = Object.values(this.props.users);
 
-    demoLoginCallback();
+    // demoLoginCallback();
   }
 
   render() {
