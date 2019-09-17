@@ -56,14 +56,6 @@ class NavBar extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps){
-  //   if (this.props.user.avatarURL !== prevProps.user.avatarURL){
-  //     this.setState({
-
-  //     })
-  //   }
-  // }
-
   handleProfile(e) {
     e.preventDefault();
 
@@ -71,20 +63,10 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-  
-    this.props.history.push(`/users/${this.props.currentUser._id}`);
+    this.props.history.push(`/users/${this.props.user.id}`);
   }
 
   render() {
-    // let user = {};
-    // let usersArr = Object.values(this.props.users);
-
-    // for (let i = 0; i < usersArr.length; i++) {
-    //   if (this.props.user.id === usersArr[i]._id) {
-    //     user = usersArr[i]
-    //   };
-    // };
-
     return (
       <nav className="navbar">
         <div className="navbar-container">
