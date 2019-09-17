@@ -1,6 +1,7 @@
 .story-img {
   height: 100%;
   width: 152px;
+  object-fit: cover;
 }
 
 .story-title {
