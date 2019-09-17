@@ -36,6 +36,5 @@ const UserSchema = new Schema({
     default: Date.now
   }
 });
-//statics called on classes, methods called on instances.
 
 module.exports = User = mongoose.model("users", UserSchema);

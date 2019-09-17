@@ -136,9 +136,3 @@ class NavBar extends React.Component {
 }
 
 export default withRouter(NavBar);
-
-// case RECEIVE_CURRENT_USER:
-//     debugger
-//     newState.currentUser = action.currentUser.data;
-
-//     return newState;

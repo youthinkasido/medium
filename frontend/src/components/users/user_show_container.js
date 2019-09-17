@@ -15,7 +15,8 @@ const mapStateToProps = ({ session, entities }) => {
     currentUser: session.user,
     author: entities.users.user,
     stories: entities.stories.all,
-    avatarURL: entities.users.user.avatarURL
+    avatarURL: entities.users.user.avatarURL,
+    description: entities.users.user.description
   };
 };
 

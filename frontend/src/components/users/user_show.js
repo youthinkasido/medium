@@ -15,8 +15,8 @@ class UserShow extends React.Component {
       image: "",
       progress: 0,
       toggle: false,
-      id: this.props.author._id,
-      description: "Bio has not been created.",
+      id: this.props.match.params.userId,
+      description: this.props.description,
       class: "hide-input"
     };
 
@@ -89,12 +89,14 @@ class UserShow extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // let author = Object.assign(this.state)
-    this.props.updateUser(this.props.author);
 
     this.setState({
-      class: "hide-input"
+      class: "hide-input",
+      description: e.target.textContent.slice(0, -6)
     });
+
+    let author = Object.assign(this.state)
+    this.props.updateUser(author);
   }
 
   handleShow(e) {
@@ -148,7 +150,7 @@ class UserShow extends React.Component {
                 />
               </div>
 
-              <p className="user-description">{this.state.description}</p>
+              <p className="user-description">{this.props.author.description}</p>
 
               <form
                 onSubmit={this.handleSubmit}
