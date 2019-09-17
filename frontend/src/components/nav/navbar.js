@@ -8,7 +8,9 @@ class NavBar extends React.Component {
 
     this.state = {
       clicked: false,
-      reload: false
+      reload: false,
+      email: "",
+      password: ""
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -66,6 +68,38 @@ class NavBar extends React.Component {
     this.props.history.push(`/users/${this.props.user.id}`);
   }
 
+  logInDemoUser(e) {
+    e.preventDefault();
+
+    this.state = {
+      email: "",
+      password: ""
+    };
+
+    const demoUser = {
+      email: "newuserdemo@gmail.com",
+      password: "123456"
+    };
+
+    let password = "123456";
+    const demoLoginCallback = () => {
+      setTimeout(() => {
+        if (password.length > 0) {
+          this.setState({
+            email: "newuserdemo@gmail.com",
+            password: this.state.password.concat(password[0])
+          });
+          password = password.slice(1);
+          demoLoginCallback();
+        } else {
+          this.props.login(demoUser);
+        }
+      }, 1);
+    };
+
+    demoLoginCallback();
+  }
+
   render() {
     return (
       <nav className="navbar">
@@ -108,6 +142,16 @@ class NavBar extends React.Component {
               </div>
               <div className="navbar-signup">
                 <Link to={"/signup"}>Get Started</Link>
+              </div>
+              <div className="demo">
+                <button
+                  className="navbar-signup"
+                  type="button"
+                  id="demo-user-button"
+                  onClick={e => this.logInDemoUser(e)}
+                >
+                  Log in as demo user
+                </button>
               </div>
             </div>
           )}
