@@ -110,10 +110,10 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.currentUser && this.props.currentUser.avatarURL ? (
+                {this.props.user && this.props.user.avatarURL ? (
                   <img
                     className="nav-user-icon"
-                    src={this.props.currentUser.avatarURL}
+                    src={this.props.user.avatarURL}
                   />
                 ) : (
                   <i className="fas fa-user-circle" />
