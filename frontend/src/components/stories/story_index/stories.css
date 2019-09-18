@@ -63,6 +63,15 @@
 .story-index-inline {
   display: inline-block;
   margin-right: 12px;
+
+}
+
+.story-index-inline a{
+  cursor: pointer;
+}
+
+.story-index-inline a:hover{
+  cursor: pointer;
 }
 
 .story-date {

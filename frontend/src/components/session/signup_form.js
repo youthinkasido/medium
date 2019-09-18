@@ -51,8 +51,9 @@ class SignupForm extends React.Component {
       <ul className="signup-errors">
         {Object.keys(this.state.errors).map((error, i) => {
           if (error === "email") {
-            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
           }
+          return null;
         })}
       </ul>
     );
@@ -63,8 +64,9 @@ class SignupForm extends React.Component {
       <ul className="signup-errors">
         {Object.keys(this.state.errors).map((error, i) => {
           if (error === "password") {
-            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
           }
+          return null;
         })}
       </ul>
     );
@@ -75,8 +77,9 @@ class SignupForm extends React.Component {
       <ul className="signup-errors">
         {Object.keys(this.state.errors).map((error, i) => {
           if (error === "password2") {
-            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
           }
+          return null;
         })}
       </ul>
     );

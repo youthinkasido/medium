@@ -48,8 +48,9 @@ class LoginForm extends React.Component {
       <ul className="login-errors">
         {Object.keys(this.state.errors).map((error, i) => {
           if (error === "email") {
-            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
           }
+          return null;
         })}
       </ul>
     );
@@ -60,8 +61,9 @@ class LoginForm extends React.Component {
       <ul className="login-errors">
         {Object.keys(this.state.errors).map((error, i) => {
           if (error === "password") {
-            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
           }
+          return null;
         })}
       </ul>
     );
@@ -95,7 +97,6 @@ class LoginForm extends React.Component {
               type="submit"
               value="Submit"
               className="session-form-button"
-
             />
           </div>
         </form>

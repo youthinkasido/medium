@@ -60,7 +60,7 @@ class StoryShow extends React.Component {
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
-              <Link to={`/users/${author._id}`}>
+              <Link>
                 {author.firstName} {author.lastName}
               </Link>
             </p>
