@@ -67,7 +67,11 @@
 }
 
 .story-index-inline a{
-  display: cursor;
+  cursor: pointer;
+}
+
+.story-index-inline a:hover{
+  cursor: pointer;
 }
 
 .story-date {

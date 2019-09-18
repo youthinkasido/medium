@@ -148,5 +148,5 @@ a:hover {
     margin-bottom: 14px;
     border-radius: 110px;
     max-height: 40px;
-    
+    cursor: pointer;
 }
