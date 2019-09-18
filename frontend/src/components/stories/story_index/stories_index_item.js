@@ -73,7 +73,7 @@ class StoriesIndexItem extends React.Component {
             <Link to={`/stories/${_id}`}>
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="city"
+                alt=""
                 className="story-img"
               />
             </Link>
@@ -122,7 +122,7 @@ class StoriesIndexItem extends React.Component {
             <Link to={`stories/${_id}`}>
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="story"
+                alt=""
                 className="story-img"
               />
             </Link>
