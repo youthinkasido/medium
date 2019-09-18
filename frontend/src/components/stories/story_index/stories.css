@@ -63,6 +63,11 @@
 .story-index-inline {
   display: inline-block;
   margin-right: 12px;
+
+}
+
+.story-index-inline a{
+  display: cursor;
 }
 
 .story-date {

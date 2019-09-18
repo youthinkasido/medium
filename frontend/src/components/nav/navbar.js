@@ -113,7 +113,7 @@ class NavBar extends React.Component {
                     src={this.props.currentUser.avatarURL}
                   />
                 ) : (
-                    <i className="fas fa-user-circle" />
+                    <i id="dropdown" className="fas fa-user-circle" />
                   )}
               </button>
               <div id="dropdown-content"
