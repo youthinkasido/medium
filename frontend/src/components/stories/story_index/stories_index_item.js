@@ -15,8 +15,6 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
-
-
   read(body) {
     let wordLength = body.split(" ").length;
     let float = wordLength / 3.3 / 60;
@@ -26,7 +24,7 @@ class StoriesIndexItem extends React.Component {
       return "";
     }
 
-    return minutes + " " + `${minutes > 1 ? "min" : "min"}` + " " + "read";
+    return `${minutes} min read`;
   }
 
   render() {
@@ -120,16 +118,17 @@ class StoriesIndexItem extends React.Component {
                   · {this.read(body)}
                 </p>
               </div>
+            <Link to={`stories/${_id}`}>
+              <img
+                src={`${this.props.story.imageURL}`}
+                
+="story"
+                className="story-img"
+              />
+            </Link>
+          </div>
+        )}
 
-              <Link to={`stories/${_id}`}>
-                <img
-                  src={`${this.props.story.imageURL}`}
-                  alt=""
-                  className="story-img"
-                />
-              </Link>
-            </div>
-          )}
       </li>
     );
   }

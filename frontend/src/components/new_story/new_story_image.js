@@ -107,15 +107,15 @@ class StoryImageUpload extends React.Component {
                 : "hide-story-image"
             }
           >
-            <img src={this.state.imageURL} />
-            <img src="./remove.svg" onClick={this.removePhoto} />
+            <img src={this.state.imageURL} alt="article"/>
+            <img src="./remove.svg" alt="remove" onClick={this.removePhoto} />
           </div>
         }
 
         <div
           className={this.state.image ? "hide-camera" : "show-add-photo"}
         >
-          <img id="camera" src="./addimage.svg" />
+          <img id="camera" src="./addimage.svg" alt="add"/>
 
           <FileUploader
             accept="image/*"

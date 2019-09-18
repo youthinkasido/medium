@@ -58,16 +58,6 @@ class NavBar extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps){
-  //   if (this.props.user.avatarURL !== prevProps.user.avatarURL){
-  //     this.setState({
-
-  //     })
-  //   }
-  // }
-
-
-
   handleProfile(e) {
     e.preventDefault();
 
@@ -79,14 +69,6 @@ class NavBar extends React.Component {
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
-
-
-  render() {
-    // let user = {};
-    // let usersArr = Object.values(this.props.users);
-
-    // demoLoginCallback();
-  }
 
   render() {
     document.addEventListener('click', (e) => {
@@ -109,6 +91,7 @@ class NavBar extends React.Component {
                 {this.props.currentUser && this.props.currentUser.avatarURL ? (
                   <img id="dropdown"
                     className="nav-user-icon"
+                    alt="avatar"
                     src={this.props.currentUser.avatarURL}
                   />
                 ) : (

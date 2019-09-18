@@ -169,7 +169,7 @@ class UserShow extends React.Component {
 
               <div className="avatar-container">
                 {this.props.avatarURL ? (
-                  <img src={this.props.avatarURL} />
+                  <img src={this.props.avatarURL} alt="avatar" />
                 ) : (
                   <div className="first-letter">{name}</div>
                 )}
