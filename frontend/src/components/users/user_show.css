@@ -10,7 +10,14 @@
 }
 
 .user-description {
-  margin: 15px 0;
+  max-width: 80%;
+  margin-bottom: 10px;
+  /* display: inline-flex; */
+    font-family: sans-serif;
+}
+
+.follower-count{
+  font-family: sans-serif;
 }
 
 .user-avatar {
@@ -32,6 +39,7 @@
 .username {
   margin-bottom: 10px;
   font-size: 30px;
+  font-family: sans-serif;
 }
 
 .edit-profile {
@@ -129,6 +137,7 @@
 .user-story-show-name {
   color: #7e04b6 !important;
   padding: 10px 0;
+  font-family: sans-serif;
 }
 
 .user-story-show {
@@ -152,6 +161,7 @@
 
 .user-story-show-date {
   padding-bottom: 50px;
+      font-family: sans-serif;
 }
 
 .user-story-show-title-container {
@@ -159,15 +169,18 @@
   font-size: 22px;
   font-weight: 700;
   padding-top: 50px;
+  font-family: sans-serif;
 }
 
 .user-story-show-body {
   padding: 20px 0;
   color: #777;
+  font-family: sans-serif;
 }
 
 .user-read-more {
-  padding: 20px 0;
-  color: #7e04b6 !important;
-  font-size: 12px;
+    padding: 20px 0;
+    color: #7e04b6 !important;
+    font-size: 16px;
+    font-family: sans-serif;
 }
