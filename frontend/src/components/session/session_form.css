@@ -17,15 +17,13 @@
 }
 
 .login-errors{
-  padding: 20px;
-    font-family: sans-serif;
-    color: red;
+  font-family: sans-serif;
+  color: red;
 }
 
 .signup-errors{
-  padding: 20px;
-    font-family: sans-serif;
-    color: red;
+  font-family: sans-serif;
+  color: red;
 }
 
 .signup-form-container {

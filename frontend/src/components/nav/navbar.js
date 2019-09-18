@@ -90,7 +90,6 @@ class NavBar extends React.Component {
 
   render() {
     document.addEventListener('click', (e) => {
-      debugger
       let dropdownContent = document.getElementById('dropdown-content')
       if (dropdownContent && e.target.id != 'dropdown' && !dropdownContent.classList.contains('hide')) {
         // dropdownContent.classList.toggle('hide')
