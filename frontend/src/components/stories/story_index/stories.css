@@ -85,14 +85,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  /* .something {
-    display: none;
-  }
-
-  .story-index-container {
-    width: 100%;
-  } */
-
   .story-index {
     width: 100%;
   }
