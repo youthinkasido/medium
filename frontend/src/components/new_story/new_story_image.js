@@ -18,7 +18,6 @@ class StoryImageUpload extends React.Component {
   constructor(props) {
     super(props);
 
-    
     this.state = {
       image: "",
       imageURL: "",
@@ -28,11 +27,15 @@ class StoryImageUpload extends React.Component {
     this.removePhoto = this.removePhoto.bind(this);
   }
 
+  componentDidMount() {
+    this.removePhoto();
+  }
+
   handleUploadStart = () => {
     this.setState({
       progress: 0,
       image: "",
-      imageURL: "",
+      imageURL: ""
     });
   };
 
@@ -42,7 +45,6 @@ class StoryImageUpload extends React.Component {
     });
   };
 
-
   handleUploadSuccess = filename => {
     this.setState({
       image: filename,
@@ -50,25 +52,23 @@ class StoryImageUpload extends React.Component {
     });
 
     firebase
-    .storage()
-    .ref("storyimage")
-    .child(filename)
-    .getDownloadURL()
-    .then(url =>
-      this.setState({
-        imageURL: url
-      })
+      .storage()
+      .ref("storyimage")
+      .child(filename)
+      .getDownloadURL()
+      .then(url =>
+        this.setState({
+          imageURL: url
+        })
       )
       .then(() => {
         this.props.receiveNewStoryImageURL(this.state.imageURL);
       });
-  }
-  
+  };
 
-  handleUploadError = () => { 
-    alert('error')
-  }
-
+  handleUploadError = () => {
+    alert("error");
+  };
 
   removePhoto = () => {
     this.setState({
@@ -76,7 +76,7 @@ class StoryImageUpload extends React.Component {
       imageURL: "",
       progress: 0
     });
-  }
+  };
 
   render() {
     return (
@@ -112,9 +112,7 @@ class StoryImageUpload extends React.Component {
           </div>
         }
 
-        <div
-          className={this.state.image ? "hide-camera" : "show-add-photo"}
-        >
+        <div className={this.state.image ? "hide-camera" : "show-add-photo"}>
           <img id="camera" src="./addimage.svg" />
 
           <FileUploader
@@ -124,7 +122,6 @@ class StoryImageUpload extends React.Component {
             onUploadStart={this.handleUploadStart}
             onUploadSuccess={this.handleUploadSuccess}
             onProgress={this.handleProgress}
-
           />
         </div>
       </div>

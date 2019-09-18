@@ -2,7 +2,8 @@ import {
   RECEIVE_STORIES,
   RECEIVE_NEW_STORY,
   RECEIVE_STORY,
-  RECEIVE_NEW_STORY_IMAGE
+  RECEIVE_NEW_STORY_IMAGE,
+  REMOVE_NEW_STORY_IMAGE
 } from "../actions/story_actions";
 
 const storiesReducer = (
@@ -23,8 +24,11 @@ const storiesReducer = (
       return newState;
 
     case RECEIVE_NEW_STORY_IMAGE:
-      
       newState.imageURL = action.imageURL;
+      return newState;
+
+    case REMOVE_NEW_STORY_IMAGE:
+      newState.imageURL = "";
       return newState;
     default:
       return state;

@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import NewStory from "./new_story";
-import { createStory } from "../../actions/story_actions";
+import {
+  createStory,
+  removeNewStoryImageURL
+} from "../../actions/story_actions";
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createStory: story => dispatch(createStory(story))
+    createStory: story => dispatch(createStory(story)),
+    removeNewStoryImageURL: () => dispatch(removeNewStoryImageURL())
   };
 };
 

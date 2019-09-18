@@ -4,6 +4,7 @@ export const RECEIVE_STORIES = "RECEIVE_STORIES";
 export const RECEIVE_STORY = "RECEIVE_STORY";
 export const RECEIVE_NEW_STORY = "RECEIVE_NEW_STORY";
 export const RECEIVE_NEW_STORY_IMAGE = "RECEIVE_NEW_STORY_IMAGE";
+export const REMOVE_NEW_STORY_IMAGE = "REMOVE_NEW_STORY_IMAGE";
 
 export const receiveStories = stories => ({
   type: RECEIVE_STORIES,
@@ -31,6 +32,12 @@ export const receiveNewStoryImageURL = imageURL => {
   };
 };
 
+export const removeNewStoryImageURL = () => {
+  return {
+    type: REMOVE_NEW_STORY_IMAGE
+  };
+};
+
 export const fetchStories = () => dispatch =>
   APIUtil.getStories()
     .then(stories => {
@@ -50,8 +57,8 @@ export const fetchUserStories = id => dispatch =>
     .then(stories => dispatch(receiveStories(stories)))
     .catch(err => console.log(err));
 
-export const createStory = data => dispatch => { 
+export const createStory = data => dispatch => {
   return APIUtil.createStory(data)
     .then(story => dispatch(receiveNewStory(story)))
     .catch(err => console.log(err));
-}
+};

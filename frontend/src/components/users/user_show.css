@@ -13,10 +13,10 @@
   max-width: 80%;
   margin-bottom: 10px;
   /* display: inline-flex; */
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
-.follower-count{
+.follower-count {
   font-family: sans-serif;
 }
 
@@ -163,7 +163,7 @@
 
 .user-story-show-date {
   padding-bottom: 50px;
-      font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .user-story-show-title-container {
@@ -181,8 +181,8 @@
 }
 
 .user-read-more {
-    padding: 20px 0;
-    color: #7e04b6 !important;
-    font-size: 16px;
-    font-family: sans-serif;
+  padding: 20px 0;
+  color: #7e04b6 !important;
+  font-size: 16px;
+  font-family: sans-serif;
 }

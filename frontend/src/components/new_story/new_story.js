@@ -19,6 +19,11 @@ class NewStory extends Component {
     this.handleModelChange = this.handleModelChange.bind(this);
   }
 
+  componentDidMount() {
+    debugger;
+    this.setState({ model: "" });
+  }
+
   update(field) {
     return e =>
       this.setState({
@@ -43,8 +48,9 @@ class NewStory extends Component {
     };
 
     this.props.createStory(story).then(() => {
+      this.props.removeNewStoryImageURL();
       this.props.history.push(`/users/${story.authorId}`);
-    })
+    });
   }
 
   render() {
