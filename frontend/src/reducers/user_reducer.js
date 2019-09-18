@@ -4,7 +4,6 @@ import {
   RECEIVE_USER_AVATAR,
   RECEIVE_CURRENT_USER_INFO
 } from "../actions/user_actions";
-import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions";
 import { merge } from "lodash";
 
 const usersReducer = (

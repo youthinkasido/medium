@@ -15,8 +15,6 @@ class StoriesIndexItem extends React.Component {
     this.props.history.push(`/stories/${this.props.story._id}`);
   }
 
-
-
   read(body) {
     let wordLength = body.split(" ").length;
     let float = wordLength / 3.3 / 60;
@@ -26,7 +24,7 @@ class StoriesIndexItem extends React.Component {
       return "";
     }
 
-    return minutes + " " + `${minutes > 1 ? "min" : "min"}` + " " + "read";
+    return `${minutes} min read`;
   }
 
   render() {
@@ -75,61 +73,61 @@ class StoriesIndexItem extends React.Component {
             <Link to={`/stories/${_id}`}>
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="city image"
+                alt=""
                 className="story-img"
               />
             </Link>
           </div>
         ) : (
-          <div className="story">
-            <div>
-              <Link to={`stories/${_id}`}>
-                <h1 className="story-title">{title}</h1>
-              </Link>
-              <Link to={`stories/${_id}`}>
-                <div className="story-body">
-                  {renderHTML(
-                    `${this.props.story.body
-                      .toString()
-                      .split(" ")
-                      .slice(0, 20)
-                      .join(" ")} ...`
-                  )}
-                </div>
-              </Link>
-              <div className="story-index-name">
-                <Link to={`/users/${author._id}`}>
-                  {author.firstName} {author.lastName}
+            <div className="story">
+              <div>
+                <Link to={`stories/${_id}`}>
+                  <h1 className="story-title">{title}</h1>
                 </Link>
+                <Link to={`stories/${_id}`}>
+                  <div className="story-body">
+                    {renderHTML(
+                      `${this.props.story.body
+                        .toString()
+                        .split(" ")
+                        .slice(0, 20)
+                        .join(" ")} ...`
+                    )}
+                  </div>
+                </Link>
+                <div className="story-index-name">
+                  <Link to={`/users/${author._id}`}>
+                    {author.firstName} {author.lastName}
+                  </Link>
+                </div>
+                <Follow
+                  story={this.props.story}
+                  currentUser={this.props.currentUser}
+                  follow={this.props.follow}
+                  unfollow={this.props.unfollow}
+                  author={author}
+                  users={this.props.users}
+                  toggle={this.props.toggle}
+                />
+                <p className="index-story-date">
+                  {new Date(created_at)
+                    .toString()
+                    .split(" ")
+                    .slice(1, 4)
+                    .join(" ")}{" "}
+                  · {this.read(body)}
+                </p>
               </div>
-              <Follow
-                story={this.props.story}
-                currentUser={this.props.currentUser}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-                author={author}
-                users={this.props.users}
-                toggle={this.props.toggle}
-              />
-              <p className="index-story-date">
-                {new Date(created_at)
-                  .toString()
-                  .split(" ")
-                  .slice(1, 4)
-                  .join(" ")}{" "}
-                · {this.read(body)}
-              </p>
-            </div>
-
             <Link to={`stories/${_id}`}>
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="image"
+                alt=""
                 className="story-img"
               />
             </Link>
           </div>
         )}
+
       </li>
     );
   }

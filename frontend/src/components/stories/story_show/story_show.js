@@ -18,6 +18,7 @@ class StoryShow extends React.Component {
     };
 
     this.openComments = this.openComments.bind(this);
+
   }
 
   createMarkup() {
@@ -59,7 +60,7 @@ class StoryShow extends React.Component {
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
-              <Link to={`/users/${author._id}`}>
+              <Link>
                 {author.firstName} {author.lastName}
               </Link>
             </p>
@@ -83,7 +84,7 @@ class StoryShow extends React.Component {
           </div>
           <img
             src={this.props.story.imageURL}
-            alt="image"
+            alt=""
             className="story-show-img"
           />
 
@@ -113,8 +114,8 @@ class StoryShow extends React.Component {
               <CommentsContainer /> {this.scrollTo()}
             </Fragment>
           ) : (
-            <div />
-          )}
+              <div />
+            )}
         </div>
       </div>
     );

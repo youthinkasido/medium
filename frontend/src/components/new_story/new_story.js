@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Textarea from "react-textarea-autosize";
 import "./new_story.css";
 import NewStoryImageContainer from "./new_story_image_container";
 import ReactQuill from "react-quill";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class NewStory extends Component {
   constructor(props) {

@@ -25,6 +25,7 @@
   font-weight: 800;
   font-family: "Times New Roman", Times, serif;
   font-size: 32px;
+  cursor: pointer;
 }
 
 .navbar-profile {
@@ -43,74 +44,78 @@
   margin-top: -2px;
   position: relative;
   z-index: 10;
-}
+ }
 
-.dropdown-content {
-  border: 1px solid lightgray;
-  border-radius: 3px;
-  background: white;
-  width: 100px;
-  position: absolute;
-  right: 0;
-}
+ .dropdown-content {
+   border: 1px solid lightgray;
+   border-radius: 3px;
+   background: white;
+   width: 100px;;
+   position: absolute;
+   right: 0;
+ }
 
-.dropdown-content button {
-  display: block;
-  outline: none;
-}
-.dropdown-content a {
-  display: block;
-  outline: none;
-}
+ .dropdown-content button {
+   display: block;
+   outline: none;
+ }
+ .dropdown-content a {
+   display: block;
+   outline: none;
+ }
 
-.dropdown-item button {
-  border: none;
-  background: white;
-  color: gray;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 10px;
-  width: 100%;
-  text-align: left;
-}
-.dropdown-item a {
-  border: none;
-  background: white;
-  color: gray;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 10px;
-  width: 100%;
-  text-align: left;
-}
+ .dropdown-item button {
+   border: none;
+   background: white;
+   color: gray;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   padding: 10px;
+   width: 100%;
+   text-align: left;
+ }
 
-.dropdown-item button {
-  border: none;
-  background: white;
-  color: gray;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 10px;
-  width: 100%;
-  text-align: left;
+.dropdown-item{
+     cursor: pointer;
 }
+ .dropdown-item a {
+   border: none;
+   background: white;
+   color: gray;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   padding: 10px;
+   width: 100%;
+   text-align: left;
+ }
 
-.dropbtn {
-  border: none;
-  background: none;
-  font-size: 36px;
-  padding: 0px;
-  color: rgb(40, 121, 182);
-  /* border: 1px solid black; */
-  border-radius: 100px;
-  width: 40px;
-  /* margin: auto; */
-  height: 38px;
-  position: relative;
-}
+  .dropdown-item button {
+   border: none;
+   background: white;
+   color: gray;
+   font-family: sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   padding: 10px;
+   width: 100%;
+   text-align: left;
+ }
+
+ .dropbtn {
+    border: none;
+    background: none;
+    font-size: 36px;
+    padding: 0px;
+    color: rgb(40, 121, 182);
+    /* border: 1px solid black; */
+    border-radius: 100px;
+    width: 40px;
+    /* margin: auto; */
+    height: 38px;
+    position: relative;
+ }
 
 .navbar-signin {
   font-size: 16px;
@@ -138,8 +143,10 @@ a:hover {
   cursor: pointer;
 }
 
-.nav-user-icon {
-  width: 40px;
-  margin-bottom: 14px;
-  border-radius: 110px;
+.nav-user-icon{
+     width: 40px;
+    margin-bottom: 14px;
+    border-radius: 110px;
+    max-height: 40px;
+    cursor: pointer;
 }

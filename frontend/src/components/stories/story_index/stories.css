@@ -7,11 +7,27 @@
   overflow-wrap: break-word;
   font-size: 22px;
   font-weight: 700;
+  font-family: sans-serif;
 }
+
+.ql-editor p { 
+  font-size: 21px;
+  font-family: sans-serif;
+}
+
+.ql-snow .ql-editor h2 { 
+    font-size: 1.5em;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
 
 .story-body {
   padding: 20px 0;
   color: #777;
+  font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
 .story-index-container {
@@ -22,8 +38,11 @@
 }
 
 .story-index-name {
-  display: inline-block;
-  margin-right: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    font-family: sans-serif;
+    font-weight: 400;
+
 }
 
 .story-list-item {
@@ -44,17 +63,28 @@
 .story-index-inline {
   display: inline-block;
   margin-right: 12px;
+
+}
+
+.story-index-inline a{
+  cursor: pointer;
+}
+
+.story-index-inline a:hover{
+  cursor: pointer;
 }
 
 .story-date {
   color: #777;
   font-size: 14px;
+      font-family: sans-serif;
 }
 
 .index-story-date {
   color: #777;
   font-size: 14px;
   margin-top: 8px;
+  font-family: sans-serif;
 }
 
 .something {
@@ -78,9 +108,14 @@
   }
 
   .story-index {
-    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .story-index {
+    width: 100%;
   }
 }

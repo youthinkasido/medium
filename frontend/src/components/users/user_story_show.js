@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./user_show.css";
 import renderHTML from "react-render-html";
 
@@ -23,7 +23,7 @@ class UserStoriesShow extends React.Component {
       return "1 min";
     }
 
-    return minutes + " " + `${minutes > 1 ? "min" : "min"}` + " " + "read";
+    return `${minutes} min read`;
   }
 
   render() {
@@ -60,7 +60,7 @@ class UserStoriesShow extends React.Component {
             <div className="user-story-show-image-container">
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="city image"
+                alt=""
                 className="user-story-show-img"
               />
             </div>

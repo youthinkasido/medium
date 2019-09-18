@@ -5,7 +5,9 @@ import "./like.css";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      liked: ""
+    };
     this.handleLike = this.handleLike.bind(this);
   }
 
@@ -15,13 +17,13 @@ class Like extends React.Component {
     if (this.props.currentUser.id) {
       if (!this.state) {
         if (this.props.story.likerIds.includes(this.props.currentUser.id)) {
-          this.state = {
+          this.setState({
             liked: true
-          };
+          });
         } else {
-          this.state = {
+          this.setState({
             liked: false
-          };
+          });
         }
       }
 
@@ -79,7 +81,7 @@ class Like extends React.Component {
         {this.props.story.likerIds.includes(this.props.currentUser.id) ? (
           <div className="like-container">
             <button className="like-button" onClick={this.handleLike}>
-              <img src="./liked.svg" className="like-img" />
+              <img src="./liked.svg" className="like-img" alt="like" />
             </button>
             <strong className="claps">
               {this.props.story.likerIds.length} claps
@@ -88,7 +90,7 @@ class Like extends React.Component {
         ) : (
           <div className="like-container">
             <button className="like-button" onClick={this.handleLike}>
-              <img src="./unliked.svg" className="like-img" />
+              <img src="./unliked.svg" className="like-img" alt="like" />
             </button>
             <strong className="claps">
               {this.props.story.likerIds.length} claps

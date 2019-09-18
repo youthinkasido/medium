@@ -2,10 +2,11 @@
   width: 328px;
   height: auto;
   color: black;
+  font-family: sans-serif;
 }
 
 .featured-header {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
   text-align: center;
   border-bottom: 1px solid black;
@@ -19,10 +20,10 @@
 }
 
 .number{
-  margin-right: 10px;
-  font-size: 34px;
-  font-weight: 700;
-  color: rgb(113, 107, 107) ;
+    margin-right: 10px;
+    font-size: 34px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.15);
 }
 
 /* .story-date{
@@ -32,8 +33,9 @@
 
 .story-index-inline{
   padding: 15px 0 5px 0;
+  font-family: sans-serif
 }
 
 .name-container{
-  padding-left: 43px;
+padding-left: 48px;
 }
