@@ -17,11 +17,13 @@
 }
 
 .login-errors{
+  text-align: left;
   font-family: sans-serif;
   color: red;
 }
 
 .signup-errors{
+  text-align: left;
   font-family: sans-serif;
   color: red;
 }
