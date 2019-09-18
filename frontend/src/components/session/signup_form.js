@@ -46,12 +46,38 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
-  renderErrors() {
+  renderEmailErrors() {
     return (
       <ul className="signup-errors">
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
+        {Object.keys(this.state.errors).map((error, i) => {
+          if (error === "email") {
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          }
+        })}
+      </ul>
+    );
+  }
+
+  renderPasswordErrors() {
+    return (
+      <ul className="signup-errors">
+        {Object.keys(this.state.errors).map((error, i) => {
+          if (error === "password") {
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          }
+        })}
+      </ul>
+    );
+  }
+
+  renderConfirmErrors() {
+    return (
+      <ul className="signup-errors">
+        {Object.keys(this.state.errors).map((error, i) => {
+          if (error === "password2") {
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          }
+        })}
       </ul>
     );
   }
@@ -63,6 +89,7 @@ class SignupForm extends React.Component {
           <h1 className="signup-header">Sign Up!</h1>
           <div className="session-form-container">
             <br />
+            {this.renderEmailErrors()}
             <input
               type="text"
               value={this.state.email}
@@ -87,6 +114,7 @@ class SignupForm extends React.Component {
               className="session-form-input"
             />
             <br />
+            {this.renderPasswordErrors()}
             <input
               type="password"
               value={this.state.password}
@@ -95,6 +123,7 @@ class SignupForm extends React.Component {
               className="session-form-input"
             />
             <br />
+            {this.renderConfirmErrors()}
             <input
               type="password"
               value={this.state.password2}
@@ -108,7 +137,6 @@ class SignupForm extends React.Component {
               type="submit"
               value="Submit"
             />
-            {this.renderErrors()}
           </div>
         </form>
       </div>
