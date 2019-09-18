@@ -60,7 +60,7 @@ class UserStoriesShow extends React.Component {
             <div className="user-story-show-image-container">
               <img
                 src={`${this.props.story.imageURL}`}
-                alt="city image"
+                alt=""
                 className="user-story-show-img"
               />
             </div>
