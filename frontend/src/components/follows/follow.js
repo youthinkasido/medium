@@ -6,19 +6,9 @@ import "./follow.css";
 class Follow extends React.Component {
   constructor(props) {
     super(props);
-
-    // if (this.props.author.followerIds) {
-    //   if (this.props.author.followerIds.includes(this.props.currentUser.id)) {
-    //     this.state = {
-    //       followed: true
-    //     };
-    //   } else {
-    //     this.state = {
-    //       followed: false
-    //     };
-    //   }
-    // }
-
+    this.state = {
+      followed: ""
+    };
     this.handleFollow = this.handleFollow.bind(this);
   }
 
@@ -28,20 +18,25 @@ class Follow extends React.Component {
     if (this.props.currentUser.id) {
       if (!this.state) {
         if (this.props.author.followerIds.includes(this.props.currentUser.id)) {
-          this.state = {
+          this.setState({
             followed: true
-          };
+          });
         } else {
-          this.state = {
+          this.setState({
             followed: false
-          };
+          });
         }
       }
 
-      if (this.state.followed && this.props.author.followerIds.includes(this.props.currentUser.id)) {
-        this.props.toggle(); // should trigger a re render of the parent component, passed in through inline props in stories_index_item
-        
-        let index = this.props.author.followerIds.indexOf(this.props.currentUser.id); // index of currentUsers id within author's followers array
+      if (
+        this.state.followed &&
+        this.props.author.followerIds.includes(this.props.currentUser.id)
+      ) {
+        this.props.toggle();
+
+        let index = this.props.author.followerIds.indexOf(
+          this.props.currentUser.id
+        );
         this.props.author.followerIds.splice(index, 1);
 
         this.props
@@ -54,7 +49,10 @@ class Follow extends React.Component {
               followed: false
             });
           });
-      } else if (!this.state.followed && !this.props.author.followerIds.includes(this.props.currentUser.id)) {
+      } else if (
+        !this.state.followed &&
+        !this.props.author.followerIds.includes(this.props.currentUser.id)
+      ) {
         this.props.toggle();
         this.props.author.followerIds.push(this.props.currentUser.id);
 

@@ -71,10 +71,10 @@ class NavBar extends React.Component {
   logInDemoUser(e) {
     e.preventDefault();
 
-    this.state = {
+    this.setState({
       email: "",
       password: ""
-    };
+    });
 
     const demoUser = {
       email: "newuserdemo@gmail.com",
@@ -113,6 +113,7 @@ class NavBar extends React.Component {
                 {this.props.currentUser && this.props.currentUser.avatarURL ? (
                   <img
                     className="nav-user-icon"
+                    alt="avatar"
                     src={this.props.currentUser.avatarURL}
                   />
                 ) : (

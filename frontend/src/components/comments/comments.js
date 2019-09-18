@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Textarea from "react-textarea-autosize";
 import CommentIndexContainer from "./comments_index_container";
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import "./comments.css";
 
 class Comments extends Component {
@@ -12,7 +12,7 @@ class Comments extends Component {
       body: "",
       commenterId: props.currentUser.id,
       storyId: props.story._id,
-      image: ''
+      image: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +40,7 @@ class Comments extends Component {
         body: ""
       });
     } else {
-      this.props.history.push('/login');
+      this.props.history.push("/login");
     }
   }
 
