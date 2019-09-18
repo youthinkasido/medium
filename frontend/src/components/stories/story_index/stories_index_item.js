@@ -79,46 +79,45 @@ class StoriesIndexItem extends React.Component {
             </Link>
           </div>
         ) : (
-          <div className="story">
-            <div>
-              <Link to={`stories/${_id}`}>
-                <h1 className="story-title">{title}</h1>
-              </Link>
-              <Link to={`stories/${_id}`}>
-                <div className="story-body">
-                  {renderHTML(
-                    `${this.props.story.body
-                      .toString()
-                      .split(" ")
-                      .slice(0, 20)
-                      .join(" ")} ...`
-                  )}
-                </div>
-              </Link>
-              <div className="story-index-name">
-                <Link to={`/users/${author._id}`}>
-                  {author.firstName} {author.lastName}
+            <div className="story">
+              <div>
+                <Link to={`stories/${_id}`}>
+                  <h1 className="story-title">{title}</h1>
                 </Link>
+                <Link to={`stories/${_id}`}>
+                  <div className="story-body">
+                    {renderHTML(
+                      `${this.props.story.body
+                        .toString()
+                        .split(" ")
+                        .slice(0, 20)
+                        .join(" ")} ...`
+                    )}
+                  </div>
+                </Link>
+                <div className="story-index-name">
+                  <Link to={`/users/${author._id}`}>
+                    {author.firstName} {author.lastName}
+                  </Link>
+                </div>
+                <Follow
+                  story={this.props.story}
+                  currentUser={this.props.currentUser}
+                  follow={this.props.follow}
+                  unfollow={this.props.unfollow}
+                  author={author}
+                  users={this.props.users}
+                  toggle={this.props.toggle}
+                />
+                <p className="index-story-date">
+                  {new Date(created_at)
+                    .toString()
+                    .split(" ")
+                    .slice(1, 4)
+                    .join(" ")}{" "}
+                  · {this.read(body)}
+                </p>
               </div>
-              <Follow
-                story={this.props.story}
-                currentUser={this.props.currentUser}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-                author={author}
-                users={this.props.users}
-                toggle={this.props.toggle}
-              />
-              <p className="index-story-date">
-                {new Date(created_at)
-                  .toString()
-                  .split(" ")
-                  .slice(1, 4)
-                  .join(" ")}{" "}
-                · {this.read(body)}
-              </p>
-            </div>
-
             <Link to={`stories/${_id}`}>
               <img
                 src={`${this.props.story.imageURL}`}
@@ -128,6 +127,7 @@ class StoriesIndexItem extends React.Component {
             </Link>
           </div>
         )}
+
       </li>
     );
   }

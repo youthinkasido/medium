@@ -41,8 +41,9 @@ class NewStory extends Component {
       imageURL: this.props.imageURL
     };
 
-    this.props.createStory(story);
-    this.props.history.push(`/users/${story.authorId}`);
+    this.props.createStory(story).then(() => {
+      this.props.history.push(`/users/${story.authorId}`);
+    })
   }
 
   render() {

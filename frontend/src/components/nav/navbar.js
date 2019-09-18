@@ -65,42 +65,19 @@ class NavBar extends React.Component {
       clicked: false
     });
 
-    this.props.history.push(`/users/${this.props.user.id}`);
+
+    this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
-  logInDemoUser(e) {
-    e.preventDefault();
-
-    this.setState({
-      email: "",
-      password: ""
-    });
-
-    const demoUser = {
-      email: "newuserdemo@gmail.com",
-      password: "123456"
-    };
-
-    let password = "123456";
-    const demoLoginCallback = () => {
-      setTimeout(() => {
-        if (password.length > 0) {
-          this.setState({
-            email: "newuserdemo@gmail.com",
-            password: this.state.password.concat(password[0])
-          });
-          password = password.slice(1);
-          demoLoginCallback();
-        } else {
-          this.props.login(demoUser);
-        }
-      }, 1);
-    };
-
-    demoLoginCallback();
-  }
 
   render() {
+    document.addEventListener('click', (e) => {
+      let dropdownContent = document.getElementById('dropdown-content')
+      if (dropdownContent && e.target.id !== 'dropdown' && !dropdownContent.classList.contains('hide')) {
+        this.setState({ clicked: false })
+      }
+    })
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -111,19 +88,18 @@ class NavBar extends React.Component {
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
                 {this.props.currentUser && this.props.currentUser.avatarURL ? (
-                  <img
+                  <img id="dropdown"
                     className="nav-user-icon"
                     alt="avatar"
                     src={this.props.currentUser.avatarURL}
                   />
                 ) : (
-                  <i className="fas fa-user-circle" />
-                )}
+                    <i id="dropdown" className="fas fa-user-circle" />
+                  )}
               </button>
-              <div
-                className={`dropdown-content ${
-                  this.state.clicked ? "reveal" : "hide"
-                }`}
+              <div id="dropdown-content"
+                className={`dropdown-content ${this.state.clicked ? 'reveal' : 'hide'}`}
+
               >
                 <div className="dropdown-item" onClick={this.handleNewStory}>
                   <button>New Story</button>
@@ -137,27 +113,17 @@ class NavBar extends React.Component {
               </div>
             </div>
           ) : (
-            <div className="navbar-auth-container">
-              <div className="navbar-signin">
-                <Link to={"/login"}>Sign In</Link>
+              <div className="navbar-auth-container">
+                <div className="navbar-signin">
+                  <Link to={"/login"}>Sign In</Link>
+                </div>
+                <div className="navbar-signup">
+                  <Link to={"/signup"}>Get Started</Link>
+                </div>
               </div>
-              <div className="navbar-signup">
-                <Link to={"/signup"}>Get Started</Link>
-              </div>
-              <div className="demo">
-                <button
-                  className="navbar-signup"
-                  type="button"
-                  id="demo-user-button"
-                  onClick={e => this.logInDemoUser(e)}
-                >
-                  Log in as demo user
-                </button>
-              </div>
-            </div>
-          )}
+            )}
         </div>
-      </nav>
+      </nav >
     );
   }
 }
