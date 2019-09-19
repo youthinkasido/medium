@@ -1,43 +1,36 @@
-<h2>Website Description:</h2>
-    An online publishing platform where authors create stories to interact with their readers.
-    https://very-well-done-app.herokuapp.com
+## README
 
-<h2>Functionality and MVP:</h2>
-* Stories
-* Commenting on stories
-* Follows and feed
-* Likes - readers can like stories
+## NOTCORD
+[Live Site](https://notcord.herokuapp.com/)  
+    
+![splash](https://i.ibb.co/6r2qyxS/splash.png)
 
-<h3>Bonus Features:</h3>
-* Topics/categories
-* Bookmarks
+## OVERVIEW
+Notcord is a full-stack clone application inspired by [Discord](https://discordapp.com/) Where users can create "servers" and invite their friends to send text messages to each other in realtime!
 
-<h1>Technologies and challenges</h1>
- Backend: Node, Express, MongoDB
- Frontend: React with Redux
+## TECHNOLOGIES
+* React - front-end JavaScript library
+* Redux - JavaScript library for state management
+* Ruby on Rails - server-side web application model–view–controller (MVC) framework
+* Ruby on Rails Action Cable - websockets for live chat functionality
+* PostgreSQL - relational database for storing my application's data
+* Sassy CSS (SCSS)
+* jQuery - JavaScript library used for AJAX requests
+* Jbuilder - rendering and formatting JSON responses from my API
+* Webpack - JavaScript module bundler
 
-<h2>Group Members and Work Breakdown</h2>
+## FEATURES
+* User authentication
+* errors  
+![errors](https://i.ibb.co/Sw90Fpk/custom-errors.png)
+* Servers - create, leave, join
+![servers](https://i.ibb.co/jv38LX1/create-join-server.png)
+* Channels - create, delete
+* Server user-list
+* Realtime text chat with other users
+![live-chat](https://i.ibb.co/2Z55sJQ/notcord-herokuapp-com-5.png)
 
-Cameron:
-* user auth: 1 day
-* stories: 2 days
-* comments: 2 days
-
-Savannah:
-* user auth: 1 day
-* likes: 2 days
-* follows: 2 days
-* touch-ups: 2 days
-
-Robert:
-* user auth: 1 day
-* stories: 2 days
-* comments: 2 days
-
-Arshia:
-* user auth: 1 day
-* likes: 2 days
-* follows: 2 days
-
-MERN scorecard: 
-https://drive.google.com/file/d/1RBH23HUqEecgg3Gjy7ul-Xql4TJOmHdw/view?usp=sharing
+## COMING SOON!
+* Direct Messaging
+* Image uploading to AWS for server icons and user avatars
+* Username aliasing
