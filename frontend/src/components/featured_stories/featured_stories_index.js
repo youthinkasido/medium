@@ -43,7 +43,7 @@ export default class FeaturedStories extends Component {
     return (
       <div className="featured-story-container">
         <div className="featured-story-index">
-          <h2 className="featured-header"> Featured Blogs </h2>
+          <h2 className="featured-header"> Featured Stories </h2>
           <ul className="featured-story-index-list">
             {sorted.map((story, i) => (
               <FeaturedStoryIndexItem
