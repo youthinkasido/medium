@@ -1,43 +1,27 @@
-<h2>Website Description:</h2>
-    An online publishing platform where authors create stories to interact with their readers.
-    https://very-well-done-app.herokuapp.com
+## WELL DONE
 
-<h2>Functionality and MVP:</h2>
-* Stories
-* Commenting on stories
-* Follows and feed
-* Likes - readers can like stories
+## TECHNOLOGIES
+* React - Front-end JavaScript library
+* Redux - JavaScript library for state management
+* MongoDB - Non-relational database for storing application data
+* Express.js - Web framework for Node.js
+* Axios - Promise based HTTP client for the browser and node.js
+* Webpack - JavaScript module bundler
+* Node.js - JavaScript runtime
+* Google Firebase - Used to store user uploaded content
 
-<h3>Bonus Features:</h3>
-* Topics/categories
-* Bookmarks
+[Live Site](https://very-well-done-app.herokuapp.com/)  
+    
+![story](https://i.ibb.co/hX90mRG/story.png)
 
-<h1>Technologies and challenges</h1>
- Backend: Node, Express, MongoDB
- Frontend: React with Redux
+## OVERVIEW
+Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
 
-<h2>Group Members and Work Breakdown</h2>
-
-Cameron:
-* user auth: 1 day
-* stories: 2 days
-* comments: 2 days
-
-Savannah:
-* user auth: 1 day
-* likes: 2 days
-* follows: 2 days
-* touch-ups: 2 days
-
-Robert:
-* user auth: 1 day
-* stories: 2 days
-* comments: 2 days
-
-Arshia:
-* user auth: 1 day
-* likes: 2 days
-* follows: 2 days
-
-MERN scorecard: 
-https://drive.google.com/file/d/1RBH23HUqEecgg3Gjy7ul-Xql4TJOmHdw/view?usp=sharing
+## FEATURES
+* User Authentication - Users can sign up, login or demo the site.
+* Featured Stories - The homepage features the most popular stories among users.
+![splash](https://i.ibb.co/qp2bpFt/splash.png)
+* Comments - Users can comment on their favorite stories.
+![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
+* User Profile - Users can view their created stories, edit their bio, and upload an avatar photo.
+* Create a Story - Users can create a story with a rich text editor.
