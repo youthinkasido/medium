@@ -7,12 +7,12 @@
 
 .user-description-container {
   max-width: 80%;
+  max-height: 75px;
 }
 
 .user-description {
   max-width: 80%;
   margin-bottom: 10px;
-  /* display: inline-flex; */
   font-family: sans-serif;
 }
 
