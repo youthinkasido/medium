@@ -22,6 +22,6 @@ Well Done is an online publishing platform inspired by [Medium](https://medium.c
 * Featured Stories - The homepage features the most popular stories among users.
 ![splash](https://i.ibb.co/qp2bpFt/splash.png)
 * Comments - Users can comment on their favorite stories.
-![comments](https://i.ibb.co/F0p4P2y/comments.png)
+![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
 * User Profile - Users can view their created stories, edit their bio, and upload an avatar photo.
 * Create a Story - Users can create a story with a rich text editor.
