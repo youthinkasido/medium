@@ -67,7 +67,6 @@ class NavBar extends React.Component {
   // }
 
 
-
   handleProfile(e) {
     e.preventDefault();
 

@@ -1,6 +1,8 @@
 .story-img {
-  height: 120px;
-  width: 152px;
+    height: 152px;
+    width: 152px;
+    object-fit: cover;
+    margin-left: 20px;
 }
 
 .story-title {
@@ -56,9 +58,12 @@
 }
 
 .story {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.32);
+    padding: 20px;
+    border-radius: 3px;
 }
 .story-index-inline {
   display: inline-block;
