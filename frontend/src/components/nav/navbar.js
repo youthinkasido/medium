@@ -98,7 +98,6 @@ class NavBar extends React.Component {
     };
 
     demoLoginCallback();
-    this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
   render() {
