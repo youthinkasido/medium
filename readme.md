@@ -1,36 +1,27 @@
-## README
-
-## NOTCORD
-[Live Site](https://notcord.herokuapp.com/)  
-    
-![splash](https://i.ibb.co/6r2qyxS/splash.png)
-
-## OVERVIEW
-Notcord is a full-stack clone application inspired by [Discord](https://discordapp.com/) Where users can create "servers" and invite their friends to send text messages to each other in realtime!
+## WELL DONE
 
 ## TECHNOLOGIES
-* React - front-end JavaScript library
+* React - Front-end JavaScript library
 * Redux - JavaScript library for state management
-* Ruby on Rails - server-side web application model–view–controller (MVC) framework
-* Ruby on Rails Action Cable - websockets for live chat functionality
-* PostgreSQL - relational database for storing my application's data
-* Sassy CSS (SCSS)
-* jQuery - JavaScript library used for AJAX requests
-* Jbuilder - rendering and formatting JSON responses from my API
+* MongoDB - Non-relational database for storing application data
+* Express.js - Web framework for Node.js
+* Axios - Promise based HTTP client for the browser and node.js
 * Webpack - JavaScript module bundler
+* Node.js - JavaScript runtime
+* Google Firebase - Used to store user uploaded content
+
+[Live Site](https://very-well-done-app.herokuapp.com/)  
+    
+![story](https://i.ibb.co/hX90mRG/story.png)
+
+## OVERVIEW
+Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
 
 ## FEATURES
-* User authentication
-* errors  
-![errors](https://i.ibb.co/Sw90Fpk/custom-errors.png)
-* Servers - create, leave, join
-![servers](https://i.ibb.co/jv38LX1/create-join-server.png)
-* Channels - create, delete
-* Server user-list
-* Realtime text chat with other users
-![live-chat](https://i.ibb.co/2Z55sJQ/notcord-herokuapp-com-5.png)
-
-## COMING SOON!
-* Direct Messaging
-* Image uploading to AWS for server icons and user avatars
-* Username aliasing
+* User Authentication - Users can sign up, login or demo the site.
+* Featured Stories - The homepage features the most popular stories among users.
+![splash](https://i.ibb.co/qp2bpFt/splash.png)
+* Comments - Users can comment on their favorite stories.
+![comments](https://i.ibb.co/F0p4P2y/comments.png)
+* User Profile - Users can view their created stories, edit their bio, and upload an avatar photo.
+* Create a Story - Users can create a story with a rich text editor.
