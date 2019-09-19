@@ -6,9 +6,9 @@ const Story = require("../../models/Story");
 const router = express.Router();
 
 router.patch("/like", (req, res) => {
-  Story.findById(req.body.likedStory).then(story => { // find a story based on liked story id passed in req.body
-    story.likerIds.push(req.body.liker); // add the liker's id to the found story
-    story.save(function (err, story) { // save the 
+  Story.findById(req.body.likedStory).then(story => {
+    story.likerIds.push(req.body.liker);
+    story.save(function(err, story) {
       if (err) {
         console.log(err);
       }
@@ -26,7 +26,7 @@ router.patch("/unlike", (req, res) => {
       }
     }
 
-    story.save(function (err, story) {
+    story.save(function(err, story) {
       if (err) {
         console.log(err);
       }

@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import CommentIndexItem from "./comments_index_item";
 
 export default class CommentIndex extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props
       .fetchAllUsers()

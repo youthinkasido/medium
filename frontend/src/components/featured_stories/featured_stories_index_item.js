@@ -39,7 +39,7 @@ class StoriesIndexItem extends React.Component {
           <div className="name-container">
             <div className="index-author-follow">
               <p className="story-index-inline">
-                {author.firstName} {author.lastName}
+                <Link to={`/users/${this.props.story.authorId}`}>{author.firstName} {author.lastName}</Link>
               </p>
               <Follow
                 story={this.props.story}

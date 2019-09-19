@@ -3,10 +3,6 @@ import { withRouter } from "react-router-dom";
 import "./comments.css";
 
 class CommentsIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let { comment, users } = this.props;
     let user = Object.values(users).find(

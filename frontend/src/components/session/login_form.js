@@ -13,7 +13,8 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    this.renderEmailErrors = this.renderEmailErrors.bind(this);
+    this.renderPasswordErrors = this.renderPasswordErrors.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -42,12 +43,28 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  renderErrors() {
+  renderEmailErrors() {
     return (
       <ul className="login-errors">
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
-        ))}
+        {Object.keys(this.state.errors).map((error, i) => {
+          if (error === "email") {
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
+          }
+          return null;
+        })}
+      </ul>
+    );
+  }
+
+  renderPasswordErrors() {
+    return (
+      <ul className="login-errors">
+        {Object.keys(this.state.errors).map((error, i) => {
+          if (error === "password") {
+            return <li key={`error-${i}`}>{this.state.errors[error]}</li>;
+          }
+          return null;
+        })}
       </ul>
     );
   }
@@ -58,6 +75,7 @@ class LoginForm extends React.Component {
         <form className="session-form" onSubmit={this.handleSubmit}>
           <h1 className="login-header">Welcome Back!</h1>
           <div className="session-form-container">
+            {this.renderEmailErrors()}
             <input
               type="text"
               value={this.state.email}
@@ -66,6 +84,7 @@ class LoginForm extends React.Component {
               className="session-form-input"
             />
             <br />
+            {this.renderPasswordErrors()}
             <input
               type="password"
               value={this.state.password}
@@ -78,9 +97,7 @@ class LoginForm extends React.Component {
               type="submit"
               value="Submit"
               className="session-form-button"
-
             />
-            {this.renderErrors()}
           </div>
         </form>
       </div>

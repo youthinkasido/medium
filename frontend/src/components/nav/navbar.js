@@ -58,14 +58,6 @@ class NavBar extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps){
-  //   if (this.props.user.avatarURL !== prevProps.user.avatarURL){
-  //     this.setState({
-
-  //     })
-  //   }
-  // }
-
   handleProfile(e) {
     e.preventDefault();
 
@@ -76,22 +68,12 @@ class NavBar extends React.Component {
     this.props.history.push(`/users/${this.props.currentUser._id}`);
   }
 
-  render() {
-    // let user = {};
-    // let usersArr = Object.values(this.props.users);
-    // demoLoginCallback();
-  }
 
   render() {
-    document.addEventListener("click", e => {
-      let dropdownContent = document.getElementById("dropdown-content");
-      if (
-        dropdownContent &&
-        e.target.id != "dropdown" &&
-        !dropdownContent.classList.contains("hide")
-      ) {
-        // dropdownContent.classList.toggle('hide')
-        this.setState({ clicked: false });
+    document.addEventListener('click', (e) => {
+      let dropdownContent = document.getElementById('dropdown-content')
+      if (dropdownContent && e.target.id !== 'dropdown' && !dropdownContent.classList.contains('hide')) {
+        this.setState({ clicked: false })
       }
     });
 
@@ -104,11 +86,11 @@ class NavBar extends React.Component {
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.currentUser && this.props.currentUser.avatarURL ? (
-                  <img
-                    id="dropdown"
+                {this.props.user && this.props.user.avatarURL ? (
+                  <img id="dropdown"
                     className="nav-user-icon"
-                    src={this.props.currentUser.avatarURL}
+                    alt="avatar"
+                    src={this.props.user.avatarURL}
                   />
                 ) : (
                   <i id="dropdown" className="fas fa-user-circle" />
