@@ -15,7 +15,6 @@
 input[type='file'] {
    background-image: url("https://i.ibb.co/x8ZR9ZP/avataruploader.png");
     color: transparent;
-
     background-repeat: no-repeat;
     display: inline-block;
     width: 30px;
@@ -30,6 +29,7 @@ input[type='file'] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .avatar-upload-button{
@@ -146,10 +146,11 @@ display: inline;
   height: 100px;
   border-radius: 90px;
   object-fit: cover;
+ 
 }
 
 .overlay {
-background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     height: 100px;
     width: 100px;
     opacity: 0;
@@ -158,6 +159,7 @@ background: rgba(0, 0, 0, 0.5);
     color: #fff;
     position: absolute;
     border-radius: 90px;
+  
 }
 
 .overlay:hover {
