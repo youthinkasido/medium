@@ -38,8 +38,8 @@ export const removeNewStoryImageURL = () => {
   };
 };
 
-export const fetchStories = () => dispatch =>
-  APIUtil.getStories()
+export const fetchStories = (searchInput) => dispatch =>
+  APIUtil.getStories(searchInput)
     .then(stories => {
       dispatch(receiveStories(stories));
     })

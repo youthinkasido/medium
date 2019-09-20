@@ -15,7 +15,7 @@ const mapStateToProps = ({ session, entities }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchStories: story => dispatch(fetchStories(story)),
+    fetchStories: searchInput => dispatch(fetchStories(searchInput)),
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
     fetchAllUsers: () => dispatch(fetchAllUsers())
