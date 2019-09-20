@@ -3,6 +3,7 @@
   max-width: 50%;
   display: flex;
   flex-direction: column;
+
 }
 
 .user-description-container {
@@ -10,10 +11,39 @@
   max-height: 75px;
 }
 
+
+input[type='file'] {
+   background-image: url("https://i.ibb.co/x8ZR9ZP/avataruploader.png");
+    color: transparent;
+
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    padding: 0px 0 0 30px;
+    margin: auto;
+    height: 30px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-size: 30px 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.avatar-upload-button{
+  left: 550px;
+  float: right;
+}
+
+
 .user-description {
   max-width: 80%;
   margin-bottom: 10px;
-  font-family: sans-serif;
+  /* display: inline-flex; */
+    font-family: sans-serif;
+
 }
 
 .follower-count {
@@ -29,12 +59,18 @@
 }
 
 .avatar-container {
-  display: inline;
+display: inline;
+    position: relative;
+    border-radius: 99px;
+    float: right;
+    bottom: 40px;
+    margin-right: -100px;
 }
 
 .button-container {
   margin-top: 12px;
 }
+
 
 .username {
   margin-bottom: 10px;
@@ -108,14 +144,26 @@
 .avatar-container img {
   width: 100px;
   height: 100px;
-  border-radius: 99px;
-  float: right;
-  position: relative;
-  bottom: 40px;
-  left: 5px;
-  margin-right: -100px;
+  border-radius: 90px;
   object-fit: cover;
 }
+
+.overlay {
+background: rgba(0, 0, 0, 0.5);
+    height: 100px;
+    width: 100px;
+    opacity: 0;
+    transition: 0.8s;
+    font-size: 36px;
+    color: #fff;
+    position: absolute;
+    border-radius: 90px;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
 
 .reveal-input {
   visibility: visible;
