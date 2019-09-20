@@ -130,24 +130,20 @@ class UserShow extends React.Component {
       <div>
         <div className="user-show-container">
           <div className="user-info-container">
+
+
             <div className="username">About {fullName}</div>
             {/* <p className='user-description'>{this.props.author.description}</p> */}
             <div className="user-description-container">
+
               <div
                 className={`${
                   this.props.currentUser.id === this.props.author._id
                     ? "reveal"
                     : "hide"
-                }`}
+                  }`}
               >
-                <FileUploader
-                  accept="image/*"
-                  name="image"
-                  storageRef={firebase.storage().ref("avatarimage")}
-                  onUploadStart={this.handleUploadStart}
-                  onUploadSuccess={this.handleUploadSuccess}
-                  onProgress={this.handleProgress}
-                />
+
               </div>
 
               <p className="user-description">{this.props.author.description}</p>
@@ -158,7 +154,7 @@ class UserShow extends React.Component {
                   this.props.currentUser.id === this.props.author._id
                     ? "reveal"
                     : "hide"
-                } ${this.state.class}`}
+                  } ${this.state.class}`}
               >
                 <textarea
                   onChange={this.update("description")}
@@ -168,20 +164,34 @@ class UserShow extends React.Component {
               </form>
 
               <div className="avatar-container">
+                <div className="overlay">
+                  <div className="avatar-upload-button">
+
+                    <FileUploader
+                      accept="image/*"
+                      name="image"
+                      storageRef={firebase.storage().ref("avatarimage")}
+                      onUploadStart={this.handleUploadStart}
+                      onUploadSuccess={this.handleUploadSuccess}
+                      onProgress={this.handleProgress}
+                    />
+                  </div>
+                </div>
+
                 {this.props.avatarURL ? (
                   <img src={this.props.avatarURL} alt="avatar" />
                 ) : (
-                  <div className="first-letter">{name}</div>
-                )}
+                    <div className="first-letter">{name}</div>
+                  )}
               </div>
             </div>
             <strong className="follower-count">
               {`${this.props.author.followerIds.length} ${
                 this.props.author.followerIds.length > 1 ||
-                this.props.author.followerIds.length === 0
+                  this.props.author.followerIds.length === 0
                   ? "followers"
                   : "follower"
-              }`}
+                }`}
             </strong>
             <div className="button-container">
               <Follow
@@ -195,10 +205,10 @@ class UserShow extends React.Component {
                 to="#"
                 className={`edit-profile ${
                   this.props.currentUser.id === this.props.author._id &&
-                  this.state.class === "hide-input"
+                    this.state.class === "hide-input"
                     ? "reveal"
                     : "hide"
-                }`}
+                  }`}
                 onClick={this.handleShow}
               >
                 Edit Bio
