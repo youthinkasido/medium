@@ -7,6 +7,15 @@ const Story = require("../../models/Story");
 const Comment = require("../../models/Comment");
 const validateStoryInput = require("../../validation/stories");
 
+router.delete("/", async (req, res) => {
+  try {
+    await Story.deleteOne({ _id: req.query.id });
+    res.json(req.query.id);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.get("/", (req, res) => {
   Story.find()
     .sort({ date: -1 })
@@ -45,7 +54,6 @@ router.get("/user/:userId", (req, res) => {
     );
 });
 
-
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
@@ -55,7 +63,7 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  
+
     const newStory = new Story({
       body: req.body.body,
       authorId: req.body.authorId,
