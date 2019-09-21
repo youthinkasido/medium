@@ -17,13 +17,24 @@ router.delete("/", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  Story.find()
-    .sort({ date: -1 })
-    .then(stories => {
-      res.json(stories);
-    })
-    .catch(err => res.status(404).json({ nostoriesfound: "No stories found" }));
-});
+  debugger
+  if (!req.query.searchInput) {
+
+    Story.find()
+      .sort({ date: -1 })
+      .then(stories => {
+        res.json(stories);
+      })
+      .catch(err => res.status(404).json({ nostoriesfound: "No stories found" }));
+  } else {
+    Story.find({ title: { $regex: new RegExp(req.query.searchInput) } })
+      .sort({ date: -1 })
+      .then(story => {
+        res.json(story)
+      })
+      .catch(err => res.status(404).json({ nostoriesfound: 'No stories found' }))
+  }
+})
 
 router.get("/:storyId", (req, res) => {
   Story.findById(req.params.storyId)
@@ -74,7 +85,7 @@ router.post(
     try {
       let createdStory = await newStory.save();
       res.send(createdStory);
-    } catch (error) {}
+    } catch (error) { }
   }
 );
 

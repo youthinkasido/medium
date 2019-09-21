@@ -43,24 +43,28 @@ export const removeDeletedStory = id => {
   return { type: REMOVE_DELETED_STORY, id };
 };
 
-export const fetchStories = () => dispatch =>
-  APIUtil.getStories()
+
+export const fetchStories = (searchInput) => dispatch => {
+  APIUtil.getStories(searchInput)
     .then(stories => {
       dispatch(receiveStories(stories));
     })
     .catch(err => console.log(err));
+}
 
-export const fetchStory = id => dispatch =>
+export const fetchStory = id => dispatch => {
   APIUtil.getStory(id)
     .then(story => {
       dispatch(receiveStory(story));
     })
     .catch(err => console.log(err));
+}
 
-export const fetchUserStories = id => dispatch =>
+export const fetchUserStories = id => dispatch => {
   APIUtil.getUserStories(id)
     .then(stories => dispatch(receiveStories(stories)))
     .catch(err => console.log(err));
+}
 
 export const createStory = data => dispatch => {
   return APIUtil.createStory(data)

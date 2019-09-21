@@ -1,7 +1,12 @@
 import axios from "axios";
 
-export const getStories = () => {
-  return axios.get("/api/stories");
+export const getStories = (searchInput) => {
+
+  return axios.get("/api/stories", {
+    params: {
+      searchInput
+    }
+  });
 };
 
 export const getStory = id => {

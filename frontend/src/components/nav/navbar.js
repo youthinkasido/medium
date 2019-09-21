@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./navbar.css";
+import Search from '../search/search_container'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -118,6 +119,7 @@ class NavBar extends React.Component {
           <Link to="/">
             <div className="navbar-logo">Well Done</div>
           </Link>
+        <Search />
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
@@ -129,14 +131,14 @@ class NavBar extends React.Component {
                     src={this.props.user.avatarURL}
                   />
                 ) : (
-                  <i id="dropdown" className="fas fa-user-circle" />
-                )}
+                    <i id="dropdown" className="fas fa-user-circle" />
+                  )}
               </button>
               <div
                 id="dropdown-content"
                 className={`dropdown-content ${
                   this.state.clicked ? "reveal" : "hide"
-                }`}
+                  }`}
               >
                 <div className="dropdown-item" onClick={this.handleNewStory}>
                   <button>New Story</button>
@@ -150,25 +152,25 @@ class NavBar extends React.Component {
               </div>
             </div>
           ) : (
-            <div className="navbar-auth-container">
-              <div className="navbar-signin">
-                <Link to={"/login"}>Sign In</Link>
-              </div>
-              <div className="navbar-signup">
-                <Link to={"/signup"}>Get Started</Link>
-              </div>
-              <div className="demo">
-                <button
-                  className="navbar-signup"
-                  type="button"
-                  id="demo-user-button"
-                  onClick={e => this.logInDemoUser(e)}
-                >
-                  Log in as demo user
+              <div className="navbar-auth-container">
+                <div className="navbar-signin">
+                  <Link to={"/login"}>Sign In</Link>
+                </div>
+                <div className="navbar-signup">
+                  <Link to={"/signup"}>Get Started</Link>
+                </div>
+                <div className="demo">
+                  <button
+                    className="navbar-signup"
+                    type="button"
+                    id="demo-user-button"
+                    onClick={e => this.logInDemoUser(e)}
+                  >
+                    Log in as demo user
                 </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
       </nav>
     );
