@@ -28,7 +28,21 @@ class UserStoriesShow extends React.Component {
   }
 
   deleteStory() {
-    this.props.deleteStory(this.props.story._id);
+
+
+    let modal = document.getElementsByClassName('delete-story-modal')[0]
+    let close = document.getElementsByClassName('close')[0]
+    let confirmDelete = document.getElementsByClassName('confirm-delete-story')[0]
+
+    modal.style.display = 'block'
+
+    close.addEventListener('click', () => {
+      modal.style.display = 'none';
+    })
+
+    confirmDelete.addEventListener('click', () => {
+      this.props.deleteStory(this.props.story._id);
+    })
   }
 
   renderDeleteButton() {
@@ -60,10 +74,22 @@ class UserStoriesShow extends React.Component {
       .map(s => s.charAt(0).toUpperCase() + s.substring(1))
       .join(" ");
 
-    debugger;
 
     return (
+
+
       <li className="user-story-show-list">
+
+        <div className="delete-story-modal">
+          <div className="delete-story-modal-content">
+            <h1 className="delete-story-modal-heading">Delete story?</h1>
+            <span className="close">&times;</span>
+            <p>Are you sure you want to delete this story?
+                This action cannot be undone.</p>
+            <button className="confirm-delete-story">Delete Story</button>
+          </div>
+        </div>
+
         <div className="user-story-show-container">
           <div className="user-story-show">
             <div className="user-story-show-header">

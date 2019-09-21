@@ -17,7 +17,7 @@ router.delete("/", async (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  debugger
+
   if (!req.query.searchInput) {
 
     Story.find()
