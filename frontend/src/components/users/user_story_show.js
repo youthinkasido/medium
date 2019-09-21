@@ -8,6 +8,7 @@ class UserStoriesShow extends React.Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.deleteStory = this.deleteStory.bind(this);
   }
 
   handleClick() {
@@ -26,28 +27,50 @@ class UserStoriesShow extends React.Component {
     return `${minutes} min read`;
   }
 
+  deleteStory() {
+    this.props.deleteStory(this.props.story._id);
+  }
+
+  renderDeleteButton() {
+    if (this.props.currentUser.id === this.props.author._id) {
+      return (
+        <div className="user-story-show-delete" onClick={this.deleteStory}>
+          Delete
+        </div>
+      );
+    }
+    return null;
+  }
+
   render() {
     const { title, body, created_at } = this.props.story;
 
     const { author } = this.props;
 
     let firstName, lastName;
-    firstName = author.firstName.toLowerCase()
-      .split(' ')
-      .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-      .join(' ');
+    firstName = author.firstName
+      .toLowerCase()
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+      .join(" ");
 
-    lastName = author.lastName.toLowerCase()
-      .split(' ')
-      .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-      .join(' ');
+    lastName = author.lastName
+      .toLowerCase()
+      .split(" ")
+      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+      .join(" ");
+
+    debugger;
 
     return (
       <li className="user-story-show-list">
         <div className="user-story-show-container">
-          <div onClick={this.handleClick} className="user-story-show">
-            <div className="user-story-show-name">
-              {firstName} {lastName}
+          <div className="user-story-show">
+            <div className="user-story-show-header">
+              <div className="user-story-show-name">
+                {firstName} {lastName}
+              </div>
+              {this.renderDeleteButton()}
             </div>
             <div className="user-story-show-date">
               {new Date(created_at)
@@ -57,26 +80,28 @@ class UserStoriesShow extends React.Component {
                 .join(" ")}{" "}
               · {this.read(body)}
             </div>
-            <div className="user-story-show-image-container">
-              <img
-                src={`${this.props.story.imageURL}`}
-                alt=""
-                className="user-story-show-img"
-              />
+            <div className="user-story-show-link" onClick={this.handleClick}>
+              <div className="user-story-show-image-container">
+                <img
+                  src={`${this.props.story.imageURL}`}
+                  alt=""
+                  className="user-story-show-img"
+                />
+              </div>
+              <div className="user-story-show-title-container">
+                <h1 className="user-story-show-title">{title}</h1>
+              </div>
+              <div className="user-story-show-body">
+                {renderHTML(
+                  `${this.props.story.body
+                    .toString()
+                    .split(" ")
+                    .slice(0, 20)
+                    .join(" ")}`
+                )}
+              </div>
+              <p className="user-read-more">Read more...</p>
             </div>
-            <div className="user-story-show-title-container">
-              <h1 className="user-story-show-title">{title}</h1>
-            </div>
-            <div className="user-story-show-body">
-              {renderHTML(
-                `${this.props.story.body
-                  .toString()
-                  .split(" ")
-                  .slice(0, 20)
-                  .join(" ")}`
-              )}
-            </div>
-            <p className="user-read-more">Read more...</p>
           </div>
         </div>
       </li>

@@ -20,3 +20,7 @@ export const getUserStories = id => {
 export const createStory = data => {
   return axios.post("/api/stories/", data);
 };
+
+export const deleteStory = id => {
+  return axios.delete(`/api/stories/`, { params: { id } });
+};

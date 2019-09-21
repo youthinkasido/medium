@@ -18,7 +18,7 @@ class StoryShow extends React.Component {
     };
 
     this.openComments = this.openComments.bind(this);
-
+    this.scrollTo = this.scrollTo.bind(this);
   }
 
   createMarkup() {
@@ -38,12 +38,13 @@ class StoryShow extends React.Component {
       });
   }
 
-  openComments() {
-    this.setState({ commentsOpen: true });
+  scrollTo() {
+    document.querySelector(".comment-wrapper-container").scrollIntoView();
   }
 
-  scrollTo() {
-    document.querySelector(".view-comments").scrollIntoView();
+  openComments() {
+    this.setState({ commentsOpen: true });
+    this.scrollTo();
   }
 
   toggle() {
@@ -111,11 +112,11 @@ class StoryShow extends React.Component {
         <div className="comment-wrapper-container">
           {this.state.commentsOpen ? (
             <Fragment>
-              <CommentsContainer /> {this.scrollTo()}
+              <CommentsContainer />
             </Fragment>
           ) : (
-              <div />
-            )}
+            <div />
+          )}
         </div>
       </div>
     );

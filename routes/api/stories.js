@@ -7,6 +7,15 @@ const Story = require("../../models/Story");
 const Comment = require("../../models/Comment");
 const validateStoryInput = require("../../validation/stories");
 
+router.delete("/", async (req, res) => {
+  try {
+    await Story.deleteOne({ _id: req.query.id });
+    res.json(req.query.id);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.get("/", (req, res) => {
   debugger
   if (!req.query.searchInput) {
@@ -55,7 +64,6 @@ router.get("/user/:userId", (req, res) => {
         .json({ nostoriesfound: "No stories found from that user" })
     );
 });
-
 
 router.post(
   "/",

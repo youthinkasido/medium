@@ -2,10 +2,25 @@ import React, { Component } from "react";
 import CommentIndexItem from "./comments_index_item";
 
 export default class CommentIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      commentsLoaded: false
+    };
+  }
+
   componentDidMount() {
     this.props
       .fetchAllUsers()
-      .then(() => this.props.fetchStoryComments(this.props.story._id));
+      .then(() => this.props.fetchStoryComments(this.props.story._id))
+      .then(() => {
+        this.setState({ commentsLoaded: true });
+        this.scrollTo();
+      });
+  }
+
+  scrollTo() {
+    document.querySelector(".comment-wrapper-container").scrollIntoView();
   }
 
   render() {
