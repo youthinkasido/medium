@@ -19,7 +19,6 @@ class NewStory extends Component {
   }
 
   componentDidMount() {
-    debugger;
     this.setState({ model: "" });
   }
 

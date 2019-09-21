@@ -5,9 +5,7 @@ import {
   createUserAvatar,
   updateUser
 } from "../../actions/user_actions";
-import {
-  fetchUserStories
-} from "../../actions/story_actions";
+import { fetchUserStories, deleteStory } from "../../actions/story_actions";
 import { follow, unfollow } from "../../actions/follow_actions";
 
 const mapStateToProps = ({ session, entities }) => {
@@ -27,7 +25,8 @@ const mapDispatchToProps = dispatch => {
     follow: data => dispatch(follow(data)),
     unfollow: data => dispatch(unfollow(data)),
     createUserAvatar: user => dispatch(createUserAvatar(user)),
-    updateUser: user => dispatch(updateUser(user))
+    updateUser: user => dispatch(updateUser(user)),
+    deleteStory: id => dispatch(deleteStory(id))
   };
 };
 
