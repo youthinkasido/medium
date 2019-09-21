@@ -82,11 +82,21 @@ class UserStoriesShow extends React.Component {
 
         <div className="delete-story-modal">
           <div className="delete-story-modal-content">
-            <h1 className="delete-story-modal-heading">Delete story?</h1>
-            <span className="close">&times;</span>
-            <p>Are you sure you want to delete this story?
-                This action cannot be undone.</p>
-            <button className="confirm-delete-story">Delete Story</button>
+            <div className="delete-story-modal-content-topbar">
+
+              <h1 className="delete-story-modal-heading">Delete story?</h1>
+
+              <span className="close">&times;</span>
+            </div>
+
+            <div className="delete-story-modal-content-bottombar">
+
+              <p>Are you sure you want to delete this story?
+                This action is permanent and cannot be undone.</p>
+              <button className="confirm-delete-story">Delete Story</button>
+
+              <hr className="delete-story-modal-hr"></hr>
+            </div>
           </div>
         </div>
 
