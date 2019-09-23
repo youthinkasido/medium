@@ -1,5 +1,8 @@
 ## WELL DONE
 
+## OVERVIEW
+Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
+
 ## TECHNOLOGIES
 * React - Front-end JavaScript library
 * Redux - JavaScript library for state management
@@ -12,10 +15,9 @@
 
 [Live Site](https://very-well-done-app.herokuapp.com/)  
     
-![story](https://i.ibb.co/hX90mRG/story.png)
 
-## OVERVIEW
-Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
+
+
 
 ## FEATURES
 * User Authentication - Users can sign up, login or demo the site.
