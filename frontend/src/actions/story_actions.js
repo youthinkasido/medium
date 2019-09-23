@@ -54,7 +54,6 @@ export const fetchStories = searchInput => dispatch => {
 export const fetchStory = id => dispatch => {
   return APIUtil.getStory(id)
     .then(story => {
-      debugger;
       dispatch(receiveStory(story));
     })
     .catch(err => console.log(err));
