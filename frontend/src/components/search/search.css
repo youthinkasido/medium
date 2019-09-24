@@ -1,3 +1,11 @@
 .search-bar {
+}
+
+.search-input {
   width: 500px;
+  border-radius: 3px;
+  background-color: #eee;
+  border: none;
+  outline: none;
+  padding: 8px;
 }
