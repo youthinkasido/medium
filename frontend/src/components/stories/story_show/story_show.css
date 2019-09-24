@@ -51,6 +51,7 @@
   border: 1px solid #7e04b6;
   margin: 25px auto;
   width: 100%;
+  cursor: pointer;
 }
 
 .story-show-name {
