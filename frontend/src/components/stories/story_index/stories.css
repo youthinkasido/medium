@@ -1,8 +1,8 @@
 .story-img {
-    height: 152px;
-    width: 152px;
-    object-fit: cover;
-    margin-left: 20px;
+  height: 152px;
+  width: 152px;
+  object-fit: cover;
+  margin-left: 20px;
 }
 
 .story-title {
@@ -12,24 +12,23 @@
   font-family: sans-serif;
 }
 
-.ql-editor p { 
+.ql-editor p {
   font-size: 21px;
   font-family: sans-serif;
 }
 
-.ql-snow .ql-editor h2 { 
-    font-size: 1.5em;
-    font-family: sans-serif;
-    font-weight: 700;
+.ql-snow .ql-editor h2 {
+  font-size: 1.5em;
+  font-family: sans-serif;
+  font-weight: 700;
 }
-
 
 .story-body {
   padding: 20px 0;
   color: #777;
   font-family: sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.2px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 .story-index-container {
@@ -40,17 +39,16 @@
 }
 
 .story-index-name {
-    display: inline-block;
-    margin-right: 10px;
-    font-family: sans-serif;
-    font-weight: 400;
-
+  display: inline-block;
+  margin-right: 10px;
+  font-family: sans-serif;
+  font-weight: 400;
 }
 
 .story-list-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .story-index-list {
@@ -58,31 +56,30 @@
 }
 
 .story {
-display: flex;
-    justify-content: space-between;
-    width: 100%;
-    box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.32);
-    padding: 20px;
-    border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0px 0px 9px 1px rgba(0, 0, 0, 0.32);
+  padding: 20px;
+  border-radius: 3px;
 }
 .story-index-inline {
   display: inline-block;
   margin-right: 12px;
-
 }
 
-.story-index-inline a{
+.story-index-inline a {
   cursor: pointer;
 }
 
-.story-index-inline a:hover{
+.story-index-inline a:hover {
   cursor: pointer;
 }
 
 .story-date {
   color: #777;
   font-size: 14px;
-      font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .index-story-date {

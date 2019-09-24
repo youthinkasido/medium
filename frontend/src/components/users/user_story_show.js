@@ -28,21 +28,21 @@ class UserStoriesShow extends React.Component {
   }
 
   deleteStory() {
+    let modal = document.getElementsByClassName("delete-story-modal")[0];
+    let close = document.getElementsByClassName("close")[0];
+    let confirmDelete = document.getElementsByClassName(
+      "confirm-delete-story"
+    )[0];
 
+    modal.style.display = "block";
 
-    let modal = document.getElementsByClassName('delete-story-modal')[0]
-    let close = document.getElementsByClassName('close')[0]
-    let confirmDelete = document.getElementsByClassName('confirm-delete-story')[0]
+    close.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-    modal.style.display = 'block'
-
-    close.addEventListener('click', () => {
-      modal.style.display = 'none';
-    })
-
-    confirmDelete.addEventListener('click', () => {
+    confirmDelete.addEventListener("click", () => {
       this.props.deleteStory(this.props.story._id);
-    })
+    });
   }
 
   renderDeleteButton() {
@@ -75,26 +75,21 @@ class UserStoriesShow extends React.Component {
       .join(" ");
 
     return (
-
-
       <li className="user-story-show-list">
-
         <div className="delete-story-modal">
           <div className="delete-story-modal-content">
             <div className="delete-story-modal-content-topbar">
-
               <h1 className="delete-story-modal-heading">Delete story?</h1>
 
-              <span className="close">&times;</span>
+              <span className="close">X</span>
             </div>
 
             <div className="delete-story-modal-content-bottombar">
-
-              <p>Are you sure you want to delete this story?
-                This action is permanent and cannot be undone.</p>
+              <p>
+                Are you sure you want to delete this story? This action is
+                permanent and cannot be undone.
+              </p>
               <button className="confirm-delete-story">Delete Story</button>
-
-              <hr className="delete-story-modal-hr"></hr>
             </div>
           </div>
         </div>

@@ -101,9 +101,39 @@ class UserShow extends React.Component {
 
   handleShow(e) {
     e.preventDefault();
-    this.setState({
-      class: "reveal-input"
-    });
+
+    this.userDescription = document.querySelector(".user-description");
+
+    this.setState(
+      {
+        class: "reveal-input",
+        description: this.userDescription.innerHTML
+      },
+      () => {
+        this.bioInput.focus();
+        this.bioInput.setSelectionRange(
+          this.bioInput.value.length,
+          this.bioInput.value.length
+        );
+      }
+    );
+  }
+
+  renderFollow() {
+    debugger;
+    if (this.props.currentUser.id === this.props.match.params.userId) {
+      return null;
+    } else {
+      return (
+        <Follow
+          currentUser={this.props.currentUser}
+          follow={this.props.follow}
+          unfollow={this.props.unfollow}
+          author={this.props.author}
+          toggle={this.toggle.bind(this)}
+        />
+      );
+    }
   }
 
   render() {
@@ -128,108 +158,107 @@ class UserShow extends React.Component {
 
     return (
       <div>
-        <div className="user-show-container">
-          <div className="user-info-container">
-            <div className="username">About {fullName}</div>
-            {/* <p className='user-description'>{this.props.author.description}</p> */}
-            <div className="user-description-container">
-              <div
-                className={`${
-                  this.props.currentUser.id === this.props.author._id
-                    ? "reveal"
-                    : "hide"
+        <div>
+          <div className="user-show-container">
+            <div className="user-info-container">
+              <div className="username">About {fullName}</div>
+              {/* <p className='user-description'>{this.props.author.description}</p> */}
+              <div className="user-description-container">
+                <div
+                  className={`${
+                    this.props.currentUser.id === this.props.author._id
+                      ? "reveal"
+                      : "hide"
+                  }`}
+                ></div>
+
+                <p className="user-description">
+                  {this.props.author.description}
+                </p>
+
+                <form
+                  onSubmit={this.handleSubmit}
+                  className={`${
+                    this.props.currentUser.id === this.props.author._id
+                      ? "reveal"
+                      : "hide"
+                  } ${this.state.class}`}
+                >
+                  <textarea
+                    ref={textarea => {
+                      this.bioInput = textarea;
+                    }}
+                    className="user-bio-textarea"
+                    onChange={this.update("description")}
+                    value={this.state.description}
+                  />
+                  <button className="update-profile">Update</button>
+                </form>
+              </div>
+              <p className="follower-count">
+                {`${this.props.author.followerIds.length} ${
+                  this.props.author.followerIds.length > 1 ||
+                  this.props.author.followerIds.length === 0
+                    ? "followers"
+                    : "follower"
                 }`}
-              ></div>
-
-              <p className="user-description">
-                {this.props.author.description}
               </p>
-
-              <form
-                onSubmit={this.handleSubmit}
-                className={`${
-                  this.props.currentUser.id === this.props.author._id
-                    ? "reveal"
-                    : "hide"
-                } ${this.state.class}`}
-              >
-                <textarea
-                  onChange={this.update("description")}
-                  value={this.state.description}
-                />
-                <button className="update-profile">Update</button>
-              </form>
-
-              <div className="avatar-container">
-                <div className="overlay">
-                  <div className="avatar-upload-button">
-                    <FileUploader
-                      accept="image/*"
-                      name="image"
-                      storageRef={firebase.storage().ref("avatarimage")}
-                      onUploadStart={this.handleUploadStart}
-                      onUploadSuccess={this.handleUploadSuccess}
-                      onProgress={this.handleProgress}
-                    />
-                  </div>
-                </div>
-
-                {this.props.avatarURL ? (
-                  <img src={this.props.avatarURL} alt="avatar" />
-                ) : (
-                  <div className="first-letter">{name}</div>
-                )}
+              <div className="button-container">
+                {this.renderFollow()}
+                <Link
+                  to="#"
+                  className={`edit-profile ${
+                    this.props.currentUser.id === this.props.author._id &&
+                    this.state.class === "hide-input"
+                      ? "reveal"
+                      : "hide"
+                  }`}
+                  onClick={this.handleShow}
+                >
+                  Edit Bio
+                </Link>
               </div>
             </div>
-            <strong className="follower-count">
-              {`${this.props.author.followerIds.length} ${
-                this.props.author.followerIds.length > 1 ||
-                this.props.author.followerIds.length === 0
-                  ? "followers"
-                  : "follower"
-              }`}
-            </strong>
-            <div className="button-container">
-              <Follow
-                currentUser={this.props.currentUser}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-                author={this.props.author}
-                toggle={this.toggle.bind(this)}
-              />
-              <Link
-                to="#"
-                className={`edit-profile ${
-                  this.props.currentUser.id === this.props.author._id &&
-                  this.state.class === "hide-input"
-                    ? "reveal"
-                    : "hide"
-                }`}
-                onClick={this.handleShow}
-              >
-                Edit Bio
-              </Link>
+            <div className="avatar-container">
+              <div className="overlay">
+                <div className="avatar-upload-button">
+                  <FileUploader
+                    accept="image/*"
+                    name="image"
+                    storageRef={firebase.storage().ref("avatarimage")}
+                    onUploadStart={this.handleUploadStart}
+                    onUploadSuccess={this.handleUploadSuccess}
+                    onProgress={this.handleProgress}
+                  />
+                </div>
+              </div>
+
+              {this.props.avatarURL ? (
+                <img src={this.props.avatarURL} alt="avatar" />
+              ) : (
+                <div className="first-letter">{name}</div>
+              )}
             </div>
           </div>
-        
-          <div className="user-story-index-container">
-            <div className="user-story-index">
-              <ul className="user-story-index-list">
-                {this.props.stories.map(story => (
-                  <UserStoryShow
-                    avatar={this.props.avatarURL}
-                    author={this.props.author}
-                    key={story._id}
-                    story={story}
-                    currentUser={this.props.currentUser}
-                    follow={this.props.follow}
-                    unfollow={this.props.unfollow}
-                    toggle={this.toggle.bind(this)}
-                    deleteStory={this.props.deleteStory}
-                  />
-                ))}
-              </ul>
-            </div>
+        </div>
+
+        <div className="user-story-index-container">
+          <div className="user-story-index">
+            <ul className="user-story-index-list">
+              {this.props.stories.map(story => (
+                <UserStoryShow
+                  avatar={this.props.avatarURL}
+                  author={this.props.author}
+                  key={story._id}
+                  story={story}
+                  currentUser={this.props.currentUser}
+                  follow={this.props.follow}
+                  unfollow={this.props.unfollow}
+                  toggle={this.toggle.bind(this)}
+                  deleteStory={this.props.deleteStory}
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </div>
