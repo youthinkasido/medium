@@ -3,6 +3,7 @@
   max-width: 50%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
 .user-description-container {
@@ -117,11 +118,6 @@ input[type="file"] {
 .user-story-list {
   max-width: 68%;
   margin: auto;
-}
-
-.user-show-hr {
-  margin: 80px auto;
-  width: 80%;
 }
 
 .first-letter {
@@ -257,23 +253,24 @@ input[type="file"] {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   font-family: sans-serif;
 }
+
 .delete-story-modal-hr {
   margin-top: 15px;
 }
 
 .delete-story-modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  border: 1px solid #888;
   width: 500px;
-  height: 150px;
   position: relative;
   font-family: sans-serif;
   border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
 }
 
 .delete-story-modal-heading {
@@ -285,21 +282,16 @@ input[type="file"] {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
-  position: absolute;
-  right: 0;
-  top: 0;
   padding: 0 10px;
 }
 
 .confirm-delete-story {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid red;
   border-radius: 3px;
   color: red;
-  margin: 12px 0px 12px 12px;
-  position: absolute;
-  right: 0;
-  bottom: 10px;
+  display: flex;
+  margin: 21px 0;
 }
 
 .close:hover,
@@ -310,20 +302,20 @@ input[type="file"] {
 }
 
 .delete-story-modal-content-topbar {
-  height: 20%;
-  width: 100%;
   display: flex;
   align-items: center;
   background: #ddd;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  padding: 10px 0px;
+  justify-content: space-between;
 }
 
 .delete-story-modal-content-bottombar {
   position: relative;
-  height: 80%;
   margin: 0 15px;
   border-radius: 5px;
+  padding: 20px 0;
 }
 
 .delete-story-modal-content-bottombar p {

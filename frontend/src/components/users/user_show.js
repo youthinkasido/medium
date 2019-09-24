@@ -211,7 +211,7 @@ class UserShow extends React.Component {
               </Link>
             </div>
           </div>
-          <hr className="user-show-hr" />
+        
           <div className="user-story-index-container">
             <div className="user-story-index">
               <ul className="user-story-index-list">
