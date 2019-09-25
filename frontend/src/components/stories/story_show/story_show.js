@@ -55,13 +55,14 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
+    debugger
     return (
       <div>
         <div className="story-show-container">
           <div className="story-show-header">
             <h1 className="story-show-title">{story.title}</h1>
             <p className="story-show-name">
-              <Link>
+              <Link to={`/users/${author._id}`}>
                 {author.firstName} {author.lastName}
               </Link>
             </p>
@@ -115,8 +116,8 @@ class StoryShow extends React.Component {
               <CommentsContainer />
             </Fragment>
           ) : (
-            <div />
-          )}
+              <div />
+            )}
         </div>
       </div>
     );
