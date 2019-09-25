@@ -43,7 +43,7 @@ class StoryShow extends React.Component {
   }
 
   openComments() {
-    this.setState({ commentsOpen: true });
+    this.setState({ commentsOpen: !this.state.commentsOpen });
     this.scrollTo();
   }
 
@@ -115,8 +115,8 @@ class StoryShow extends React.Component {
               <CommentsContainer />
             </Fragment>
           ) : (
-            <div />
-          )}
+              <div />
+            )}
         </div>
       </div>
     );

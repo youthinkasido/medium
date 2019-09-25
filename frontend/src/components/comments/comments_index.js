@@ -32,7 +32,7 @@ export default class CommentIndex extends Component {
       <div className="comment-index-container">
         <div className="comment-index">
           <ul className="comment-index-list">
-            {this.props.comments.map(comment => (
+            {this.props.comments.slice(0).reverse().map(comment => (
               <CommentIndexItem
                 key={comment._id}
                 comment={comment}
