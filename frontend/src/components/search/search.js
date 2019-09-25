@@ -4,7 +4,6 @@ import "./search.css";
 class Search extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searchInput: "",
       suggestions: [],
@@ -22,6 +21,10 @@ class Search extends Component {
       },
       () => this.props.fetchStories(this.state.searchInput)
     );
+
+    
+
+
   }
 
   render() {

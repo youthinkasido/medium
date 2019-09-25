@@ -34,6 +34,7 @@ export default class NewStory extends Component {
   }, 25);
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     window.addEventListener("scroll", this.featuredListFixedOnScroll);
     this.props.fetchAllUsers();
     this.props.fetchStories();
@@ -51,7 +52,13 @@ export default class NewStory extends Component {
 
   render() {
     if (this.props.stories.length === 0 || this.props.users.length === 0) {
-      return null;
+      return (
+        <div className="no-stories-container">
+          <div className="no-stories-message-container">
+            <h1 className="no-stories__message">Sorry, we did not find any stories :(</h1>
+          </div>
+        </div>
+      )
     }
 
     return (

@@ -42,6 +42,7 @@ class UserStoriesShow extends React.Component {
 
     confirmDelete.addEventListener("click", () => {
       this.props.deleteStory(this.props.story._id);
+      modal.style.display = "none";
     });
   }
 

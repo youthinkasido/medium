@@ -8,6 +8,8 @@ import "react-quill/dist/quill.snow.css";
 import renderHTML from "react-render-html";
 import hljs from "highlightjs";
 
+
+
 class StoryShow extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,8 @@ class StoryShow extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
+
     this.props
       .fetchStory(this.props.match.params.storyId)
       .then(() => {
@@ -55,7 +59,6 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
-    debugger
     return (
       <div>
         <div className="story-show-container">

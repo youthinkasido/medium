@@ -26,6 +26,7 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchUserStories(this.props.match.params.userId);
   }
@@ -169,7 +170,7 @@ class UserShow extends React.Component {
                     this.props.currentUser.id === this.props.author._id
                       ? "reveal"
                       : "hide"
-                  }`}
+                    }`}
                 ></div>
 
                 <p className="user-description">
@@ -182,7 +183,7 @@ class UserShow extends React.Component {
                     this.props.currentUser.id === this.props.author._id
                       ? "reveal"
                       : "hide"
-                  } ${this.state.class}`}
+                    } ${this.state.class}`}
                 >
                   <textarea
                     ref={textarea => {
@@ -198,10 +199,10 @@ class UserShow extends React.Component {
               <p className="follower-count">
                 {`${this.props.author.followerIds.length} ${
                   this.props.author.followerIds.length > 1 ||
-                  this.props.author.followerIds.length === 0
+                    this.props.author.followerIds.length === 0
                     ? "followers"
                     : "follower"
-                }`}
+                  }`}
               </p>
               <div className="button-container">
                 {this.renderFollow()}
@@ -209,10 +210,10 @@ class UserShow extends React.Component {
                   to="#"
                   className={`edit-profile ${
                     this.props.currentUser.id === this.props.author._id &&
-                    this.state.class === "hide-input"
+                      this.state.class === "hide-input"
                       ? "reveal"
                       : "hide"
-                  }`}
+                    }`}
                   onClick={this.handleShow}
                 >
                   Edit Bio
@@ -236,8 +237,8 @@ class UserShow extends React.Component {
               {this.props.avatarURL ? (
                 <img src={this.props.avatarURL} alt="avatar" />
               ) : (
-                <div className="first-letter">{name}</div>
-              )}
+                  <div className="first-letter">{name}</div>
+                )}
             </div>
           </div>
         </div>
