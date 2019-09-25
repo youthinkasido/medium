@@ -102,7 +102,7 @@ class NavBar extends React.Component {
   }
 
   renderSearch() {
-    debugger;
+
     if (this.props.match.path !== "/") {
       return null;
     } else {

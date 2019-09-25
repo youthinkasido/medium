@@ -120,7 +120,7 @@ class UserShow extends React.Component {
   }
 
   renderFollow() {
-    debugger;
+
     if (this.props.currentUser.id === this.props.match.params.userId) {
       return null;
     } else {
