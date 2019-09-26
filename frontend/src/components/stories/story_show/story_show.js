@@ -59,6 +59,10 @@ class StoryShow extends React.Component {
 
   render() {
     const { story, author } = this.props;
+    if (this.props.match.params.storyId !== story._id) {
+      return <div>Loading...</div>
+    }
+    
     return (
       <div>
         <div className="story-show-container">

@@ -11,25 +11,24 @@ class Like extends React.Component {
     this.handleLike = this.handleLike.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.story.likerIds.includes(this.props.currentUser.id)) {
+      this.setState({
+        liked: true
+      });
+    } else {
+      this.setState({
+        liked: false
+      });
+    }
+  }
+
   handleLike(e) {
     e.preventDefault();
 
     if (this.props.currentUser.id) {
-      if (!this.state) {
-        if (this.props.story.likerIds.includes(this.props.currentUser.id)) {
-          this.setState({
-            liked: true
-          });
-        } else {
-          this.setState({
-            liked: false
-          });
-        }
-      }
-
       if (
-        this.state.liked &&
-        this.props.story.likerIds.includes(this.props.currentUser.id)
+        this.state.liked
       ) {
         this.props.toggle();
 
@@ -49,8 +48,7 @@ class Like extends React.Component {
             });
           });
       } else if (
-        !this.state.liked &&
-        !this.props.story.likerIds.includes(this.props.currentUser.id)
+        !this.state.liked
       ) {
         this.props.toggle();
         this.props.story.likerIds.push(this.props.currentUser.id);
@@ -78,7 +76,7 @@ class Like extends React.Component {
 
     return (
       <div className="like">
-        {this.props.story.likerIds.includes(this.props.currentUser.id) ? (
+        {this.state.liked ? (
           <div className="like-container">
             <button className="like-button" onClick={this.handleLike}>
               <img src="./liked.svg" className="like-img" alt="like" />
