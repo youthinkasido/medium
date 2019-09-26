@@ -52,13 +52,7 @@ export default class NewStory extends Component {
 
   render() {
     if (this.props.stories.length === 0 || this.props.users.length === 0) {
-      return (
-        <div className="no-stories-container">
-          <div className="no-stories-message-container">
-            <h1 className="no-stories__message">Sorry, we did not find any stories :(</h1>
-          </div>
-        </div>
-      )
+      return null;
     }
 
     return (

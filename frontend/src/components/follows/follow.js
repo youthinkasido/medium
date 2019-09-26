@@ -12,25 +12,26 @@ class Follow extends React.Component {
     this.handleFollow = this.handleFollow.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.author.followerIds) {
+      if (this.props.author.followerIds.includes(this.props.currentUser.id)) {
+        this.setState({
+          followed: true
+        });
+      } else {
+        this.setState({
+          followed: false
+        });
+      }
+    }
+  }
+
   handleFollow(e) {
     e.preventDefault();
 
     if (this.props.currentUser.id) {
-      if (!this.state) {
-        if (this.props.author.followerIds.includes(this.props.currentUser.id)) {
-          this.setState({
-            followed: true
-          });
-        } else {
-          this.setState({
-            followed: false
-          });
-        }
-      }
-
       if (
-        this.state.followed &&
-        this.props.author.followerIds.includes(this.props.currentUser.id)
+        this.state.followed
       ) {
         this.props.toggle();
 
@@ -50,8 +51,7 @@ class Follow extends React.Component {
             });
           });
       } else if (
-        !this.state.followed &&
-        !this.props.author.followerIds.includes(this.props.currentUser.id)
+        !this.state.followed
       ) {
         this.props.toggle();
         this.props.author.followerIds.push(this.props.currentUser.id);
@@ -79,7 +79,7 @@ class Follow extends React.Component {
 
     return (
       <div className="follow">
-        {this.props.author.followerIds.includes(this.props.currentUser.id) ? (
+        {this.state.followed ? (
           <button className="unfollow-button" onClick={this.handleFollow}>
             Unfollow
           </button>
