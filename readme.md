@@ -1,29 +1,39 @@
-## WELL DONE
-
-## OVERVIEW
+# [WellDone](https://very-well-done-app.herokuapp.com/)
 Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
 
-## TECHNOLOGIES
-* React - Front-end JavaScript library
-* Redux - JavaScript library for state management
-* MongoDB - Non-relational database for storing application data
-* Express.js - Web framework for Node.js
-* Axios - Promise based HTTP client for the browser and node.js
-* Webpack - JavaScript module bundler
-* Node.js - JavaScript runtime
-* Google Firebase - Used to store user uploaded content
-
-[Live Site](https://very-well-done-app.herokuapp.com/)  
-    
-
-
-
-
+Well done was built with **React, Redux, MongoDB, Express.js, Axios, Webpack, Node.js and Google Firebase**.
+  
 ## FEATURES
-* User Authentication - Users can sign up, login or demo the site.
 * Featured Stories - The homepage features the most popular stories among users.
-![splash](https://i.ibb.co/qp2bpFt/splash.png)
+![splash](https://www.awesomescreenshot.com/upload//1054043/d9196127-a12b-43e8-4b1f-49cb002b3d2d.png)
+
+### Featured Stories
+The Featured Stories Component fetches the most relevant stories by showing the most popular stories based on likes received.
+
+      topStories() {
+        return this.props.stories.sort((a, b) =>
+          a.likerIds.length > b.likerIds.length ? -1 : 1
+        );
+      }
+
 * Comments - Users can comment on their favorite stories.
 ![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
+
+
+## Comments code snippet
+
+     componentDidMount() {
+        this.props
+          .fetchAllUsers()
+          .then(() => this.props.fetchStoryComments(this.props.story._id))
+          .then(() => {
+            this.setState({ commentsLoaded: true });
+            this.scrollTo();
+          });
+      }
+
+
 * User Profile - Users can view their created stories, edit their bio, and upload an avatar photo.
 * Create a Story - Users can create a story with a rich text editor.
+
+* User Authentication - Users can sign up, login or demo the site.
