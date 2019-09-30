@@ -18,7 +18,7 @@ The Featured Stories Component fetches the most relevant stories by showing the 
 
 
 ### Comments
-Users can comment on their favorite stories. Each new comment triggers a re-render by directly modifying the apps global state.
+Users can comment on their favorite stories. Each new comment appears instantly by triggering the component to re-render by modifying the Redux comments slice of state.
 
      componentDidMount() {
         this.props
