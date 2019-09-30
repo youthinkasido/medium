@@ -8,11 +8,15 @@ Well done was built with **React, Redux, MongoDB, Express.js, Axios, Webpack, No
 ### Featured Stories
 The Featured Stories Component fetches the most relevant stories by showing the most popular stories based on likes received.
 
-      topStories() {
-        return this.props.stories.sort((a, b) =>
-          a.likerIds.length > b.likerIds.length ? -1 : 1
-        );
-      }
+```javascript 
+      
+topStories() {
+  return this.props.stories.sort((a, b) =>
+    a.likerIds.length > b.likerIds.length ? -1 : 1
+  );
+}
+```
+
 ![splash](https://www.awesomescreenshot.com/upload//1054043/d9196127-a12b-43e8-4b1f-49cb002b3d2d.png)
 
 
