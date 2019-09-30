@@ -101,7 +101,5 @@ render() {
   }
 }
 ```
-![createStory]https://www.awesomescreenshot.com/upload//1054043/c3ceccf0-61f2-459e-43ca-fa42e49d22e7.png
+![createStory](https://www.awesomescreenshot.com/upload//1054043/c3ceccf0-61f2-459e-43ca-fa42e49d22e7.png)
 
-
-* User Authentication - Users can sign up, login or demo the site.
