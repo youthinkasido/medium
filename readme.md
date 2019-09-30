@@ -69,6 +69,39 @@ reference of the photo.
 
 
 
-* Create a Story - Users can create a story with a rich text editor.
+### Create a Story
+Users can create a story using the React Quill rich text editor dependency.
+
+```javascript
+render() {
+    return (
+      <div className="story-form-container">
+        <form className="story-form" onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.title}
+            onChange={this.update("title")}
+            placeholder="Title"
+            className="story-form-input story-form-title"
+          />
+
+          <ReactQuill
+            value={this.state.model}
+            onChange={this.handleModelChange}
+            modules={NewStory.modules}
+            formats={NewStory.formats}
+          />
+
+          <NewStoryImageContainer />
+
+          <button className="publish-button">Publish</button>
+        </form>
+      </div>
+    );
+  }
+}
+```
+![createStory]https://www.awesomescreenshot.com/upload//1054043/c3ceccf0-61f2-459e-43ca-fa42e49d22e7.png
+
 
 * User Authentication - Users can sign up, login or demo the site.
