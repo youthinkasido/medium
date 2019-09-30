@@ -4,8 +4,6 @@ Well Done is an online publishing platform inspired by [Medium](https://medium.c
 Well done was built with **React, Redux, MongoDB, Express.js, Axios, Webpack, Node.js and Google Firebase**.
   
 ## FEATURES
-* Featured Stories - The homepage features the most popular stories among users.
-![splash](https://www.awesomescreenshot.com/upload//1054043/d9196127-a12b-43e8-4b1f-49cb002b3d2d.png)
 
 ### Featured Stories
 The Featured Stories Component fetches the most relevant stories by showing the most popular stories based on likes received.
@@ -15,6 +13,9 @@ The Featured Stories Component fetches the most relevant stories by showing the 
           a.likerIds.length > b.likerIds.length ? -1 : 1
         );
       }
+![splash](https://www.awesomescreenshot.com/upload//1054043/d9196127-a12b-43e8-4b1f-49cb002b3d2d.png)
+
+
 
 * Comments - Users can comment on their favorite stories.
 ![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
