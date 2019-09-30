@@ -17,11 +17,13 @@ The Featured Stories Component fetches the most relevant stories by showing the 
 
 
 
-* Comments - Users can comment on their favorite stories.
+* Comments - 
 ![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
 
 
-## Comments code snippet
+
+### Comments
+Users can comment on their favorite stories. Each new comment triggers a re-render by directly modifying the apps global state.
 
      componentDidMount() {
         this.props
