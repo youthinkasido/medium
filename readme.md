@@ -33,7 +33,11 @@ Users can comment on their favorite stories. Each new comment triggers a re-rend
 ![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
 
 
-* User Profile - Users can view their created stories, edit their bio, and upload an avatar photo.
+### User Profile
+Users can view their created stories, edit their bio, and upload an avatar photo.
+![userProfile](https://www.awesomescreenshot.com/upload//1054043/34ed02de-d51c-4f99-5955-6f13a8b2b46d.png)
+
+
 * Create a Story - Users can create a story with a rich text editor.
 
 * User Authentication - Users can sign up, login or demo the site.
