@@ -24,6 +24,7 @@ topStories() {
 ### Comments
 Users can comment on their favorite stories. Each new comment appears instantly by triggering the component to re-render by modifying the Redux comments slice of state.
 
+```javascript 
      componentDidMount() {
         this.props
           .fetchAllUsers()
@@ -33,6 +34,7 @@ Users can comment on their favorite stories. Each new comment appears instantly 
             this.scrollTo();
           });
       }
+```
       
 ![comments](https://www.awesomescreenshot.com/upload//1054043/328bc2e4-65ba-43aa-49f8-e969df10d376.png)
 
@@ -45,6 +47,7 @@ reference of the photo.
 
 ![userProfile](https://www.awesomescreenshot.com/upload//1054043/34ed02de-d51c-4f99-5955-6f13a8b2b46d.png)
 
+```javascript 
      firebase
       .storage()
       .ref("avatarimage")
@@ -63,6 +66,7 @@ reference of the photo.
         this.props.createUserAvatar(this.state);
       });
   };
+```
 
 
 * Create a Story - Users can create a story with a rich text editor.
