@@ -35,7 +35,30 @@ Users can comment on their favorite stories. Each new comment appears instantly 
 
 ### User Profile
 Users can view their created stories, edit their bio, and upload an avatar photo.
+Avatar photos are uploaded using react-firebase-file-uploader. A return URL is then stored in the MongoDB for later
+reference of the photo.
+
+
 ![userProfile](https://www.awesomescreenshot.com/upload//1054043/34ed02de-d51c-4f99-5955-6f13a8b2b46d.png)
+
+     firebase
+      .storage()
+      .ref("avatarimage")
+      .child(filename)
+      .getDownloadURL()
+      .then(url =>
+        this.setState({
+          avatarURL: url,
+          firstName: this.props.author.firstName,
+          lastName: this.props.author.lastName,
+          email: this.props.author.email,
+          id: this.props.author._id
+        })
+      )
+      .then(() => {
+        this.props.createUserAvatar(this.state);
+      });
+  };
 
 
 * Create a Story - Users can create a story with a rich text editor.
