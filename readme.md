@@ -1,4 +1,4 @@
-# [WellDone](https://very-well-done-app.herokuapp.com/)
+# [WellDone](https://very-well-done-app.herokuapp.com/#/)
 Well Done is an online publishing platform inspired by [Medium](https://medium.com/).
 
 Well done was built with **React, Redux, MongoDB, Express.js, Axios, Webpack, Node.js and Google Firebase**.
