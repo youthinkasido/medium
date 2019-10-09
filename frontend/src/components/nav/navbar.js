@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./navbar.css";
 import Search from "../search/search_container";
+import logo from "../../assets/images/favicon-32x32.png";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -102,7 +103,6 @@ class NavBar extends React.Component {
   }
 
   renderSearch() {
-
     if (this.props.match.path !== "/") {
       return null;
     } else {
@@ -126,7 +126,10 @@ class NavBar extends React.Component {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/">
-            <div className="navbar-logo">Well Done</div>
+            <div className="navbar-logo-container">
+              <img src={logo} alt="logo" className="navbar-logo-img" />
+              <div className="navbar-logo">Well Done</div>
+            </div>
           </Link>
           {this.renderSearch()}
           <Search />
