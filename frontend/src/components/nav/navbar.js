@@ -121,14 +121,18 @@ class NavBar extends React.Component {
         this.setState({ clicked: false });
       }
     });
-    
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/">
             <div className="navbar-logo-container">
-              <img src={logo} alt="logo" className="navbar-logo-img"/>
-              <div className="navbar-logo">Well Done</div>
+              <img
+                src="./logo.png"
+                alt="Well Done"
+                className="navbar-logo-img"
+              />
+              {/* <img className="navbar-logo"></> */}
             </div>
           </Link>
           {this.renderSearch()}
