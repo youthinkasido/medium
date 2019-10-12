@@ -122,6 +122,16 @@ class NavBar extends React.Component {
       }
     });
 
+    let links = document.getElementById('links');
+
+    if (links) {
+      if (this.props.loggedIn) {
+        links.classList.remove('hide');
+      } else {
+        links.classList.add('hide');
+      }
+    };
+
     return (
       <nav className="navbar">
         <div className="navbar-container">
@@ -133,6 +143,10 @@ class NavBar extends React.Component {
           </Link>
           {this.renderSearch()}
           <Search />
+          <div id='links' className='nav-links'>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </div>
           {this.props.loggedIn ? (
             <div className="dropdown">
               <button className="dropbtn" onClick={this.handleClick}>
