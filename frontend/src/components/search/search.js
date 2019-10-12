@@ -6,9 +6,7 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: "",
-      suggestions: [],
-      stories: []
+      searchInput: ""
     };
     this.update = this.update.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
