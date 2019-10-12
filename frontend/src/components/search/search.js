@@ -10,21 +10,13 @@ class Search extends Component {
       stories: []
     };
     this.update = this.update.bind(this);
-    // this.renderSuggestions = this.renderSuggestions.bind(this)
   }
 
   update(e, field) {
-    this.setState(
-      {
-        [field]: e.target.value,
-        suggestions: ""
-      },
-      () => this.props.fetchStories(this.state.searchInput)
-    );
-
-    
-
-
+    this.setState({
+      [field]: e.target.value,
+      suggestions: ""
+    });
   }
 
   render() {
