@@ -18,7 +18,7 @@
 .user-description-container {
 }
 
-input[type="file"] {
+/* input[type="file"] {
   background-image: url("https://i.ibb.co/x8ZR9ZP/avataruploader.png");
   color: transparent;
   background-repeat: no-repeat;
@@ -36,7 +36,7 @@ input[type="file"] {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-}
+} */
 
 .avatar-upload-button {
   left: 550px;

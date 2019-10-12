@@ -80,7 +80,7 @@ class StoryImageUpload extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="file-uploader">
         <div
           className={`progress-bar ${
             this.state.progress > 0 && this.state.progress < 100
@@ -107,15 +107,13 @@ class StoryImageUpload extends React.Component {
                 : "hide-story-image"
             }
           >
-            <img src={this.state.imageURL} alt="article"/>
+            <img src={this.state.imageURL} alt="article" />
             <img src="./remove.svg" alt="remove" onClick={this.removePhoto} />
           </div>
         }
 
-        <div
-          className={this.state.image ? "hide-camera" : "show-add-photo"}
-        >
-          <img id="camera" src="./addimage.svg" alt="add"/>
+        <div className={this.state.image ? "hide-camera" : "show-add-photo"}>
+          <img id="camera" src="./addimage.svg" alt="add" />
 
           <FileUploader
             accept="image/*"
