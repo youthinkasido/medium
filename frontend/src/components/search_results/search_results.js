@@ -26,20 +26,22 @@ class SearchResults extends Component {
   render() {
     debugger;
     return (
-      <div className="story-index">
-        <ul className="story-index-list">
-          {this.props.stories.map(story => (
-            <StoryIndexItem
-              key={story._id}
-              story={story}
-              currentUser={this.props.sessionUser}
-              follow={this.props.follow}
-              unfollow={this.props.unfollow}
-              users={this.props.users}
-              toggle={this.toggle.bind(this)}
-            />
-          ))}
-        </ul>
+      <div className="story-index-container">
+        <div className="story-index">
+          <ul className="story-index-list">
+            {this.props.stories.map(story => (
+              <StoryIndexItem
+                key={story._id}
+                story={story}
+                currentUser={this.props.sessionUser}
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                users={this.props.users}
+                toggle={this.toggle.bind(this)}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }

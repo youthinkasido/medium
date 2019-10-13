@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./search.css";
 
 class Search extends Component {
@@ -9,7 +9,6 @@ class Search extends Component {
       searchInput: ""
     };
     this.update = this.update.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   update(e, field) {
@@ -17,11 +16,6 @@ class Search extends Component {
       [field]: e.target.value,
       suggestions: ""
     });
-  }
-
-  handleSearch() {
-    debugger;
-    this.props.history.push(`/search?query=${this.state.searchInput}`);
   }
 
   render() {
@@ -34,7 +28,7 @@ class Search extends Component {
           onChange={e => this.update(e, "searchInput")}
           value={this.state.searchInput}
         />
-        <button onClick={this.handleSearch}>search</button>
+        <Link to={`/search?query=${this.state.searchInput}`}>search!</Link>
       </div>
     );
   }
