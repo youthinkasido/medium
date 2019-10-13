@@ -9,6 +9,7 @@ class Search extends Component {
       searchInput: ""
     };
     this.update = this.update.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   update(e, field) {
@@ -16,6 +17,13 @@ class Search extends Component {
       [field]: e.target.value,
       suggestions: ""
     });
+  }
+
+  handleKeyDown(e) {
+    debugger;
+    if (e.key === "Enter") {
+      this.props.history.push(`/search?query=${this.state.searchInput}`);
+    }
   }
 
   render() {
@@ -27,8 +35,8 @@ class Search extends Component {
           type="text"
           onChange={e => this.update(e, "searchInput")}
           value={this.state.searchInput}
+          onKeyDown={this.handleKeyDown}
         />
-        <Link to={`/search?query=${this.state.searchInput}`}>search!</Link>
       </div>
     );
   }

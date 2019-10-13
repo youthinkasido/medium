@@ -17,6 +17,14 @@ class SearchResults extends Component {
     this.props.fetchStories(parsed.query);
   }
 
+  componentDidUpdate(prevProps) {
+    debugger;
+    if (this.props.location.search !== prevProps.location.search) {
+      const parsed = queryString.parse(this.props.location.search);
+      this.props.fetchStories(parsed.query);
+    }
+  }
+
   toggle() {
     this.setState({
       toggle: true
