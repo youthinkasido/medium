@@ -9,6 +9,7 @@ import StoriesIndexContainer from "./stories/story_index/stories_index_container
 import StoryShowContainer from "./stories/story_show/story_show_container";
 import UserShowContainer from "./users/user_show_container";
 import SearchResultsContainer from "./search_results/search_results_container";
+import About from "./about/about";
 
 const App = () => (
   <div>
@@ -21,6 +22,7 @@ const App = () => (
       <Route path="/search" component={SearchResultsContainer} />
       <ProtectedRoute exact path="/new-story" component={NewStoryContainer} />
       <Route exact path="/users/:userId" component={UserShowContainer} />
+      <Route exact path="/about" component={About} />
     </Switch>
   </div>
 );

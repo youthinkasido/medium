@@ -162,3 +162,14 @@ a:hover {
   cursor: pointer;
   object-fit: cover;
 }
+
+.nav-links {
+  position: relative;
+  left: 30%;
+}
+
+.nav-links a {
+  padding: 10px;
+  font-family: sans-serif;
+  color: gray;
+}
