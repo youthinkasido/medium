@@ -1,11 +1,9 @@
 .search-bar {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
+  width: 50%;
 }
 
 .search-input {
-  width: 500px;
+  width: 100%;
   border-radius: 3px;
   background-color: #eee;
   border: none;

@@ -2,7 +2,6 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./navbar.css";
 import Search from "../search/search_container";
-import logo from "../../assets/images/favicon-32x32.png";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -122,15 +121,15 @@ class NavBar extends React.Component {
       }
     });
 
-    let links = document.getElementById('links');
+    let links = document.getElementById("links");
 
     if (links) {
       if (this.props.loggedIn) {
-        links.classList.remove('hide');
+        links.classList.remove("hide");
       } else {
-        links.classList.add('hide');
+        links.classList.add("hide");
       }
-    };
+    }
 
     return (
       <nav className="navbar">
@@ -146,62 +145,63 @@ class NavBar extends React.Component {
             </div>
           </Link>
           {this.renderSearch()}
-          <Search />
-          <div id='links' className='nav-links'>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </div>
-          {this.props.loggedIn ? (
-            <div className="dropdown">
-              <button className="dropbtn" onClick={this.handleClick}>
-                {this.props.user && this.props.user.avatarURL ? (
-                  <img
-                    id="dropdown"
-                    className="nav-user-icon"
-                    alt="avatar"
-                    src={this.props.user.avatarURL}
-                  />
-                ) : (
-                  <i id="dropdown" className="fas fa-user-circle" />
-                )}
-              </button>
-              <div
-                id="dropdown-content"
-                className={`dropdown-content ${
-                  this.state.clicked ? "reveal" : "hide"
-                }`}
-              >
-                <div className="dropdown-item" onClick={this.handleNewStory}>
-                  <button>New Story</button>
-                </div>
-                <div className="dropdown-item">
-                  <button onClick={this.handleProfile}>Profile</button>
-                </div>
-                <div className="dropdown-item">
-                  <button onClick={this.handleLogout}>Sign out</button>
-                </div>
-              </div>
+          <div className="nav-links-container">
+            <div id="links" className="nav-links">
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
             </div>
-          ) : (
-            <div className="navbar-auth-container">
-              <div className="navbar-signin">
-                <Link to={"/login"}>Sign In</Link>
-              </div>
-              <div className="navbar-signup">
-                <Link to={"/signup"}>Get Started</Link>
-              </div>
-              <div className="demo">
-                <button
-                  className="navbar-signup"
-                  type="button"
-                  id="demo-user-button"
-                  onClick={e => this.logInDemoUser(e)}
-                >
-                  Demo
+            {this.props.loggedIn ? (
+              <div className="dropdown">
+                <button className="dropbtn" onClick={this.handleClick}>
+                  {this.props.user && this.props.user.avatarURL ? (
+                    <img
+                      id="dropdown"
+                      className="nav-user-icon"
+                      alt="avatar"
+                      src={this.props.user.avatarURL}
+                    />
+                  ) : (
+                    <i id="dropdown" className="fas fa-user-circle" />
+                  )}
                 </button>
+                <div
+                  id="dropdown-content"
+                  className={`dropdown-content ${
+                    this.state.clicked ? "reveal" : "hide"
+                  }`}
+                >
+                  <div className="dropdown-item" onClick={this.handleNewStory}>
+                    <button>New Story</button>
+                  </div>
+                  <div className="dropdown-item">
+                    <button onClick={this.handleProfile}>Profile</button>
+                  </div>
+                  <div className="dropdown-item">
+                    <button onClick={this.handleLogout}>Sign out</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="navbar-auth-container">
+                <div className="navbar-signin">
+                  <Link to={"/login"}>Sign In</Link>
+                </div>
+                <div className="navbar-signup">
+                  <Link to={"/signup"}>Get Started</Link>
+                </div>
+                <div className="demo">
+                  <button
+                    className="navbar-signup"
+                    type="button"
+                    id="demo-user-button"
+                    onClick={e => this.logInDemoUser(e)}
+                  >
+                    Demo
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
     );

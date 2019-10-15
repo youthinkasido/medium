@@ -51,10 +51,6 @@
 }
 
 .dropdown {
-  text-align: right;
-  margin-top: -2px;
-  position: relative;
-  z-index: 10;
 }
 
 .dropdown-content {
@@ -164,12 +160,16 @@ a:hover {
 }
 
 .nav-links {
-  position: relative;
-  left: 30%;
+  margin-right: 10px;
 }
 
 .nav-links a {
   padding: 10px;
   font-family: sans-serif;
   color: gray;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
 }
