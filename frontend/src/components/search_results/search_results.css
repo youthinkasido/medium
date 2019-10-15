@@ -1,0 +1,22 @@
+.story-results {
+  margin: auto;
+}
+
+.stories-not-found {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stories-not-found__message {
+  color: #888;
+  font-size: 32px;
+}
+
+.story-results__number {
+  font-family: sans-serif;
+  color: #777;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
