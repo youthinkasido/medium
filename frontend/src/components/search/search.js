@@ -20,7 +20,6 @@ class Search extends Component {
   }
 
   handleKeyDown(e) {
-    debugger;
     if (e.key === "Enter") {
       this.props.history.push(`/search?query=${this.state.searchInput}`);
     }
