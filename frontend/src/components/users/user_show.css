@@ -38,9 +38,14 @@
   cursor: pointer;
 } */
 
-.avatar-upload-button {
-  left: 550px;
-  float: right;
+.avatar-upload-button input[type="file"] {
+  cursor: pointer;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  left: -100px;
+  opacity: 0;
 }
 
 .user-description {
@@ -142,6 +147,7 @@
   color: #fff;
   position: absolute;
   border-radius: 90px;
+  overflow: hidden;
 }
 
 .overlay:hover {
