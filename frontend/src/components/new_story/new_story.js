@@ -105,7 +105,7 @@ NewStory.modules = {
       { align: "justify" }
     ],
     [{ list: "ordered" }, { list: "bullet" }],
-    ["link", "image", "video"],
+    ["link", "video"],
     ["code-block"],
     ["clean"]
   ]
