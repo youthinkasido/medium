@@ -34,7 +34,7 @@
     "html-react-parser": "^0.9.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "modules": "^0.4.0",
     "mongoose": "^5.6.9",
     "multer": "^1.4.2",
